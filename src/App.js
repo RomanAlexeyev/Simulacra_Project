@@ -1,24 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import { React, useState, useEffect } from "react";
+import GlobalStyles from "./components/styled/Global";
+import { ThemeProvider } from "styled-components";
+
+import OuterLayout from "./components/OuterLayout";
+import ArticleContainer from "./components/article/ArticleContainer";
 
 function App() {
+  const [zoom, setZoom] = useState(null);
+  const [menuItem, setMenuItem] = useState(null);
+  const [colorTheme, setColorTheme] = useState("dark");
+
+  const themeVars = {
+    dark: {
+      background: "black",
+    },
+    light: {
+      background: "white",
+    },
+  };
+
+  const theme = {
+    colors: {
+      background: themeVars[colorTheme].background,
+    },
+  };
+
+  useEffect(() => {
+    if (menuItem === "menu_author") {
+      setZoom("out");
+    }
+  }, [menuItem]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyles />
+      <ThemeProvider theme={theme}>
+        <OuterLayout
+          zoom={zoom}
+          menuItem={menuItem}
+          setMenuItem={setMenuItem}
+        />
+        {menuItem === "menu_about" && (
+          <ArticleContainer
+            colorTheme={colorTheme}
+            setColorTheme={setColorTheme}
+          />
+        )}
+      </ThemeProvider>
+    </>
   );
 }
 
