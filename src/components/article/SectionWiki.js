@@ -1,6 +1,6 @@
 import { StyledSection } from "../styled/article/ArticleContainer.styled";
 
-import wikipediaLogo from "./images/wikipedia_logo.png";
+import WikiLogo from "./WikiLogo";
 
 import wikiImg1 from "./images/wiki_image_1.png";
 import wikiImg2 from "./images/wiki_image_2.png";
@@ -61,7 +61,6 @@ function SectionWiki() {
             style={{
               maxHeight: "100%",
               maxWidth: "100%",
-              margin: "0 auto",
             }}
             alt=""
           />
@@ -71,12 +70,6 @@ function SectionWiki() {
     });
   };
 
-  // const unmountSection = (id) => {
-  //   if (id === "wiki_article") {
-  //     setProgressIdx((prev) => prev + 1);
-  //   }
-  // };
-
   return (
     <StyledSection
       id="wiki_article"
@@ -84,17 +77,8 @@ function SectionWiki() {
       // leaving={progressIdx > 2}
       // onAnimationEnd={(e) => unmountSection(e.target.id)}
     >
-      <div className="text">
-        <div id="wikipedia_logo">
-          <img
-            src={wikipediaLogo}
-            alt="wikipedia logo"
-            style={{
-              maxHeight: "100%",
-              maxWidth: "100%",
-            }}
-          />
-        </div>
+      <div className="text-full">
+        <WikiLogo />
         <h3>
           A <b>simulacrum</b> (plural: <b>simulacra</b> or <b>simulacrums</b>,
           from Latin "simulacrum", which means "likeness, semblance") is a

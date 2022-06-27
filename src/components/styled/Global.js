@@ -54,6 +54,18 @@ img {
     font-weight: bold;
 }
 
+@font-face {
+    font-family: Morganite;
+    src: local('Morganite-Light'), url(./assets/fonts/Morganite-Light.ttf) format('truetype');
+    font-weight: lighter;
+}
+
+@font-face {
+    font-family: Morganite;
+    src: local('Morganite-Bold'), url(./assets/fonts/Morganite-Bold.ttf) format('truetype');
+    font-weight: bold;
+}
+
 @keyframes laptopZoomOut50 {
     to {
         width: 50%;
@@ -284,6 +296,21 @@ img {
     }
 }
 
+@keyframes revealBettyImage {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateX(0);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(0.3) translateX(20%);
+    }
+    to {
+        opacity: 1;
+        transform: scale(0.8) translateX(35%);
+    }
+}
+
 @keyframes slideUp {
     to {
         transform: translate(-50%, -100%);
@@ -302,10 +329,28 @@ img {
     }
 }
 
-@keyframes sectionLeaving {
+@keyframes popUp {
+    from {
+        transform: translate(-50%, -50%) scale(0);
+    }
+    80% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    90% {
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    95% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes leaving {
     to {
         opacity: 0;
-        transform: translateY(-10%);
+        transform: translateY(-60%);
     }
 }
 
