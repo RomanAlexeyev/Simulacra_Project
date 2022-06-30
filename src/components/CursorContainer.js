@@ -1,5 +1,5 @@
-import { React, useState, useEffect, useCallback } from "react";
-import useThrottle from "../custom_hooks/useThrottle";
+import { React, useState, useEffect } from "react";
+import throttle from "../helpers/throttle";
 
 import { StyledCustomCursor } from "./styled/CustomCursor.styled";
 
@@ -22,23 +22,24 @@ function CursorContainer({ zoom, mouseMoveListening }) {
   
   const [mouseCoords, setMouseCoords] = useState({ x: "50%", y: "50%" });
 
-  const mouseMoveCb = useCallback((e) => {
-    setMouseCoords({
-      x: e.pageX + "px",
-      y: e.pageY + "px"
-    });
-  }, []);
-
-  const mouseMoveHadler = useThrottle(mouseMoveCb, 50, true);
-
   useEffect(() => {
+
+    const mouseMoveCb = (e) => {
+      setMouseCoords({
+        x: e.pageX + "px",
+        y: e.pageY + "px"
+      });
+    };
+  
+    const mouseMoveHadler = throttle(mouseMoveCb, 50, true);
+
     if (mouseMoveListening) {
       document.addEventListener("mousemove", mouseMoveHadler);
     } else {
       document.removeEventListener("mousemove", mouseMoveHadler);
     }
     return () => document.removeEventListener("mousemove", mouseMoveHadler);
-  }, [mouseMoveListening, mouseMoveHadler]);
+  }, [mouseMoveListening]);
 
   return (
     <div className="cursor-container">

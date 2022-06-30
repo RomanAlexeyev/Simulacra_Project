@@ -11,5 +11,4 @@ export const StyledGridContainer = styled.div`
     filter: brightness(1.3);
     z-index: 2;
     transition: all 3s ease;
-    filter: ${({blurred}) => `blur(${blurred ? 2 : 0}px)`};
 `;

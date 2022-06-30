@@ -1,24 +1,39 @@
 import styled from "styled-components";
 
+export const StyledArticleProgressBar = styled.div`
+  width: ${({progressIdx}) => `${(progressIdx*7.7)}%`};
+  transition: width 0.5s ease-out;
+  height: 2px;
+  position: absolute;
+  top: 150%;
+  background-image: linear-gradient(
+    90deg,
+    rgb(99, 0, 156) 0%,
+    rgb(166, 1, 130) 50%,
+    rgb(227, 13, 120) 100%
+  );
+`;
+
 export const StyledArticleContainer = styled.div`
+/* margin-top: 200px; */
   position: absolute;
   z-index: 5;
-  transform: translate(-50%, 0);
-  top: 101%;
+  transform: translate(-50%, 100%);
+  bottom: 0;
   left: 50%;
-  width: 60vw;
   height: 90vh;
-  cursor: none;
-
+  width: 60vw;
   display: flex;
   flex-direction: column;
-  overflow: visible;
+  overflow: hidden;
+  cursor: none;
 
-  background: rgba(10, 10, 20, 0.2);
-  backdrop-filter: blur(9px);
+  background: rgba(0, 0, 0, 0.8);
+  /* backdrop-filter: blur(4px); */
   border-radius: 10px 10px 0 0;
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 4px 50px rgba(0, 0, 0, 0.8);
+
   animation: slideUp 1s ease-out 0.7s forwards;
 
   .article_header {
@@ -50,7 +65,6 @@ export const StyledArticleContainer = styled.div`
   .article_body {
     width: 100%;
     height: 100%;
-    /* flex: 5; */
     padding: 0 5%;
     color: white;
     font-family: Rajdhani;
@@ -83,8 +97,8 @@ export const StyledArticleContainer = styled.div`
 export const StyledContent = styled.div`
   margin-top: 5%;
   width: 100%;
-  transform: ${({ prog }) => "translateY(-" + prog * 6.3 + "%)"};
-  transition: transform 0.9s ease-in-out;
+  transform: ${({ prog }) => "translateY(-" + prog*300 + "px)"};
+  transition: transform 1s ease-in-out;
 `;
 
 export const StyledWikiLogo = styled.div`
@@ -508,18 +522,4 @@ export const StyledSection = styled.section`
       }
     }
   }
-`;
-
-export const StyledArticleProgressBar = styled.div`
-  width: ${({progressIdx}) => `${(progressIdx*7.7)}%`};
-  transition: width 0.5s ease-out;
-  height: 2px;
-  position: absolute;
-  top: 150%;
-  background-image: linear-gradient(
-    90deg,
-    rgb(99, 0, 156) 0%,
-    rgb(166, 1, 130) 50%,
-    rgb(227, 13, 120) 100%
-  );
 `;

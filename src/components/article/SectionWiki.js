@@ -1,7 +1,5 @@
 import { StyledSection } from "../styled/article/ArticleContainer.styled";
 
-import WikiLogo from "./WikiLogo";
-
 import wikiImg1 from "./images/wiki_image_1.png";
 import wikiImg2 from "./images/wiki_image_2.png";
 import wikiImg3 from "./images/wiki_image_3.png";
@@ -78,7 +76,6 @@ function SectionWiki() {
       // onAnimationEnd={(e) => unmountSection(e.target.id)}
     >
       <div className="text-full">
-        <WikiLogo />
         <h3>
           A <b>simulacrum</b> (plural: <b>simulacra</b> or <b>simulacrums</b>,
           from Latin "simulacrum", which means "likeness, semblance") is a
