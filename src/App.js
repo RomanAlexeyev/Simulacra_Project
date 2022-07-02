@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from "react";
 import GlobalStyles from "./components/styled/Global";
+import './fonts.css';
 import { ThemeProvider } from "styled-components";
 
 import OuterLayout from "./components/OuterLayout";

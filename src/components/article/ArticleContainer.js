@@ -34,7 +34,7 @@ function ArticleContainer({ colorTheme, setColorTheme }) {
     //   setProgressIdx(counter - horizontalProgressIdx);
     // }
     if (counter < 0) {
-      setCounter(0)
+      setCounter(0);
     } else {
       setProgressIdx(counter - horizontalProgressIdx);
     }

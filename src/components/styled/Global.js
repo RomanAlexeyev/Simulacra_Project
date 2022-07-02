@@ -1,11 +1,17 @@
 import { createGlobalStyle } from "styled-components";
+import Mexon from '../../assets/fonts/Mexon-ZVL2K.otf';
+import HelveticaBold from '../../assets/fonts/HelveticaBold.ttf';
+import HelveticaMedium from '../../assets/fonts/HelveticaMedium.ttf';
+import HelveticaRegular from '../../assets/fonts/HelveticaRegular.ttf';
+import HelveticaLight from '../../assets/fonts/HelveticaLight.ttf';
+import HelveticaLightItalic from '../../assets/fonts/HelveticaLightItalic.ttf';
+import HelveticaThin from '../../assets/fonts/HelveticaThin.ttf';
 
 const GlobalStyles = createGlobalStyle`
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
 }
 
 html,
@@ -38,12 +44,7 @@ img {
     left: 50%;
 }
 
-@font-face {
-    font-family: Mexon;
-    src: local('Mexon'), url(./assets/fonts/Mexon-ZVL2K.otf) format('opentype');
-}
-
-@font-face {
+/* @font-face {
     font-family: Rajdhani;
     src: local('Rajdhani-Regular'), url(./assets/fonts/Rajdhani-Regular.ttf) format('truetype');
     font-weight: medium;
@@ -65,7 +66,50 @@ img {
     font-family: Morganite;
     src: local('Morganite-Bold'), url(./assets/fonts/Morganite-Bold.ttf) format('truetype');
     font-weight: bold;
+} */
+
+/* @font-face {
+    font-family: 'Mexon';
+    src: local('Mexon'), url(${Mexon}) format('opentype');
 }
+
+@font-face {
+    font-family: 'HelveticaBold';
+    src: local('HelveticaBold'), url(${HelveticaBold}) format('truetype');
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'HelveticaMedium';
+    src: local('HelveticaMedium'), url(${HelveticaMedium}) format('truetype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'HelveticaRegular';
+    src: local('HelveticaRegular'), url(${HelveticaRegular}) format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'HelveticaLight';
+    src: local('HelveticaLight'), url(${HelveticaLight}) format('truetype');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'HelveticaLightItalic';
+    src: local('HelveticaLightItalic'), url(${HelveticaLightItalic}) format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'HelveticaThin';
+    src: local('HelveticaThin'), url(${HelveticaThin}) format('truetype');
+    font-weight: 200;
+} */
+
 
 @keyframes laptopZoomOut50 {
     to {
@@ -220,6 +264,15 @@ img {
 
     100% {
         transform: translate(0, 0);
+    }
+}
+
+@keyframes circleText {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
     }
 }
 

@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'Mexon';
+    src: local('Mexon'), url('./assets/fonts/Mexon-ZVL2K.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'HelveticaBold';
+    src: local('HelveticaBold'), url('./assets/fonts/HelveticaBold.ttf') format('truetype');
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'HelveticaMedium';
+    src: local('HelveticaMedium'), url('./assets/fonts/HelveticaMedium.ttf') format('truetype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'HelveticaRegular';
+    src: local('HelveticaRegular'), url('./assets/fonts/HelveticaRegular.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'HelveticaLight';
+    src: local('HelveticaLight'), url('./assets/fonts/HelveticaLight.ttf') format('truetype');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'HelveticaLightItalic';
+    src: local('HelveticaLightItalic'), url('./assets/fonts/HelveticaLightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'HelveticaThin';
+    src: local('HelveticaThin'), url('./assets/fonts/HelveticaThin.ttf') format('truetype');
+    font-weight: 200;
+}

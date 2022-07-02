@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledLogo = styled.div`
-  font-family: Mexon;
+  font-family: 'Mexon';
   user-select: none;
   font-size: 16vh;
   word-break: break-all;

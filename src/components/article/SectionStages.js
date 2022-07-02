@@ -4,67 +4,89 @@ import pikaPhoto from "./images/pika_photo.png";
 import pikaDrawing from "./images/pika_drawing.png";
 import pikachu from "./images/pikachu.png";
 import pokemonGo from "./images/pokemon_go.png";
+import lightSpot from "./images/lightspot.png";
 
-const pikaImgs = [pikaPhoto, pikaDrawing, pikachu];
-
-function SectionStages({ prog, hor }) {
-  const renderPikaImgs = () => {
-    return pikaImgs.map((img, idx) => {
-      let id = "pika_image_" + (idx + 1);
-      return (
-        <div
-          className={`image_container pika ${hor - 15 === idx ? "show" : ""} ${
-            hor >= 17 ? "pikachu_show" : ""
-          }`}
-          id={id}
-          key={id}
-        >
-          <img src={img} className="pika_image" alt="" />
-        </div>
-      );
-    });
-  };
+function SectionStages() {
   return (
-    <StyledSection
-      id="stages"
-      // additionalDelay={0}
-      // leaving={progressIdx > 7}
-      // onAnimationEnd={(e) => unmountSection(e.target.id)}
-    >
-      <div className="text_image">
-        <div className="text">
-          <p>According to Jean Baudrillard, there are 4 stages of simulacra:</p>
-          <p>
-            <ol>
-              <li className={hor >= 15 && "fade_in"}>
-                The image is the reflection of a basic reality.
-              </li>
-              <li className={hor >= 16 && "fade_in"}>
-                The image masks and perverts a basic reality.
-              </li>
-              <li className={hor >= 17 && "fade_in"}>
-                The image masks the absence of a basic reality.
-              </li>
-              <li className={hor >= 18 && "fade_in"}>
-                The image bears no relation to any reality whatever: it is its
-                own pure simulacrum.
-              </li>
-            </ol>
-          </p>
+    <StyledSection id="stages">
+      <div className="text left">
+        <div className="divider"></div>
+        <div className="stages_by_baudrillard">
+          <h5>
+            According to
+            <br />
+            Jean Baudrillard,
+          </h5>
+          <h3>
+            there are
+            <br />
+            stages of
+            <br />
+            simulacra
+          </h3>
+          <span id="number_four">4</span>
         </div>
-        <div className="image">
-          <div className="stage_number">
-            <b>{hor > 14 ? hor - 14 : ""}</b>
+      </div>
+      <div className="text right simulacra_stages">
+        <div className="simulacra_stage" id="stage_one">
+          <div className="stage_number">1</div>
+          <div className="stage_description">
+            The image is the reflection of a basic reality.
           </div>
-          {renderPikaImgs()}
-          <div
-            className={`image_container pika ${
-              hor >= 18 ? "pokemon_go_show" : ""
-            }`}
-            id="pika_image_4"
-          >
-            <img src={pokemonGo} className="pika_image" alt="" />
+        </div>
+
+        <div className="simulacra_stage" id="stage_two">
+          <div className="stage_number">2</div>
+          <div className="stage_description">
+            The image masks and perverts a basic reality.
           </div>
+        </div>
+        <div className="simulacra_stage" id="stage_three">
+          <div className="stage_number">3</div>
+          <div className="stage_description">
+            The image masks the absence of a basic reality.
+          </div>
+        </div>
+        <div className="simulacra_stage" id="stage_four">
+          <div className="stage_number">4</div>
+          <div className="stage_description">
+            The image bears no relation to any reality whatever: it is its own
+            pure simulacrum.
+          </div>
+        </div>
+      </div>
+      <div className="image simulacra_stages">
+        <div className="image_container_stages">
+          <img
+            className="simulacra_stage_image"
+            src={pikaPhoto}
+            id="pika_photo"
+            alt="Alpine pika"
+          />
+          <img
+            className="simulacra_stage_image"
+            src={pikaDrawing}
+            id="pika_drawing"
+            alt="Digitally manipulated alpine pika"
+          />
+          <img
+            className="simulacra_stage_image"
+            src={pikachu}
+            id="pikachu"
+            alt="Pikachu pokemon"
+          />
+          <img
+            className="simulacra_stage_image"
+            src={pokemonGo}
+            id="pokemon_go"
+            alt="Hand holding a smartphone with a Pokemon Go game running"
+          />
+          <img
+            className="simulacra_stage_image lightspot"
+            src={lightSpot}
+            id="lightspot"
+            alt=""
+          />
         </div>
       </div>
     </StyledSection>

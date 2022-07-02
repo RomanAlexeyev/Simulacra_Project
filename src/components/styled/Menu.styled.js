@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledMenuContainer = styled.div`
-  font-family: Mexon;
+  font-family: 'Mexon';
   user-select: none;
   font-size: 7vh;
   text-align: right;
