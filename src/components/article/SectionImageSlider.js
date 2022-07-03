@@ -12,7 +12,7 @@ function SectionImageSlider() {
             src={movies}
             id="movies_slider"
             style={{
-              maxHeight: "100%",
+              height: "100%",
               // transform: `translateX(-${hor * 2}%)`,
               transform: `translateX(-10%)`,
               transition: "transform 0.7s ease",

@@ -1,4 +1,4 @@
-import useWindowDimensions from "../custom_hooks/useWindowDimensions";
+import { useWindowDimensions } from "../custom_hooks";
 
 import {
   StyledMenuContainer,

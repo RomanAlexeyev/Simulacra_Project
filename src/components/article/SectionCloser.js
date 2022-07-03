@@ -1,6 +1,30 @@
 import { StyledSection } from "../styled/article/ArticleContainer.styled";
 
+import useIntersectionObserver from "../../custom_hooks/useIntersectionObserver";
+import { useDispatch, useSelector } from "react-redux";
+import { changeCounter } from "../../store/scrollSlice";
+import { useEffect, useRef } from "react";
+
 function SectionCloser() {
+
+  const dispatch = useDispatch();
+  const stopVertCounter = () => dispatch(changeCounter('horizontal'));
+
+  const prog = useSelector(state => state.scroll.counterX);
+
+  const targetRef = useRef(null);
+  const isVisible = useIntersectionObserver({
+    root: null,
+    rootMargin: '-40%',
+    threshold: 1
+  }, targetRef);
+
+  useEffect(() => {
+    if (isVisible) {
+      stopVertCounter();
+    }
+  }, [isVisible])
+
   return (
     <StyledSection id="closer" className="centered">
       <div className="text">
@@ -12,10 +36,11 @@ function SectionCloser() {
         <div className="closer_line">
           <div
             id="opposite_word"
-            // style={{
-            //   // transform: `translateX(-50%) scale(${(hor - 17.5) * 2})`,
-            //   transition: "transform 0.5s ease",
-            // }}
+            style={{
+              transform: `translate(-50%, -50%) scale(${(prog + 0.5) * (prog + 2)})`,
+              transition: "transform 0.5s ease",
+            }}
+            ref={targetRef}
           >
             the opposite
           </div>

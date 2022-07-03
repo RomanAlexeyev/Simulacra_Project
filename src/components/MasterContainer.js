@@ -2,6 +2,9 @@ import { React, useState, useEffect } from "react";
 
 import { StyledMasterContainer } from "./styled/MasterContainer.styled";
 
+import { useDispatch } from "react-redux/es/hooks/useDispatch";
+import { setTouchDevice } from "../store/scrollSlice";
+
 import BacklightsContainer from "./BacklightsContainer";
 import CursorContainer from "./CursorContainer";
 import GridContainer from "./GridContainer";
@@ -9,7 +12,10 @@ import LogoContainer from "./LogoContainer";
 import MenuContainer from "./MenuContainer";
 import ShardsContainer from "./ShardsContainer";
 
-function MasterContainer({ zoom, menuItem, setMenuItem }) {
+function MasterContainer({ zoom, menuItem, setMenuItem, }) {
+  const dispatch = useDispatch();
+  const changeDevice = (bool) => dispatch(setTouchDevice(bool));
+
   const [logoIsActive, setLogoIsActive] = useState(null);
   const [currentStroke, setCurrentStroke] = useState(null);
   const [lastStroke, setLastStroke] = useState(null);
@@ -28,6 +34,19 @@ function MasterContainer({ zoom, menuItem, setMenuItem }) {
     setMouseEnterListening(false);
     setMouseMoveListening(false);
   }
+
+  useEffect(() => {
+
+    const touchListener = () => {
+      changeDevice(true);
+      window.removeEventListener("touchstart", touchListener);
+    }
+
+    window.addEventListener("touchstart", touchListener);
+    return () => {
+      window.removeEventListener("touchstart", touchListener);
+    };
+  }, []);
   
 
   return (

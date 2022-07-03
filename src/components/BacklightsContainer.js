@@ -1,4 +1,4 @@
-import useWindowDimensions from "../custom_hooks/useWindowDimensions";
+import { useWindowDimensions } from "../custom_hooks";
 
 import { StyledBacklightsContainer } from "./styled/BacklightsContainer.styled";
 import { StyledLogo } from "./styled/Logo.styled";

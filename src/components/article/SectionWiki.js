@@ -1,13 +1,31 @@
+import { useRef } from "react";
+import { useParallax, useIntersectionObserver } from "../../custom_hooks";
 import { StyledSection } from "../styled/article/ArticleContainer.styled";
 
 import escapingCriticism from "./images/escaping_criticism.png";
 import lightSpot from "./images/lightspot.png";
 
 function SectionWiki() {
+
+  const targetRef = useRef(null);
+  const isVisible = useIntersectionObserver(
+    {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
+    },
+    targetRef
+  );
+
+  const parallaxIndex = useParallax(isVisible);
+
   return (
-    <StyledSection id="wiki_section">
+    <StyledSection id="wiki_section" ref={targetRef}>
       <div className="image wiki">
-        <div className="image_container wiki">
+        <div
+          className="image_container wiki"
+          style={{ transform: `translateY(${100 - (parallaxIndex*50)}%)` }}
+        >
           <img
             src={escapingCriticism}
             id="escaping_criticism"
@@ -24,7 +42,7 @@ function SectionWiki() {
         </div>
       </div>
       <div className="text right">
-        <div className="divider"></div>
+        <div className={`divider ${isVisible ? 'is_visible' : ''}`}></div>
         <p>
           The word was first recorded in the English language in the late 16th
           century, used to describe a representation, such as a statue or a

@@ -1,5 +1,7 @@
 import { StyledContent } from "../styled/article/ArticleContainer.styled";
 
+import { useSelector } from "react-redux";
+
 import SectionHero from "./SectionHero";
 import SectionWiki from "./SectionWiki";
 import SectionBaudrillard from "./SectionBaudrillard";
@@ -10,9 +12,12 @@ import SectionMovies from "./SectionMovies";
 import SectionStages from "./SectionStages";
 import SectionCloser from "./SectionCloser";
 
-function Content({ progressIdx, horizontalProgressIdx, colorTheme, setColorTheme }) {
+function Content({ colorTheme, setColorTheme }) {
+
+  const prog = useSelector(state => state.scroll.counterY);
+
   return (
-    <StyledContent prog={progressIdx}>
+    <StyledContent prog={prog}>
       <SectionHero colorTheme={colorTheme}/>
       <SectionWiki />
       <SectionBaudrillard />

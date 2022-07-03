@@ -1,5 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import throttle from "../../helpers/throttle";
+
+import { useDispatch, useSelector } from "react-redux";
+import { updateCounter } from "../../store/scrollSlice";
 
 import {
   StyledArticleContainer,
@@ -8,65 +11,38 @@ import {
 
 import Content from "./Content";
 
-const xIndices = { 
-  3: { start: 3, end: 9 },
-  5: { start: 10, end: 13 },
-  8: { start: 15, end: 23 },
-  10: { start: 24, end: 29 },
-  13: { start: 31, end: 40 },
-};
-
 function ArticleContainer({ colorTheme, setColorTheme }) {
-  const [counter, setCounter] = useState(0);
-  const [progressIdx, setProgressIdx] = useState(0);
-  const [horizontalProgressIdx, setHorizontalProgressIdx] = useState(0);
 
-  useEffect(() => {
-    // const progs = Object.keys(xIndices).map((key) => parseInt(key));
+  const isTouchDevice = useSelector(state => state.scroll.isTouchDevice);
 
-    // if (
-    //   progs.includes(progressIdx) &&
-    //   counter >= xIndices[progressIdx].start &&
-    //   counter < xIndices[progressIdx].end
-    // ) {
-    //   setHorizontalProgressIdx(counter - progressIdx);
-    // } else {
-    //   setProgressIdx(counter - horizontalProgressIdx);
-    // }
-    if (counter < 0) {
-      setCounter(0);
-    } else {
-      setProgressIdx(counter - horizontalProgressIdx);
-    }
-  }, [counter]);
-
+  const dispatch = useDispatch();
+  const changeCounter = (index) => dispatch(updateCounter(index));
 
   useEffect(() => {
     const mouseWheelCb = (e) => {
+      e.preventDefault();
       const pos = Math.sign(e.deltaY);
-      setCounter((prev) => prev + pos);
+      changeCounter(pos);
     };
 
-    const wheelListener = throttle(mouseWheelCb, 600);
+    const wheelListener = throttle(mouseWheelCb, 800);
 
-    window.addEventListener("wheel", wheelListener);
+    window.addEventListener("wheel", wheelListener, {passive: false});
     return () => {
       window.removeEventListener("wheel", wheelListener);
     };
   }, []);
 
   return (
-    <StyledArticleContainer>
+    <StyledArticleContainer isTouchDevice={isTouchDevice}>
       <div className="article_header">
         <div className="title">
           simulacra
-          <StyledArticleProgressBar progressIdx={progressIdx} />
+          {/* <StyledArticleProgressBar progressIdx={progressIdx} /> */}
         </div>
       </div>
       <div className="article_body">
         <Content
-          progressIdx={progressIdx}
-          horizontalProgressIdx={horizontalProgressIdx}
           colorTheme={colorTheme}
           setColorTheme={setColorTheme}
         />
@@ -77,3 +53,33 @@ function ArticleContainer({ colorTheme, setColorTheme }) {
 
 export default ArticleContainer;
 
+  // const xIndices = {
+  //   3: { start: 3, end: 9 },
+  //   5: { start: 10, end: 13 },
+  //   8: { start: 15, end: 23 },
+  //   10: { start: 24, end: 29 },
+  //   13: { start: 31, end: 40 },
+  // };
+
+    // const [counter, setCounter] = useState(0);
+  // const [progressIdx, setProgressIdx] = useState(0);
+  // const [horizontalProgressIdx, setHorizontalProgressIdx] = useState(0);
+
+  // useEffect(() => {
+  //   // const progs = Object.keys(xIndices).map((key) => parseInt(key));
+
+  //   // if (
+  //   //   progs.includes(progressIdx) &&
+  //   //   counter >= xIndices[progressIdx].start &&
+  //   //   counter < xIndices[progressIdx].end
+  //   // ) {
+  //   //   setHorizontalProgressIdx(counter - progressIdx);
+  //   // } else {
+  //   //   setProgressIdx(counter - horizontalProgressIdx);
+  //   // }
+  //   if (counter < 0) {
+  //     setCounter(0);
+  //   } else {
+  //     setProgressIdx(counter - horizontalProgressIdx);
+  //   }
+  // }, [counter]);
