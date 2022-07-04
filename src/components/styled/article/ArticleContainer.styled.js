@@ -104,6 +104,7 @@ export const StyledArticleContainer = styled.div`
 
     p {
       margin: 5% 0;
+      transition: transform 1s ease-in-out;
     }
   }
 `;
@@ -272,7 +273,8 @@ export const StyledSection = styled.section`
 
         .simulacra_stage_image {
           position: absolute;
-          transform: translate(-50%, -50%);
+          transition: transform 1s ease-in-out;
+          /* transform: translate(-50%, -50%); */
           /* max-width: 100%; */
 
           &#pika_photo {
@@ -345,10 +347,8 @@ export const StyledSection = styled.section`
       &.face_robot {
         position: absolute;
         height: 150%;
-        /* width: 150%; */
-        transform: translate(-50%, -50%);
         left: 50%;
-        top: 50%;
+        top: 60%;
       }
 
       #escaping_criticism {
@@ -428,43 +428,94 @@ export const StyledSection = styled.section`
       height: 100%;
       position: relative;
 
+      &.is_visible {
+        .movie_name {
+          animation: scaleAndFade 4s ease-in-out;
+        }
+      }
+
       .movie_name {
         position: absolute;
         white-space: nowrap;
+        letter-spacing: -1px;
+        transform: scale(2);
+        opacity: 0;
 
         &#replicants {
           font-size: 28px;
           left: 5%;
+          animation-delay: 1s;
         }
         &#mrdata {
           font-size: 18px;
           left: 40%;
           top: 14%;
+          animation-delay: 2s;
         }
         &#matrix {
           font-size: 40px;
           left: 0%;
           top: 28%;
+          animation-delay: 1.75s;
         }
         &#mecha {
           font-size: 28px;
           left: 50%;
           top: 35%;
+          animation-delay: 0.75s;
         }
         &#pulpfiction {
           font-size: 17px;
           left: 30%;
           top: 50%;
+          animation-delay: 2.5s;
         }
         &#truman {
           font-size: 28px;
           left: 40%;
           top: 65%;
+          animation-delay: 1s;
         }
         &#samantha {
           font-size: 35px;
           left: 10%;
           top: 80%;
+          animation-delay: 1.5s;
+        }
+      }
+    }
+
+    .movies_list {
+      li {
+        transform: translateX(30%);
+        opacity: 0;
+        transition: all 0.4s ease-out;
+        &:nth-child(1) {
+          transition-delay: 0.25s;
+        }
+        &:nth-child(2) {
+          transition-delay: 0.3s;
+        }
+        &:nth-child(3) {
+          transition-delay: 0.35s;
+        }
+        &:nth-child(4) {
+          transition-delay: 0.4s;
+        }
+        &:nth-child(5) {
+          transition-delay: 0.45s;
+        }
+        &:nth-child(6) {
+          transition-delay: 0.5s;
+        }
+        &:nth-child(7) {
+          transition-delay: 0.55s;
+        }
+      }
+      &.is_visible {
+        li {
+          transform: translateX(0);
+          opacity: 1;
         }
       }
     }
@@ -473,6 +524,31 @@ export const StyledSection = styled.section`
       text-align: left;
       margin-left: 200px;
       position: relative;
+      transition: all 0.7s ease-in-out;
+
+      &.is_visible {
+        h5,
+        h3 {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        #number_four {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      h5 {
+        opacity: 0;
+        transform: translateY(-20%);
+        transition: all 1s ease-in-out;
+      }
+
+      h3 {
+        opacity: 0;
+        transform: translateY(20%);
+        transition: all 1s ease-in-out;
+      }
 
       #number_four {
         font-family: "HelveticaBold";
@@ -480,24 +556,45 @@ export const StyledSection = styled.section`
         position: absolute;
         left: -200px;
         top: 180px;
+        opacity: 0;
+        transform: translateX(-20%);
+        transition: all 1s ease-in-out;
       }
     }
 
     .simulacra_stage {
       display: flex;
       line-height: 18px;
+      opacity: 0;
+      transition: all 1s ease-in-out;
+
+      &.is_visible {
+        &#stage_one,
+        &#stage_two,
+        &#stage_three,
+        &#stage_four {
+          opacity: 1;
+          transform: translateY(0px);
+        }
+      }
 
       .stage_description {
         margin-left: 10px;
       }
 
+      &#stage_one {
+        transform: translateY(-20px);
+      }
       &#stage_two {
+        transform: translateY(-70px);
         margin-left: 10%;
       }
       &#stage_three {
+        transform: translateY(-120px);
         margin-left: 20%;
       }
       &#stage_four {
+        transform: translateY(-170px);
         margin-left: 30%;
       }
 
@@ -540,6 +637,11 @@ export const StyledSection = styled.section`
     width: 3300px;
     height: 150px;
     position: relative;
+
+    #movies_slider {
+      height: 100%;
+      transition: transform 1s ease-out;
+    }
 
     #image_slider_mask {
       position: absolute;

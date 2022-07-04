@@ -1,10 +1,24 @@
+import { useRef } from "react";
+import { useIntersectionObserver } from "../../custom_hooks";
 import { StyledSection } from "../styled/article/ArticleContainer.styled";
 
 function SectionMovies() {
+  const targetRef = useRef(null);
+  const isVisible = useIntersectionObserver(
+    {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    },
+    targetRef
+  );
+
   return (
-    <StyledSection id="movies">
+    <StyledSection id="movies" ref={targetRef}>
       <div className="text">
-        <div className="movies_names_container">
+        <div
+          className={`movies_names_container ${isVisible ? "is_visible" : ""}`}
+        >
           <div className="movie_name" id="replicants">
             <b>The Replicants</b>
           </div>
@@ -29,7 +43,7 @@ function SectionMovies() {
         </div>
       </div>
       <div className="text right">
-        <ul>
+        <ul className={`movies_list ${isVisible ? "is_visible" : ""}`}>
           <li>
             The Replicants from the movie <b>Blade Runner</b>
           </li>

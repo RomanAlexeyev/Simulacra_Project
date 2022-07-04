@@ -389,6 +389,23 @@ img {
     }
 }
 
+@keyframes scaleAndFade {
+    from {
+        transform: scale(2);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    to {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
 @keyframes popUp {
     from {
         transform: translate(-50%, -50%) scale(0);
