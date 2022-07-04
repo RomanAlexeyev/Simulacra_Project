@@ -12,13 +12,13 @@ import SectionMovies from "./SectionMovies";
 import SectionStages from "./SectionStages";
 import SectionCloser from "./SectionCloser";
 
-function Content({ colorTheme, setColorTheme }) {
+function Content() {
 
   const prog = useSelector(state => state.scroll.counterY);
 
   return (
     <StyledContent prog={prog}>
-      <SectionHero colorTheme={colorTheme}/>
+      <SectionHero />
       <SectionWiki />
       <SectionBaudrillard />
       <SectionTextSlider />

@@ -1,11 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import Mexon from '../../assets/fonts/Mexon-ZVL2K.otf';
-import HelveticaBold from '../../assets/fonts/HelveticaBold.ttf';
-import HelveticaMedium from '../../assets/fonts/HelveticaMedium.ttf';
-import HelveticaRegular from '../../assets/fonts/HelveticaRegular.ttf';
-import HelveticaLight from '../../assets/fonts/HelveticaLight.ttf';
-import HelveticaLightItalic from '../../assets/fonts/HelveticaLightItalic.ttf';
-import HelveticaThin from '../../assets/fonts/HelveticaThin.ttf';
 
 const GlobalStyles = createGlobalStyle`
 * {
@@ -25,15 +18,6 @@ img {
     display: block;
 }
 
-.vignette {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 3;
-    background: radial-gradient(circle, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 1) 100%);
-    opacity: 0.7;
-}
-
 .cursor-container {
     position: absolute;
     z-index: 1;
@@ -43,72 +27,6 @@ img {
     top: 50%;
     left: 50%;
 }
-
-/* @font-face {
-    font-family: Rajdhani;
-    src: local('Rajdhani-Regular'), url(./assets/fonts/Rajdhani-Regular.ttf) format('truetype');
-    font-weight: medium;
-}
-
-@font-face {
-    font-family: Rajdhani;
-    src: local('Rajdhani-Bold'), url(./assets/fonts/Rajdhani-Bold.ttf) format('truetype');
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: Morganite;
-    src: local('Morganite-Light'), url(./assets/fonts/Morganite-Light.ttf) format('truetype');
-    font-weight: lighter;
-}
-
-@font-face {
-    font-family: Morganite;
-    src: local('Morganite-Bold'), url(./assets/fonts/Morganite-Bold.ttf) format('truetype');
-    font-weight: bold;
-} */
-
-/* @font-face {
-    font-family: 'Mexon';
-    src: local('Mexon'), url(${Mexon}) format('opentype');
-}
-
-@font-face {
-    font-family: 'HelveticaBold';
-    src: local('HelveticaBold'), url(${HelveticaBold}) format('truetype');
-    font-weight: 800;
-}
-
-@font-face {
-    font-family: 'HelveticaMedium';
-    src: local('HelveticaMedium'), url(${HelveticaMedium}) format('truetype');
-    font-weight: 600;
-}
-
-@font-face {
-    font-family: 'HelveticaRegular';
-    src: local('HelveticaRegular'), url(${HelveticaRegular}) format('truetype');
-    font-weight: 500;
-}
-
-@font-face {
-    font-family: 'HelveticaLight';
-    src: local('HelveticaLight'), url(${HelveticaLight}) format('truetype');
-    font-weight: 300;
-}
-
-@font-face {
-    font-family: 'HelveticaLightItalic';
-    src: local('HelveticaLightItalic'), url(${HelveticaLightItalic}) format('truetype');
-    font-weight: 300;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'HelveticaThin';
-    src: local('HelveticaThin'), url(${HelveticaThin}) format('truetype');
-    font-weight: 200;
-} */
 
 
 @keyframes laptopZoomOut50 {
@@ -178,12 +96,14 @@ img {
 }
 
 @keyframes shardsContainerAway {
-    0% {
-        transform: translate(-50%, -50%) scale(1);
-    }
-
-    100% {
+    to {
         transform: translate(-50%, -50%) scale(2);
+    }
+}
+
+@keyframes shardsContainerBring {
+    to {
+        transform: translate(-50%, -50%) scale(1);
     }
 }
 
@@ -309,7 +229,7 @@ img {
         filter: hue-rotate(0);
     }
 
-    50.1% {
+    50% {
         background-position: bottom right;
         filter: hue-rotate(10deg);
     }
@@ -347,21 +267,6 @@ img {
     to {
         stroke-dasharray: 0 50%;
         stroke-dashoffset: 5%;
-    }
-}
-
-@keyframes revealBettyImage {
-    from {
-        opacity: 0;
-        transform: scale(0.8) translateX(0);
-    }
-    50% {
-        opacity: 0.5;
-        transform: scale(0.3) translateX(20%);
-    }
-    to {
-        opacity: 1;
-        transform: scale(0.8) translateX(35%);
     }
 }
 
@@ -403,6 +308,13 @@ img {
     to {
         transform: scale(0);
         opacity: 0;
+    }
+}
+
+@keyframes maskScreen {
+    to {
+        transform: translate(-50%, -50%) scale(5);
+        opacity: 1;
     }
 }
 

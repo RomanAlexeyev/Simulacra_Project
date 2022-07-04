@@ -12,7 +12,6 @@ export const StyledLogo = styled.div`
   left: 25%;
   z-index: 4;
   transition: transform 1s ease 1.7s, filter 3s ease;
-  filter: ${({ blurred }) => `blur(${blurred ? 2 : 0}px)`};
   animation: ${({ zoom }) =>
     zoom === "out" ? "logoZoomOut 2s ease 0.7s forwards" : "none"};
 
@@ -67,7 +66,7 @@ export const StyledLogo = styled.div`
   }
 
   &#logo_container_1 {
-    mix-blend-mode: color-dodge;
+    mix-blend-mode: ${({ theme }) => theme.blendModes.logoBlendMode};
   }
   &#logo_container_2 {
     mix-blend-mode: color;
@@ -81,7 +80,7 @@ export const StyledLogo = styled.div`
       zoom === "out" ? "translate(-45%, -50%)" : "translate(-50%, -50%)"};
 
     p {
-      -webkit-text-stroke: 1px rgb(0, 0, 0);
+      -webkit-text-stroke: ${({ theme }) => theme.colors.textStroke};
       background-image: none;
     }
 
@@ -94,11 +93,10 @@ export const StyledLogo = styled.div`
       overflow: visible;
 
       text {
-        stroke: #cc20ff;
-        stroke-width: 1;
+        stroke: ${({ theme }) => theme.colors.logoStrokeColored};
+        stroke-width: 2;
         stroke-dasharray: 0 50%;
-        filter: drop-shadow(0 0 5px rgb(236, 12, 199))
-          drop-shadow(0 0 10px rgb(199, 12, 236));
+        filter: ${({ theme }) => theme.shadows.logoShadow};
         pointer-events: none;
         animation: ${({ logoIsActive }) =>
           logoIsActive === true

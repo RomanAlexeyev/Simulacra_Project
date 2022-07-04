@@ -5,17 +5,17 @@ export const StyledShardsContainer = styled.div`
   z-index: 3;
   width: 110%;
   height: 100%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(2);
   top: 50%;
   left: 50%;
-  filter: brightness(1.1);
+  filter: ${({ theme }) => theme.brightnessModes.shardsBrightness};
   animation: ${({ away, awayAndBack }) =>
-    awayAndBack ? "shardsContainerAwayAndBack 2s ease 0.5s" : away ? "shardsContainerAway 1s ease 0.5s forwards" : "none"};
+    awayAndBack ? "shardsContainerAwayAndBack 2s ease 0.5s forwards" : away ? "shardsContainerAway 1s ease 0.5s forwards" : "shardsContainerBring 1s ease 0.5s forwards"};
 `;
 
 export const StyledShard = styled.div`
   position: absolute;
-  filter: drop-shadow(30px 30px 9px rgba(0, 0, 0, 0.4));
+  filter: ${({ theme }) => theme.shadows.shardShadow};
   transition: all 0.7s ease-in-out;
 
   &#shard_1 {

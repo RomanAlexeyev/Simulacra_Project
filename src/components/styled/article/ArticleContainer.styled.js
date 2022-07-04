@@ -16,7 +16,6 @@ export const StyledArticleProgressBar = styled.div`
 `;
 
 export const StyledArticleContainer = styled.div`
-  /* margin-top: 200px; */
   position: absolute;
   z-index: 5;
   transform: translate(-50%, 100%);
@@ -28,9 +27,7 @@ export const StyledArticleContainer = styled.div`
   flex-direction: column;
   overflow: hidden;
   cursor: none;
-
-  background: rgba(0, 0, 0, 0.8);
-  /* backdrop-filter: blur(4px); */
+  background: ${({ theme }) => theme.colors.articleBackground};
   border-radius: 10px 10px 0 0;
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 4px 50px rgba(0, 0, 0, 0.8);
@@ -67,8 +64,8 @@ export const StyledArticleContainer = styled.div`
     width: 100%;
     height: 100%;
     padding: 0 7%;
-    color: white;
-    font-family: "HelveticaThin";
+    color: ${({ theme }) => theme.colors.textAndEls};
+    font-family: "HelveticaLight";
     font-size: 15px;
     line-height: 1.7em;
     mask-image: linear-gradient(
@@ -153,7 +150,8 @@ export const StyledSection = styled.section`
       margin: 20% 10% 0 10%;
       padding: 5% 10%;
       font-size: 18px;
-      border: 1px dashed white;
+      border: 1px dashed;
+      border-color: ${({ theme }) => theme.colors.textAndEls};
       border-radius: 10px;
       position: relative;
 
@@ -173,7 +171,6 @@ export const StyledSection = styled.section`
     #hero-image-apollo {
       position: absolute;
       left: -20%;
-      /* width: 120%; */
       width: 130%;
       aspect-ratio: 4/4.6;
     }
@@ -191,7 +188,6 @@ export const StyledSection = styled.section`
     #animation-container {
       position: absolute;
       left: -20%;
-      /* width: 125%; */
       width: 130%;
       aspect-ratio: 4/4.6;
       overflow: hidden;
@@ -213,6 +209,7 @@ export const StyledSection = styled.section`
       width: 20px;
       opacity: 0;
       transform: translateY(30%);
+      filter: ${({ theme }) => theme.brightnessModes.scrollIconBrightness};
       animation: fadeSlideUpAndDissapear 3.5s ease 3s;
 
       #scroll_icon {
@@ -274,8 +271,6 @@ export const StyledSection = styled.section`
         .simulacra_stage_image {
           position: absolute;
           transition: transform 1s ease-in-out;
-          /* transform: translate(-50%, -50%); */
-          /* max-width: 100%; */
 
           &#pika_photo {
             width: 50%;
@@ -385,13 +380,12 @@ export const StyledSection = styled.section`
   }
 
   .text {
-    /* height: max-content; */
     width: 100%;
     position: relative;
 
     .divider {
       height: 1px;
-      background: white;
+      background: ${({ theme }) => theme.colors.textAndEls};
       width: 200%;
       margin-bottom: 10%;
       transition: transform 1s ease-out;
@@ -615,7 +609,7 @@ export const StyledSection = styled.section`
       font-size: 20px;
       font-family: "HelveticaBold";
       position: absolute;
-      /* transform: translate(-50%, -50%); */
+      letter-spacing: -0.09rem;
       left: 50%;
       top: 50%;
     }

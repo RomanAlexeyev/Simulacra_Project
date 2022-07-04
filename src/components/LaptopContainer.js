@@ -13,15 +13,11 @@ const imgStyle = {
   objectFit: "cover",
 };
 
-function LaptopContainer({ zoom, menuItem, setMenuItem }) {
+function LaptopContainer({ zoom }) {
   return (
     <StyledLaptopContainer zoom={zoom}>
       <img src={laptopBg} style={imgStyle} alt="" />
-      <LaptopScreen
-        zoom={zoom}
-        menuItem={menuItem}
-        setMenuItem={setMenuItem}
-      />
+      <LaptopScreen zoom={zoom} />
     </StyledLaptopContainer>
   );
 }

@@ -1,4 +1,6 @@
 import { useWindowDimensions } from "../custom_hooks";
+import { useDispatch, useSelector } from "react-redux";
+import { setMenuItem } from "../store/menuSlice";
 
 import {
   StyledMenuContainer,
@@ -18,20 +20,21 @@ function MenuContainer({
   setCurrentStroke,
   lastStroke,
   setLastStroke,
-  menuItem,
-  setMenuItem,
   uiClickListening,
   mouseEnterListening,
   stopUiListening,
-  blurred,
 }) {
 
   const { width } = useWindowDimensions();
+  const dispatch = useDispatch();
+  const updateMenu = (id) => dispatch(setMenuItem(id));
+
+  const menuItem = useSelector(state => state.menu.menuItem);
 
   const menuItemClickHandler = (id) => {
     if (!uiClickListening) return;
     stopUiListening();
-    setMenuItem(id);
+    updateMenu(id);
   };
 
   const menuItemEnterHandler = (id) => {
@@ -46,7 +49,7 @@ function MenuContainer({
   };
 
   return (
-    <StyledMenuContainer blurred={blurred}>
+    <StyledMenuContainer>
       {Object.keys(titles).map((title, idx) => {
         let menuItemId = `${"menu_" + title}`;
         let menuStrokeId = `${"menu_" + title + "_stroke"}`;

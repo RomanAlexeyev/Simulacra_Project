@@ -56,10 +56,7 @@ function SectionWiki() {
           photograph that is itself a copy of the real thing.
         </p>
         <p>
-          Other art forms that play with simulacra include
-          <span>trompe-l'oeil</span>,<span>pop art</span>,
-          <span>Italian neorealism</span>, and
-          <span>French New Wave</span>.
+          Other art forms that play with simulacra include trompe-l'oeil, pop art, Italian neorealism, and French New Wave.
         </p>
       </div>
     </StyledSection>

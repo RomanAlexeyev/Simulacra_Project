@@ -1,8 +1,11 @@
 import { React, useState, useEffect } from "react";
 
-import { StyledMasterContainer } from "./styled/MasterContainer.styled";
+import {
+  StyledMasterContainer,
+  StyledVignette,
+} from "./styled/MasterContainer.styled";
 
-import { useDispatch } from "react-redux/es/hooks/useDispatch";
+import { useDispatch, useSelector } from "react-redux";
 import { setTouchDevice } from "../store/scrollSlice";
 
 import BacklightsContainer from "./BacklightsContainer";
@@ -12,9 +15,11 @@ import LogoContainer from "./LogoContainer";
 import MenuContainer from "./MenuContainer";
 import ShardsContainer from "./ShardsContainer";
 
-function MasterContainer({ zoom, menuItem, setMenuItem, }) {
+function MasterContainer({ zoom }) {
   const dispatch = useDispatch();
   const changeDevice = (bool) => dispatch(setTouchDevice(bool));
+
+  const menuItem = useSelector((state) => state.menu.menuItem);
 
   const [logoIsActive, setLogoIsActive] = useState(null);
   const [currentStroke, setCurrentStroke] = useState(null);
@@ -23,31 +28,40 @@ function MasterContainer({ zoom, menuItem, setMenuItem, }) {
   const [mouseEnterListening, setMouseEnterListening] = useState(true);
   const [mouseMoveListening, setMouseMoveListening] = useState(true);
 
-  useEffect(() => {
-    if (menuItem) {
-      setLogoIsActive(true);
-    }
-  }, [menuItem]);
+  console.log(currentStroke, lastStroke, uiClickListening, mouseEnterListening, mouseMoveListening)
+
+  const resetStates = () => {
+    setCurrentStroke(null);
+    setLastStroke(null);
+    setUiClickListening(true);
+    setMouseEnterListening(true);
+    setMouseMoveListening(true);
+  }
 
   const stopUiListening = () => {
     setUiClickListening(false);
     setMouseEnterListening(false);
     setMouseMoveListening(false);
-  }
+  };
 
   useEffect(() => {
+    setLogoIsActive(menuItem && menuItem !== "blank");
+    if (menuItem === "blank") {
+      resetStates();
+    }
+  }, [menuItem]);
 
+  useEffect(() => {
     const touchListener = () => {
       changeDevice(true);
       window.removeEventListener("touchstart", touchListener);
-    }
+    };
 
     window.addEventListener("touchstart", touchListener);
     return () => {
       window.removeEventListener("touchstart", touchListener);
     };
   }, []);
-  
 
   return (
     <>
@@ -59,7 +73,7 @@ function MasterContainer({ zoom, menuItem, setMenuItem, }) {
         />
         <CursorContainer zoom={zoom} mouseMoveListening={mouseMoveListening} />
         <GridContainer />
-        <div className="vignette"></div>
+        <StyledVignette />
         <LogoContainer
           zoom={zoom}
           logoIsActive={logoIsActive}
@@ -72,14 +86,15 @@ function MasterContainer({ zoom, menuItem, setMenuItem, }) {
           setCurrentStroke={setCurrentStroke}
           lastStroke={lastStroke}
           setLastStroke={setLastStroke}
-          menuItem={menuItem}
-          setMenuItem={setMenuItem}
           uiClickListening={uiClickListening}
           mouseEnterListening={mouseEnterListening}
           stopUiListening={stopUiListening}
         />
       </StyledMasterContainer>
-      <ShardsContainer away={menuItem && menuItem !== "menu_author"} awayAndBack={menuItem && menuItem === "menu_author"} />
+      <ShardsContainer
+        away={menuItem && menuItem !== "menu_author"}
+        awayAndBack={menuItem && menuItem === "menu_author"}
+      />
     </>
   );
 }

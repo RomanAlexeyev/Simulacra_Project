@@ -8,7 +8,8 @@ export const StyledGridContainer = styled.div`
     background-image: url(${abstractGrig});
     background-position: center;
     background-size: cover;
-    filter: brightness(1.3);
+    filter: ${({ theme }) => theme.brightnessModes.gridBrightness};
     z-index: 2;
+    /* transform: scale(1.5); */
     transition: all 3s ease;
 `;

@@ -1,14 +1,10 @@
 import { StyledOuterLayout } from "./styled/OuterLayout.styled";
 import LaptopContainer from "./LaptopContainer";
 
-function OuterLayout({ zoom, menuItem, setMenuItem }) {
+function OuterLayout({ zoom }) {
   return (
     <StyledOuterLayout zoom={zoom}>
-      <LaptopContainer
-        zoom={zoom}
-        menuItem={menuItem}
-        setMenuItem={setMenuItem}
-      />
+      <LaptopContainer zoom={zoom} />
     </StyledOuterLayout>
   );
 }

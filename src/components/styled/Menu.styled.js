@@ -11,10 +11,8 @@ export const StyledMenuContainer = styled.div`
   right: 0;
   z-index: 4;
   color: transparent;
-  -webkit-text-stroke: 2px rgb(0, 0, 0);
-  text-shadow: 0 0 0 rgb(20, 20, 20);
-  transition: filter 3s ease;
-  filter: ${({ blurred }) => `blur(${blurred ? 2 : 0}px)`};
+  -webkit-text-stroke: ${({ theme }) => theme.colors.textStroke};
+  text-shadow: ${({ theme }) => theme.colors.menuTextColor};
 
   @media (max-width: 1200px) {
     text-align: center;
@@ -96,7 +94,7 @@ export const StyledMenuItemStroke = styled.svg`
   height: 100%;
 
   text {
-    stroke-width: 1;
+    stroke-width: 2;
     stroke-dasharray: 0 50%;
     animation: ${({ isActive, isLeft }) =>
       isActive
@@ -107,17 +105,17 @@ export const StyledMenuItemStroke = styled.svg`
 
     &#menu_about_stroke {
       stroke: #b90bee;
-      filter: drop-shadow(0 0 5px rgb(172, 12, 236));
+      filter: drop-shadow(0 0 5px rgba(172, 12, 236, 0.8));
     }
 
     &#menu_author_stroke {
       stroke: #9b0bee;
-      filter: drop-shadow(0 0 5px rgb(133, 14, 231));
+      filter: drop-shadow(0 0 5px rgba(133, 14, 231, 0.8));
     }
 
     &#menu_other_stroke {
       stroke: #c10bee;
-      filter: drop-shadow(0 0 5px rgb(236, 12, 217));
+      filter: drop-shadow(0 0 5px rgba(236, 12, 217, 0.8));
     }
   }
 `;

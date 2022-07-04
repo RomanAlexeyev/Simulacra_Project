@@ -5,12 +5,12 @@ import scrollIconArrow from "../../assets/graphic_elements/scroll_icon/scroll_ic
 
 import heroImage from "./images/hero_image.png";
 import circleTextWhite from "./images/hero_image_text_circle_white.png";
-import circleTextBlack from "./images/hero_image_text_circle_black.png";
 import lightSpot from "./images/lightspot.png";
 
 import wikiLogo from "./images/wikipedia_logo.png";
 
-function SectionHero({ colorTheme }) {
+function SectionHero() {
+
   const renderScrollIcon = () => {
     const elements = [];
     elements.push(
@@ -81,7 +81,7 @@ function SectionHero({ colorTheme }) {
         <img src={lightSpot} id="lightspot" draggable={false} alt="" />
         <div id="animation-container">
           <img
-            src={colorTheme === "dark" ? circleTextWhite : circleTextBlack}
+            src={circleTextWhite}
             id="circle-text"
             draggable={false}
             alt=""
