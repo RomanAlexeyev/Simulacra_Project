@@ -1,3 +1,6 @@
+import { useDispatch } from "react-redux";
+import { setMenuItem, setZoom } from "../store/menuSlice";
+
 import { StyledLaptopContainer } from "./styled/Laptop.styled";
 import laptopBg from "../assets/graphic_elements/laptop_background.png";
 
@@ -14,10 +17,30 @@ const imgStyle = {
 };
 
 function LaptopContainer({ zoom }) {
+
+  const dispatch = useDispatch();
+  const updateZoom = (zoom) => dispatch(setZoom(zoom));
+  const updateMenu = (item) => dispatch(setMenuItem(item));
+
+  const leaveAuthor = () => {
+    updateMenu(null);
+    updateZoom('in');
+    // setTimeout(() => {
+    //   updateMenu(null);
+    // }, 500);
+  }
+
+  const resetMenu = () => {
+    if (zoom === 'in') {
+      updateMenu(null);
+    }
+  }
+
   return (
     <StyledLaptopContainer zoom={zoom}>
       <img src={laptopBg} style={imgStyle} alt="" />
       <LaptopScreen zoom={zoom} />
+      <div className="return_button" onClick={leaveAuthor}>return</div>
     </StyledLaptopContainer>
   );
 }

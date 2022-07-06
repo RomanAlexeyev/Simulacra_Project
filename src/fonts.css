@@ -39,3 +39,9 @@
     src: local('HelveticaThin'), url('./assets/fonts/HelveticaThin.ttf') format('truetype');
     font-weight: 200;
 }
+
+@font-face {
+    font-family: 'HelveticaUltraLight';
+    src: local('HelveticaUltraLight'), url('./assets/fonts/HelveticaUltraLight.ttf') format('truetype');
+    font-weight: 100;
+}

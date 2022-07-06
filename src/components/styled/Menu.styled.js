@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const StyledMenuContainer = styled.div`
-  font-family: 'Mexon';
+  font-family: "Mexon";
   user-select: none;
-  font-size: 7vh;
   text-align: right;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -27,12 +26,20 @@ export const StyledMenuContainer = styled.div`
 `;
 
 export const StyledMenuItem = styled.div`
+  /* font-size: ${({ zoom }) => (zoom === "out" ? "1vw" : "7vh")}; */
+  /* margin-top: ${({ zoom }) => (zoom === "out" ? "0" : "8vh")}; */
+  /* margin-bottom: ${({ zoom }) => (zoom === "out" ? "1vw" : "0")}; */
+  font-size: 7vh;
   margin-top: 8vh;
   position: relative;
   transition: opacity 0.5s ease-out;
   opacity: ${({ visible }) => (visible ? 1 : 0)};
   animation: ${({ zoom }) =>
-    zoom === "out" ? "menuItemZoomOut 2s ease 0.7s forwards" : "none"};
+    zoom === "out"
+      ? "menuItemZoomOut 3s ease 0.7s forwards"
+      : zoom === "in"
+      ? "menuItemZoomIn 1s ease forwards"
+      : "none"};
 
   @media (max-width: 1200px) {
     margin-top: 4vh;
@@ -70,9 +77,17 @@ export const StyledMenuItem = styled.div`
   }
 
   &#menu_about {
+    animation: ${({ zoom }) =>
+    zoom === "out"
+      ? "menuItemZoomOut 3s ease 0.7s forwards"
+      : zoom === "in"
+      ? "menuItemZoomInAbout 1s ease forwards"
+      : "none"};
+    /* font-size: ${({ zoom }) => (zoom === "out" ? "1vw" : "9vh")}; */
     font-size: 9vh;
     margin-top: 0;
     margin-bottom: 18vh;
+    /* margin-bottom: ${({ zoom }) => (zoom === "out" ? "1vw" : "18vh")}; */
 
     @media (max-width: 1200px) {
       margin-bottom: 9vh;

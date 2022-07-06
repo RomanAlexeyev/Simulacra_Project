@@ -28,8 +28,6 @@ function MasterContainer({ zoom }) {
   const [mouseEnterListening, setMouseEnterListening] = useState(true);
   const [mouseMoveListening, setMouseMoveListening] = useState(true);
 
-  console.log(currentStroke, lastStroke, uiClickListening, mouseEnterListening, mouseMoveListening)
-
   const resetStates = () => {
     setCurrentStroke(null);
     setLastStroke(null);
@@ -45,8 +43,8 @@ function MasterContainer({ zoom }) {
   };
 
   useEffect(() => {
-    setLogoIsActive(menuItem && menuItem !== "blank");
-    if (menuItem === "blank") {
+    setLogoIsActive(menuItem && menuItem !== "betweenThemes");
+    if (!menuItem) {
       resetStates();
     }
   }, [menuItem]);
@@ -71,7 +69,7 @@ function MasterContainer({ zoom }) {
           logoIsActive={logoIsActive}
           currentStroke={currentStroke}
         />
-        <CursorContainer zoom={zoom} mouseMoveListening={mouseMoveListening} />
+        <CursorContainer mouseMoveListening={mouseMoveListening} />
         <GridContainer />
         <StyledVignette />
         <LogoContainer
@@ -93,7 +91,7 @@ function MasterContainer({ zoom }) {
       </StyledMasterContainer>
       <ShardsContainer
         away={menuItem && menuItem !== "menu_author"}
-        awayAndBack={menuItem && menuItem === "menu_author"}
+        // awayAndBack={menuItem && menuItem === "menu_author"}
       />
     </>
   );

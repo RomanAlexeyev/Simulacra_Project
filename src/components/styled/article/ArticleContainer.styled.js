@@ -32,7 +32,7 @@ export const StyledArticleContainer = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 4px 50px rgba(0, 0, 0, 0.8);
 
-  animation: slideUp 1s ease-out 0.7s forwards;
+  animation: slideUp 2s ease-out 0.3s forwards;
 
   .article_header {
     width: 100%;

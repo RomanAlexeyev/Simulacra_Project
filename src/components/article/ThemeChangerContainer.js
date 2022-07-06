@@ -46,7 +46,7 @@ function ThemeChangerContainer() {
   };
 
   const changeTheme = () => {
-    updateMenu("blank");
+    updateMenu("betweenThemes");
     let targetTheme = "light";
     if (colorTheme !== "dark") {
       targetTheme = "dark";

@@ -18,7 +18,7 @@ const imgStyle = {
 
 const trailPaths = [trailOne, trailTwo, trailThree, trailFour, trailFive];
 
-function CursorContainer({ zoom, mouseMoveListening }) {
+function CursorContainer({ mouseMoveListening }) {
   
   const [mouseCoords, setMouseCoords] = useState({ x: "50%", y: "50%" });
 

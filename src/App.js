@@ -11,23 +11,23 @@ import ThemeChangerContainer from "./components/article/ThemeChangerContainer";
 
 function App() {
   const menuItem = useSelector((state) => state.menu.menuItem);
-  const [zoom, setZoom] = useState(null);
+  // const [zoom, setZoom] = useState(null);
 
   const theme = useTheme();
 
-  useEffect(() => {
-    if (menuItem === "menu_author") {
-      setZoom("out");
-    }
-  }, [menuItem]);
+  // useEffect(() => {
+  //   if (menuItem === "menu_author") {
+  //     setZoom("out");
+  //   }
+  // }, [menuItem]);
 
   return (
     <>
-      <GlobalStyles />
       <ThemeProvider theme={theme}>
-        <OuterLayout zoom={zoom} />
+        <GlobalStyles />
+        <OuterLayout menuItem={menuItem} />
         {menuItem === "menu_about" && <ArticleContainer />}
-        {(menuItem === "menu_about" || menuItem === "blank") && (
+        {(menuItem === "menu_about" || menuItem === "betweenThemes") && (
           <ThemeChangerContainer />
         )}
       </ThemeProvider>

@@ -34,8 +34,7 @@ img {
         width: 50%;
         min-width: 0;
         min-height: 0;
-        transform: translate(0, 0);
-        top: 0;
+        transform: translate(0, -75%);
     }
 }
 
@@ -45,8 +44,7 @@ img {
         min-width: 0;
         min-height: 0;
         left: 25%;
-        transform: translate(0, 0);
-        top: 0;
+        transform: translate(0, -75%);
     }
 }
 
@@ -56,8 +54,48 @@ img {
         min-width: 0;
         min-height: 0;
         left: 0;
-        transform: translate(0, 0);
-        top: 0;
+        transform: translate(0, -75%);
+    }
+}
+
+@keyframes laptopZoomIn {
+    /* from {
+        width: 50%;
+        min-width: 0;
+        min-height: 0;
+        transform: translate(0, -75%);
+        opacity: 1;
+    }
+    10% {
+        opacity: 0;
+
+    }
+    20% {
+        width: 176%;
+        min-width: 176%;
+        min-height: 249%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+    to {
+        width: 176%;
+        min-width: 176%;
+        min-height: 249%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    } */
+    from {
+        width: 50%;
+        min-width: 0;
+        min-height: 0;
+        transform: translate(0, -75%);
+        opacity: 1;
+    }
+    50% {
+        opacity: 0 
+    }
+    to {
+        opacity: 1;
     }
 }
 
@@ -70,14 +108,63 @@ img {
     }
 }
 
+@keyframes laptopScreenZoomIn {
+    from {
+        width: 42%;
+        height: 33.5%;
+        transform: translate(-50%, -50%) perspective(1.6vw) rotateY(-1deg);
+        filter: contrast(1.05) hue-rotate(10deg);
+    }
+    to {
+        width: 56.8%;
+        height: 40.2%;
+        transform: translate(-50%, -50%) perspective(1.2vw);
+        filter: contrast(1) hue-rotate(0deg);
+    }
+}
+
+@keyframes logoZoomOut {
+    to {
+        font-size: 2vw;
+    }
+}
+
+@keyframes logoZoomIn {
+    from {
+        font-size: 2vw;
+    }
+    to {
+        font-size: 16vh;
+    }
+}
+
+
 @keyframes menuItemZoomOut {
     to {
-        transform: translateY(35px);
+        /* transform: translateY(35px); */
         font-size: 1vw;
-        margin-top: 0;
+        /* margin-top: 0;
         margin-bottom: 1vw;
         -webkit-text-stroke: 0px rgb(0, 0, 0);
-        text-shadow: none;
+        text-shadow: none; */
+    }
+}
+
+@keyframes menuItemZoomIn {
+    from {
+        font-size: 1vw;
+    }
+    to {
+        font-size: 7vh;
+    }
+}
+
+@keyframes menuItemZoomInAbout {
+    from {
+        font-size: 1vw;
+    }
+    to {
+        font-size: 9vh;
     }
 }
 
@@ -107,11 +194,6 @@ img {
     }
 }
 
-@keyframes logoZoomOut {
-    to {
-        font-size: 2vw;
-    }
-}
 
 @keyframes rotation {
     0% {

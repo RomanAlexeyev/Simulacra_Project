@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledLogo = styled.div`
-  font-family: 'Mexon';
+  font-family: "Mexon";
   user-select: none;
   font-size: 16vh;
   word-break: break-all;
@@ -11,9 +11,14 @@ export const StyledLogo = styled.div`
   top: 50%;
   left: 25%;
   z-index: 4;
-  transition: transform 1s ease 1.7s, filter 3s ease;
+  transition: filter 3s ease;
+  /* transition: transform 1s ease 1.7s, filter 3s ease; */
   animation: ${({ zoom }) =>
-    zoom === "out" ? "logoZoomOut 2s ease 0.7s forwards" : "none"};
+    zoom === "out"
+      ? "logoZoomOut 3s ease 0.7s forwards"
+      : zoom === "in"
+      ? "logoZoomIn 1s ease forwards"
+      : "none"};
 
   @media (max-width: 1200px) {
     font-size: 10vw;
@@ -77,7 +82,10 @@ export const StyledLogo = styled.div`
 
   &#logo_stroke {
     transform: ${({ zoom }) =>
-      zoom === "out" ? "translate(-45%, -50%)" : "translate(-50%, -50%)"};
+      zoom === "out" ? "translate(-60%, -50%)" : "translate(-50%, -50%)"};
+
+    transition: transform 1s ease;
+    transition-delay: ${({zoom}) => zoom === "out" ? " 1.7s" : "0"};
 
     p {
       -webkit-text-stroke: ${({ theme }) => theme.colors.textStroke};
