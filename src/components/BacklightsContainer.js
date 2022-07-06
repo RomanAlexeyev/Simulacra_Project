@@ -8,7 +8,7 @@ import logoBacklight from "../assets/graphic_elements/backlights/logo_backlight.
 
 import menuAboutBacklight from "../assets/graphic_elements/backlights/menu_item_about_backlight.png";
 import menuAuthorBacklight from "../assets/graphic_elements/backlights/menu_item_author_backlight.png";
-import menuOtherBacklight from "../assets/graphic_elements/backlights/menu_item_other_backlight.png";
+import menuSourceBacklight from "../assets/graphic_elements/backlights/menu_item_other_backlight.png";
 
 const imgStyle = {
   width: "100%",
@@ -26,10 +26,10 @@ const backlights = {
     imgSrc: menuAuthorBacklight,
     imgId: "menu_author_backlight",
   },
-  menu_other: {
-    title: "other work",
-    imgSrc: menuOtherBacklight,
-    imgId: "menu_other_backlight",
+  menu_source: {
+    title: "source code",
+    imgSrc: menuSourceBacklight,
+    imgId: "menu_source_backlight",
   },
 };
 

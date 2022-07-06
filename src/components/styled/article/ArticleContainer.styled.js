@@ -111,6 +111,7 @@ export const StyledContent = styled.div`
   width: 100%;
   transform: ${({ prog }) => "translateY(-" + prog * 200 + "px)"};
   transition: transform 1s ease-in-out;
+  will-change: transform;
 `;
 
 export const StyledSection = styled.section`
@@ -209,7 +210,7 @@ export const StyledSection = styled.section`
       width: 20px;
       opacity: 0;
       transform: translateY(30%);
-      filter: ${({ theme }) => theme.brightnessModes.scrollIconBrightness};
+      filter: ${({ theme }) => theme.brightnessModes.iconBrightness};
       animation: fadeSlideUpAndDissapear 3.5s ease 3s;
 
       #scroll_icon {

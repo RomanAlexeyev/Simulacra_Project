@@ -141,12 +141,7 @@ img {
 
 @keyframes menuItemZoomOut {
     to {
-        /* transform: translateY(35px); */
         font-size: 1vw;
-        /* margin-top: 0;
-        margin-bottom: 1vw;
-        -webkit-text-stroke: 0px rgb(0, 0, 0);
-        text-shadow: none; */
     }
 }
 
@@ -361,6 +356,24 @@ img {
 @keyframes slideUpBottom {
     to {
         bottom: 0;
+    }
+}
+
+@keyframes slideFadeIn {
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes slideFadeOut {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%);
     }
 }
 

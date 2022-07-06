@@ -5,7 +5,7 @@ const themeVars = {
     masterBackground: "black",
     articleBackground: "rgba(0, 0, 0, 0.8)",
     textAndEls: "white",
-    scrollIconBrightness: "brightness(1)",
+    iconBrightness: "brightness(1)",
     menuTextColor: "0 0 0 rgb(20, 20, 20)",
     textStroke: "2px #000",
     logoShadow:
@@ -15,12 +15,13 @@ const themeVars = {
     shardShadow: "drop-shadow(30px 30px 9px rgba(0, 0, 0, 0.4))",
     shardsBrightness: "brightness(1.2)",
     gridBrightness: "brightness(1.3)",
+    vignetteOpacity: 1,
   },
   light: {
     masterBackground: "#d9d9d9",
     articleBackground: "rgba(255, 255, 255, 0.9)",
     textAndEls: "black",
-    scrollIconBrightness: "brightness(0)",
+    iconBrightness: "brightness(0)",
     menuTextColor: "0 0 0 rgb(210, 210, 210)",
     textStroke: "2px #B5B5B5",
     logoShadow: "none",
@@ -29,6 +30,7 @@ const themeVars = {
     shardShadow: "drop-shadow(30px 30px 9px rgba(0, 0, 0, 0.1))",
     shardsBrightness: "brightness(12)",
     gridBrightness: "brightness(12)",
+    vignetteOpacity: 0.7,
   },
 };
 
@@ -36,6 +38,7 @@ export default function useTheme() {
   const colorTheme = useSelector((state) => state.colorTheme.theme);
 
   return {
+    theme: colorTheme,
     colors: {
       masterBackground: themeVars[colorTheme].masterBackground,
       articleBackground: themeVars[colorTheme].articleBackground,
@@ -45,7 +48,7 @@ export default function useTheme() {
       logoStrokeColored: themeVars[colorTheme].logoStrokeColored,
     },
     brightnessModes: {
-      scrollIconBrightness: themeVars[colorTheme].scrollIconBrightness,
+      iconBrightness: themeVars[colorTheme].iconBrightness,
       shardsBrightness: themeVars[colorTheme].shardsBrightness,
       gridBrightness: themeVars[colorTheme].gridBrightness,
     },
@@ -56,5 +59,8 @@ export default function useTheme() {
     blendModes: {
       logoBlendMode: themeVars[colorTheme].logoBlendMode,
     },
+    opacities: {
+      vignetteOpacity: themeVars[colorTheme].vignetteOpacity,
+    }
   };
 }

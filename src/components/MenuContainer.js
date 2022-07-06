@@ -11,7 +11,7 @@ import {
 const titles = {
   about: "what i am",
   author: "author",
-  other: "other work",
+  source: "source code",
 };
 
 function MenuContainer({

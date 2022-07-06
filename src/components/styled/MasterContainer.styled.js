@@ -18,5 +18,5 @@ export const StyledVignette = styled.div`
     rgba(0, 0, 0, 0) 1%,
     rgba(0, 0, 0, 0.5) 100%
   );
-  opacity: 0.7;
+  opacity: ${({ theme }) => theme.opacities.vignetteOpacity};
 `;

@@ -29,7 +29,7 @@ export const StyledMenuItem = styled.div`
   /* font-size: ${({ zoom }) => (zoom === "out" ? "1vw" : "7vh")}; */
   /* margin-top: ${({ zoom }) => (zoom === "out" ? "0" : "8vh")}; */
   /* margin-bottom: ${({ zoom }) => (zoom === "out" ? "1vw" : "0")}; */
-  font-size: 7vh;
+  font-size: 6.5vh;
   margin-top: 8vh;
   position: relative;
   transition: opacity 0.5s ease-out;
@@ -128,7 +128,7 @@ export const StyledMenuItemStroke = styled.svg`
       filter: drop-shadow(0 0 5px rgba(133, 14, 231, 0.8));
     }
 
-    &#menu_other_stroke {
+    &#menu_source_stroke {
       stroke: #c10bee;
       filter: drop-shadow(0 0 5px rgba(236, 12, 217, 0.8));
     }
