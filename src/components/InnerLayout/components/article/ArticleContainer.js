@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import throttle from "../../helpers/throttle";
+import throttle from "../../../../helpers/throttle";
 
 import { useDispatch, useSelector } from "react-redux";
-import { updateCounter } from "../../store/scrollSlice";
+import { updateCounter } from "../../../../store/scrollSlice";
 
-import { StyledArticleContainer } from "../styled/article/ArticleContainer.styled";
+import { StyledArticleContainer } from "./styled/ArticleContainer.styled";
 import ProgressBar from "./ProgressBar";
 
 import Content from "./Content";

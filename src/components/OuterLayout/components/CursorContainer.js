@@ -1,15 +1,15 @@
 import { React, useState, useEffect } from "react";
-import throttle from "../helpers/throttle";
+import throttle from "../../../helpers/throttle";
 
 import { StyledCustomCursor } from "./styled/CustomCursor.styled";
 
-import trailOne from "../assets/graphic_elements/cursor/cursor_trail_1.png";
-import trailTwo from "../assets/graphic_elements/cursor/cursor_trail_2.png";
-import trailThree from "../assets/graphic_elements/cursor/cursor_trail_3.png";
-import trailFour from "../assets/graphic_elements/cursor/cursor_trail_4.png";
-import trailFive from "../assets/graphic_elements/cursor/cursor_trail_5.png";
+import trailOne from "../../../assets/graphic_elements/cursor/cursor_trail_1.png";
+import trailTwo from "../../../assets/graphic_elements/cursor/cursor_trail_2.png";
+import trailThree from "../../../assets/graphic_elements/cursor/cursor_trail_3.png";
+import trailFour from "../../../assets/graphic_elements/cursor/cursor_trail_4.png";
+import trailFive from "../../../assets/graphic_elements/cursor/cursor_trail_5.png";
 
-import customCursorMain from "../assets/graphic_elements/cursor/cursor_main.png";
+import customCursorMain from "../../../assets/graphic_elements/cursor/cursor_main.png";
 
 const imgStyle = {
   width: "100%",

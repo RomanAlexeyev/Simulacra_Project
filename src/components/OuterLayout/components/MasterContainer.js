@@ -6,7 +6,7 @@ import {
 } from "./styled/MasterContainer.styled";
 
 import { useDispatch, useSelector } from "react-redux";
-import { setTouchDevice } from "../store/scrollSlice";
+import { setTouchDevice } from "../../../store/scrollSlice";
 
 import BacklightsContainer from "./BacklightsContainer";
 import CursorContainer from "./CursorContainer";

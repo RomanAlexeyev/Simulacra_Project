@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setMenuItem } from "../store/menuSlice";
+import { setMenuItem } from "../../../store/menuSlice";
 
 import {
   StyledSourceContainer,
   StyledCloseButton,
-} from "./styled/SourceContainer.styled";
+} from "../../OuterLayout/components/styled/SourceContainer.styled";
 
-import githubIcon from "../assets/graphic_elements/contact_icons/github_icon.svg";
+import githubIcon from "../../../assets/graphic_elements/contact_icons/github_icon.svg";
 
 function SourceContainer() {
   const dispatch = useDispatch();

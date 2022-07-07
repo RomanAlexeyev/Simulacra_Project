@@ -1,6 +1,6 @@
-import { useWindowDimensions } from "../custom_hooks";
+import { useWindowDimensions } from "../../../custom_hooks";
 import { useDispatch, useSelector } from "react-redux";
-import { setMenuItem } from "../store/menuSlice";
+import { setMenuItem } from "../../../store/menuSlice";
 
 import {
   StyledMenuContainer,

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import abstractGrig from '../../assets/graphic_elements/abstract_grid_main.png'
+import abstractGrig from '../../../../assets/graphic_elements/abstract_grid_main.png'
 
 export const StyledGridContainer = styled.div`
     position: absolute;

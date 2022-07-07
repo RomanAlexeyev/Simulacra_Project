@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { updateSection } from "../../store/scrollSlice";
-import { useParallax, useIntersectionObserver } from "../../custom_hooks";
-import { StyledSection } from "../styled/article/ArticleContainer.styled";
+import { updateSection } from "../../../../store/scrollSlice";
+import { useParallax, useIntersectionObserver } from "../../../../custom_hooks";
+import { StyledSection } from "./styled/ArticleContainer.styled";
 
 import pikaPhoto from "./images/pika_photo.png";
 import pikaDrawing from "./images/pika_drawing.png";

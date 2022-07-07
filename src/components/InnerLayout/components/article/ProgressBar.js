@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { StyledArticleProgressBar } from "../styled/article/ArticleContainer.styled";
+import { StyledArticleProgressBar } from "./styled/ArticleContainer.styled";
 
 function ProgressBar() {
   const sectionProgress = useSelector((state) => state.scroll.sectionProgress);

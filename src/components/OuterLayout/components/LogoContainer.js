@@ -1,4 +1,4 @@
-import { useWindowDimensions } from "../custom_hooks";
+import { useWindowDimensions } from "../../../custom_hooks";
 
 import { StyledLogo } from "./styled/Logo.styled";
 

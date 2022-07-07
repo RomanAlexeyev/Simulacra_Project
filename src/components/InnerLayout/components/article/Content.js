@@ -1,4 +1,4 @@
-import { StyledContent } from "../styled/article/ArticleContainer.styled";
+import { StyledContent } from "./styled/ArticleContainer.styled";
 
 import { useSelector } from "react-redux";
 

@@ -1,11 +1,12 @@
 import { useSelector } from "react-redux";
 
-import { StyledOuterLayout } from "./styled/OuterLayout.styled";
-import LaptopContainer from "./LaptopContainer";
-import AuthorContainer from "./AuthorContainer";
+import { StyledOuterLayout } from "./components/styled/OuterLayout.styled";
+import LaptopContainer from "./components/LaptopContainer";
+import AuthorContainer from "./components/AuthorContainer";
 
-function OuterLayout({ menuItem }) {
+function OuterLayout() {
 
+  const menuItem = useSelector((state) => state.menu.menuItem);
   const zoom = useSelector((state) => state.menu.zoom);
 
   return (

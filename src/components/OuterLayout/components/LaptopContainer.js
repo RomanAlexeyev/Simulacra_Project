@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
-import { setMenuItem, setZoom } from "../store/menuSlice";
+import { setMenuItem, setZoom } from "../../../store/menuSlice";
 
 import { StyledLaptopContainer } from "./styled/Laptop.styled";
-import laptopBg from "../assets/graphic_elements/laptop_background.png";
+import laptopBg from "../../../assets/graphic_elements/laptop_background.png";
 
 import LaptopScreen from "./LaptopScreen";
 

@@ -1,14 +1,14 @@
-import { useWindowDimensions } from "../custom_hooks";
+import { useWindowDimensions } from "../../../custom_hooks";
 
 import { StyledBacklightsContainer } from "./styled/BacklightsContainer.styled";
 import { StyledLogo } from "./styled/Logo.styled";
 import { StyledMenuContainer, StyledMenuItem } from "./styled/Menu.styled";
 
-import logoBacklight from "../assets/graphic_elements/backlights/logo_backlight.png";
+import logoBacklight from "../../../assets/graphic_elements/backlights/logo_backlight.png";
 
-import menuAboutBacklight from "../assets/graphic_elements/backlights/menu_item_about_backlight.png";
-import menuAuthorBacklight from "../assets/graphic_elements/backlights/menu_item_author_backlight.png";
-import menuSourceBacklight from "../assets/graphic_elements/backlights/menu_item_other_backlight.png";
+import menuAboutBacklight from "../../../assets/graphic_elements/backlights/menu_item_about_backlight.png";
+import menuAuthorBacklight from "../../../assets/graphic_elements/backlights/menu_item_author_backlight.png";
+import menuSourceBacklight from "../../../assets/graphic_elements/backlights/menu_item_other_backlight.png";
 
 const imgStyle = {
   width: "100%",

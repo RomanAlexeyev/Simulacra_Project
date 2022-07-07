@@ -1,11 +1,11 @@
 import { StyledAuthorContainer } from "./styled/OuterLayout.styled";
 
-import mainPhoto from "../assets/graphic_elements/roman_photo.png";
-import coloredBG from "../assets/graphic_elements/outer_layout_background.png";
+import mainPhoto from "../../../assets/graphic_elements/roman_photo.png";
+import coloredBG from "../../../assets/graphic_elements/outer_layout_background.png";
 
-import telegramSkypeIcon from "../assets/graphic_elements/contact_icons/telegram_skype_icon.svg";
-import gmailIcon from "../assets/graphic_elements/contact_icons/gmail_icon.svg";
-import githubIcon from "../assets/graphic_elements/contact_icons/github_icon.svg";
+import telegramSkypeIcon from "../../../assets/graphic_elements/contact_icons/telegram_skype_icon.svg";
+import gmailIcon from "../../../assets/graphic_elements/contact_icons/gmail_icon.svg";
+import githubIcon from "../../../assets/graphic_elements/contact_icons/github_icon.svg";
 
 function AuthorContainer({zoom, menuItem}) {
   return (

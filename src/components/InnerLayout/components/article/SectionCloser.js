@@ -1,9 +1,10 @@
-import { StyledSection } from "../styled/article/ArticleContainer.styled";
-
-import useIntersectionObserver from "../../custom_hooks/useIntersectionObserver";
-import { useDispatch, useSelector } from "react-redux";
-import { changeCounter, updateSection } from "../../store/scrollSlice";
 import { useEffect, useRef } from "react";
+import { useIntersectionObserver } from "../../../../custom_hooks";
+import { useDispatch, useSelector } from "react-redux";
+import { changeCounter, updateSection } from "../../../../store/scrollSlice";
+
+import { StyledSection } from "./styled/ArticleContainer.styled";
+
 
 function SectionCloser() {
 

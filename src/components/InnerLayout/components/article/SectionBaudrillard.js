@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { updateSection } from "../../store/scrollSlice";
-import { useParallax, useIntersectionObserver } from "../../custom_hooks";
-import { StyledSection } from "../styled/article/ArticleContainer.styled";
+import { updateSection } from "../../../../store/scrollSlice";
+import { useParallax, useIntersectionObserver } from "../../../../custom_hooks";
+import { StyledSection } from "./styled/ArticleContainer.styled";
 
 import jeanPortrait from "./images/jean_baudrillard.png";
 import lightSpot from "./images/lightspot.png";

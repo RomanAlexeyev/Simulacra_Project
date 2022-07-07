@@ -1,7 +1,7 @@
-import { StyledSection } from "../styled/article/ArticleContainer.styled";
+import { StyledSection } from "./styled/ArticleContainer.styled";
 
-import scrollIconMouse from "../../assets/graphic_elements/scroll_icon/scroll_icon_mouse.svg";
-import scrollIconArrow from "../../assets/graphic_elements/scroll_icon/scroll_icon_arrow.svg";
+import scrollIconMouse from "../../../../assets/graphic_elements/scroll_icon/scroll_icon_mouse.svg";
+import scrollIconArrow from "../../../../assets/graphic_elements/scroll_icon/scroll_icon_arrow.svg";
 
 import heroImage from "./images/hero_image.png";
 import circleTextWhite from "./images/hero_image_text_circle_white.png";

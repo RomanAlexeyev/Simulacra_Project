@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import { useParallax, useIntersectionObserver } from "../../custom_hooks";
-import { StyledSection } from "../styled/article/ArticleContainer.styled";
+import { useParallax, useIntersectionObserver } from "../../../../custom_hooks";
+import { StyledSection } from "./styled/ArticleContainer.styled";
 
 import movies from "./images/movies_slider.png";
 

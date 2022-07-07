@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setMenuItem } from "../../store/menuSlice";
-import { setTheme } from "../../store/themeSlice";
-import { resetCounter } from "../../store/scrollSlice";
+import { setMenuItem } from "../../../../store/menuSlice";
+import { setTheme } from "../../../../store/themeSlice";
+import { resetCounter } from "../../../../store/scrollSlice";
 
-import { StyledThemeChangerContainer } from "../styled/article/ThemeChangerContainer.styled";
+import { StyledThemeChangerContainer } from "./styled/ThemeChangerContainer.styled";
 
 function ThemeChangerContainer() {
   const dispatch = useDispatch();
