@@ -2,13 +2,14 @@ import { StyledSection } from "../styled/article/ArticleContainer.styled";
 
 import useIntersectionObserver from "../../custom_hooks/useIntersectionObserver";
 import { useDispatch, useSelector } from "react-redux";
-import { changeCounter } from "../../store/scrollSlice";
+import { changeCounter, updateSection } from "../../store/scrollSlice";
 import { useEffect, useRef } from "react";
 
 function SectionCloser() {
 
   const dispatch = useDispatch();
   const stopVertCounter = () => dispatch(changeCounter('horizontal'));
+  const setSection = (index) => dispatch(updateSection(index));
 
   const prog = useSelector(state => state.scroll.counterX);
 
@@ -22,6 +23,7 @@ function SectionCloser() {
   useEffect(() => {
     if (isVisible) {
       stopVertCounter();
+      setSection(6);
     }
   }, [isVisible])
 

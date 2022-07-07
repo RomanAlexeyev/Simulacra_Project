@@ -2,7 +2,7 @@ import styled from "styled-components";
 import maskImage from "../../article/images/hero_image_mask.png";
 
 export const StyledArticleProgressBar = styled.div`
-  width: ${({ progressIdx }) => `${progressIdx * 7.7}%`};
+  width: ${({ prog }) => `${prog*15 + 10}%`};
   transition: width 0.5s ease-out;
   height: 2px;
   position: absolute;

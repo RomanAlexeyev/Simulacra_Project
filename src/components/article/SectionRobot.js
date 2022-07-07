@@ -1,4 +1,6 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { updateSection } from "../../store/scrollSlice";
 import { useParallax, useIntersectionObserver } from "../../custom_hooks";
 import { StyledSection } from "../styled/article/ArticleContainer.styled";
 
@@ -7,6 +9,10 @@ import faceRobot from "./images/face_robot.png";
 import lightSpot from "./images/lightspot.png";
 
 function SectionRobot() {
+
+  const dispatch = useDispatch();
+  const setSection = (index) => dispatch(updateSection(index));
+
   const targetRef = useRef(null);
   const isVisible = useIntersectionObserver(
     {
@@ -18,6 +24,12 @@ function SectionRobot() {
   );
 
   const parallaxIndex = useParallax(isVisible);
+
+  useEffect(() => {
+    if (isVisible) {
+      setSection(3);
+    }
+  }, [isVisible]);
 
   return (
     <StyledSection id="robot" ref={targetRef}>

@@ -1,8 +1,14 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { updateSection } from "../../store/scrollSlice";
 import { useIntersectionObserver } from "../../custom_hooks";
 import { StyledSection } from "../styled/article/ArticleContainer.styled";
 
 function SectionMovies() {
+
+  const dispatch = useDispatch();
+  const setSection = (index) => dispatch(updateSection(index));
+
   const targetRef = useRef(null);
   const isVisible = useIntersectionObserver(
     {
@@ -12,6 +18,12 @@ function SectionMovies() {
     },
     targetRef
   );
+
+  useEffect(() => {
+    if (isVisible) {
+      setSection(4);
+    }
+  }, [isVisible]);
 
   return (
     <StyledSection id="movies" ref={targetRef}>

@@ -4,10 +4,8 @@ import throttle from "../../helpers/throttle";
 import { useDispatch, useSelector } from "react-redux";
 import { updateCounter } from "../../store/scrollSlice";
 
-import {
-  StyledArticleContainer,
-  StyledArticleProgressBar,
-} from "../styled/article/ArticleContainer.styled";
+import { StyledArticleContainer } from "../styled/article/ArticleContainer.styled";
+import ProgressBar from "./ProgressBar";
 
 import Content from "./Content";
 
@@ -37,7 +35,7 @@ function ArticleContainer() {
       <div className="article_header">
         <div className="title">
           simulacra
-          {/* <StyledArticleProgressBar progressIdx={progressIdx} /> */}
+          <ProgressBar />
         </div>
       </div>
       <div className="article_body">

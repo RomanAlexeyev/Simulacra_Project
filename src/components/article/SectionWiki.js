@@ -1,4 +1,6 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { updateSection } from "../../store/scrollSlice";
 import { useParallax, useIntersectionObserver } from "../../custom_hooks";
 import { StyledSection } from "../styled/article/ArticleContainer.styled";
 
@@ -6,6 +8,9 @@ import escapingCriticism from "./images/escaping_criticism.png";
 import lightSpot from "./images/lightspot.png";
 
 function SectionWiki() {
+
+  const dispatch = useDispatch();
+  const setSection = (index) => dispatch(updateSection(index));
 
   const targetRef = useRef(null);
   const isVisible = useIntersectionObserver(
@@ -18,6 +23,12 @@ function SectionWiki() {
   );
 
   const parallaxIndex = useParallax(isVisible);
+
+  useEffect(() => {
+    if (isVisible) {
+      setSection(1);
+    }
+  }, [isVisible]);
 
   return (
     <StyledSection id="wiki_section" ref={targetRef}>

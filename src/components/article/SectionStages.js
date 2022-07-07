@@ -1,4 +1,6 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { updateSection } from "../../store/scrollSlice";
 import { useParallax, useIntersectionObserver } from "../../custom_hooks";
 import { StyledSection } from "../styled/article/ArticleContainer.styled";
 
@@ -9,6 +11,10 @@ import pokemonGo from "./images/pokemon_go.png";
 import lightSpot from "./images/lightspot.png";
 
 function SectionStages() {
+  
+  const dispatch = useDispatch();
+  const setSection = (index) => dispatch(updateSection(index));
+
   const targetRef = useRef(null);
   const isVisible = useIntersectionObserver(
     {
@@ -20,6 +26,12 @@ function SectionStages() {
   );
 
   const parallaxIndex = useParallax(isVisible);
+
+  useEffect(() => {
+    if (isVisible) {
+      setSection(5);
+    }
+  }, [isVisible]);
 
   return (
     <StyledSection id="stages" ref={targetRef}>

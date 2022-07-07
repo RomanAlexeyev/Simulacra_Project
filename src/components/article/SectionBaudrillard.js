@@ -1,4 +1,6 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { updateSection } from "../../store/scrollSlice";
 import { useParallax, useIntersectionObserver } from "../../custom_hooks";
 import { StyledSection } from "../styled/article/ArticleContainer.styled";
 
@@ -6,6 +8,9 @@ import jeanPortrait from "./images/jean_baudrillard.png";
 import lightSpot from "./images/lightspot.png";
 
 function SectionBaudrillard() {
+
+  const dispatch = useDispatch();
+  const setSection = (index) => dispatch(updateSection(index));
 
   const targetRef = useRef(null);
   const isVisible = useIntersectionObserver(
@@ -28,6 +33,12 @@ function SectionBaudrillard() {
   );
 
   const parallaxIndex = useParallax(isVisible);
+
+  useEffect(() => {
+    if (isVisible) {
+      setSection(2);
+    }
+  }, [isVisible]);
 
   return (
     <StyledSection id="baudrillard" ref={targetRef}>
