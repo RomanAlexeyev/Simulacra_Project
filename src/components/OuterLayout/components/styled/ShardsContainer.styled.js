@@ -9,6 +9,7 @@ export const StyledShardsContainer = styled.div`
   top: 50%;
   left: 50%;
   filter: ${({ theme }) => theme.brightnessModes.shardsBrightness};
+  transition: filter 1s ease 0.7s;
   animation: ${({ away, awayAndBack }) =>
     awayAndBack ? "shardsContainerAwayAndBack 2s ease 0.5s forwards" : away ? "shardsContainerAway 1s ease 0.5s forwards" : "shardsContainerBring 1s ease 0.5s forwards"};
 `;
@@ -16,6 +17,7 @@ export const StyledShardsContainer = styled.div`
 export const StyledShard = styled.div`
   position: absolute;
   filter: ${({ theme }) => theme.shadows.shardShadow};
+  transition: filter 1s ease 0.7s;
   transition: all 0.7s ease-in-out;
 
   &#shard_1 {

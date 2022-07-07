@@ -1,7 +1,7 @@
 import { StyledGridContainer } from "./styled/GridContainer.styled";
 
-function GridContainer() {
-  return <StyledGridContainer></StyledGridContainer>;
+function GridContainer({ zoom }) {
+  return <StyledGridContainer zoom={zoom}></StyledGridContainer>;
 }
 
 export default GridContainer;

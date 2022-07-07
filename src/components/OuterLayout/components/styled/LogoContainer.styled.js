@@ -1,42 +1,13 @@
 import styled from "styled-components";
 
-export const StyledLogo = styled.div`
+export const StyledLogoContainer = styled.div`
+  flex: 1;
+  position: relative;
+  margin-left: 10%;
   font-family: "Mexon";
   user-select: none;
   font-size: 16vh;
   word-break: break-all;
-  position: absolute;
-  width: 3.5em;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 25%;
-  z-index: 4;
-  transition: filter 3s ease;
-  /* transition: transform 1s ease 1.7s, filter 3s ease; */
-  animation: ${({ zoom }) =>
-    zoom === "out"
-      ? "logoZoomOut 3s ease 0.7s forwards"
-      : zoom === "in"
-      ? "logoZoomIn 1s ease forwards"
-      : "none"};
-
-  @media (max-width: 1200px) {
-    font-size: 10vw;
-    word-break: keep-all;
-    width: 9em;
-    text-align: center;
-    top: 25%;
-    left: 50%;
-  }
-
-  @media (max-width: 576px) {
-    font-size: 20vw;
-    word-break: break-all;
-    text-align: left;
-    width: 3.2em;
-    top: 30%;
-    left: 50%;
-  }
 
   p {
     background-image: radial-gradient(
@@ -52,6 +23,39 @@ export const StyledLogo = styled.div`
     color: transparent;
     animation: logoColorAnimation 5s infinite ease-in-out;
   }
+`;
+
+export const StyledLogo = styled.div`
+  position: absolute;
+  width: 3.5em;
+  transform: translate(0, -50%);
+  top: 50%;
+  z-index: 4;
+  transition: filter 3s ease;
+  animation: ${({ zoom }) =>
+    zoom === "out"
+      ? "logoZoomOut 2s ease 0.7s forwards"
+      : zoom === "in"
+      ? "logoZoomIn 1s ease forwards"
+      : "none"};
+
+  /* @media (max-width: 1200px) {
+    font-size: 10vw;
+    word-break: keep-all;
+    width: 9em;
+    text-align: center;
+    top: 25%;
+    left: 50%;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 20vw;
+    word-break: break-all;
+    text-align: left;
+    width: 3.2em;
+    top: 30%;
+    left: 50%;
+  } */
 
   &.backlight p {
     opacity: 0;
@@ -70,25 +74,30 @@ export const StyledLogo = styled.div`
     transition: all 1s ease;
   }
 
-  &#logo_container_1 {
-    mix-blend-mode: ${({ theme }) => theme.blendModes.logoBlendMode};
+  &#logo_1 {
+    filter: ${({ theme }) => theme.brightnessModes.logo1Brightness};
+    mix-blend-mode: overlay;
+    transition: filter 2s ease 0.7s;
   }
-  &#logo_container_2 {
-    mix-blend-mode: color;
+  &#logo_2 {
+    mix-blend-mode: overlay;
+    filter: ${({ theme }) => theme.brightnessModes.logo2Brightness};
+    transition: filter 2s ease 0.7s;
   }
-  &#logo_container_3 {
+  &#logo_3 {
     mix-blend-mode: soft-light;
   }
 
   &#logo_stroke {
     transform: ${({ zoom }) =>
-      zoom === "out" ? "translate(-60%, -50%)" : "translate(-50%, -50%)"};
+      zoom === "out" ? "translate(-10%, -50%)" : "translate(0, -50%)"};
 
     transition: transform 1s ease;
-    transition-delay: ${({zoom}) => zoom === "out" ? " 1.7s" : "0"};
+    transition-delay: ${({ zoom }) => (zoom === "out" ? " 1.7s" : "0")};
 
     p {
       -webkit-text-stroke: ${({ theme }) => theme.colors.textStroke};
+      transition: -webkit-text-stroke 2s ease 0.7s;
       background-image: none;
     }
 

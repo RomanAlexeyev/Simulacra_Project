@@ -8,11 +8,9 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { setTouchDevice } from "../../../store/scrollSlice";
 
-import BacklightsContainer from "./BacklightsContainer";
 import CursorContainer from "./CursorContainer";
 import GridContainer from "./GridContainer";
-import LogoContainer from "./LogoContainer";
-import MenuContainer from "./MenuContainer";
+import UIContainer from "./UIContainer";
 import ShardsContainer from "./ShardsContainer";
 
 function MasterContainer({ zoom }) {
@@ -34,7 +32,7 @@ function MasterContainer({ zoom }) {
     setUiClickListening(true);
     setMouseEnterListening(true);
     setMouseMoveListening(true);
-  }
+  };
 
   const stopUiListening = () => {
     setUiClickListening(false);
@@ -64,28 +62,24 @@ function MasterContainer({ zoom }) {
   return (
     <>
       <StyledMasterContainer>
-        <BacklightsContainer
+        <CursorContainer
+          mouseMoveListening={mouseMoveListening}
           zoom={zoom}
           logoIsActive={logoIsActive}
           currentStroke={currentStroke}
         />
-        <CursorContainer mouseMoveListening={mouseMoveListening} />
-        <GridContainer />
+        <GridContainer zoom={zoom} />
         <StyledVignette />
-        <LogoContainer
+        <UIContainer
           zoom={zoom}
           logoIsActive={logoIsActive}
           setLogoIsActive={setLogoIsActive}
           mouseEnterListening={mouseEnterListening}
-        />
-        <MenuContainer
-          zoom={zoom}
           currentStroke={currentStroke}
           setCurrentStroke={setCurrentStroke}
           lastStroke={lastStroke}
           setLastStroke={setLastStroke}
           uiClickListening={uiClickListening}
-          mouseEnterListening={mouseEnterListening}
           stopUiListening={stopUiListening}
         />
       </StyledMasterContainer>

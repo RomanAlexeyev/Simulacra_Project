@@ -25,9 +25,6 @@ function LaptopContainer({ zoom }) {
   const leaveAuthor = () => {
     updateMenu(null);
     updateZoom('in');
-    // setTimeout(() => {
-    //   updateMenu(null);
-    // }, 500);
   }
 
   const resetMenu = () => {

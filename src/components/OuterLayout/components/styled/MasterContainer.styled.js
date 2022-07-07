@@ -6,6 +6,7 @@ export const StyledMasterContainer = styled.div`
   position: absolute;
   overflow: hidden;
   background: ${({ theme }) => theme.colors.masterBackground};
+  transition: background 1s ease 0.7s;
 `;
 
 export const StyledVignette = styled.div`
@@ -19,4 +20,5 @@ export const StyledVignette = styled.div`
     rgba(0, 0, 0, 0.5) 100%
   );
   opacity: ${({ theme }) => theme.opacities.vignetteOpacity};
+  transition: opacity 1s ease 0.7s;
 `;

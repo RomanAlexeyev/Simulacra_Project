@@ -9,7 +9,6 @@ export const StyledGridContainer = styled.div`
     background-position: center;
     background-size: cover;
     filter: ${({ theme }) => theme.brightnessModes.gridBrightness};
+    transition: filter 1s ease 0.7s;
     z-index: 2;
-    /* transform: scale(1.5); */
-    transition: all 3s ease;
 `;

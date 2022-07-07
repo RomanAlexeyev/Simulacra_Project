@@ -1,6 +1,7 @@
 import { useWindowDimensions } from "../../../custom_hooks";
 import { useDispatch, useSelector } from "react-redux";
 import { setMenuItem } from "../../../store/menuSlice";
+import { setTheme } from "../../../store/themeSlice";
 
 import {
   StyledMenuContainer,
@@ -28,6 +29,7 @@ function MenuContainer({
   const { width } = useWindowDimensions();
   const dispatch = useDispatch();
   const updateMenu = (id) => dispatch(setMenuItem(id));
+  const updateTheme = (theme) => dispatch(setTheme(theme));
 
   const menuItem = useSelector(state => state.menu.menuItem);
 
@@ -35,6 +37,9 @@ function MenuContainer({
     if (!uiClickListening) return;
     stopUiListening();
     updateMenu(id);
+    if (id === "menu_author") {
+      updateTheme("dark");
+    }
   };
 
   const menuItemEnterHandler = (id) => {

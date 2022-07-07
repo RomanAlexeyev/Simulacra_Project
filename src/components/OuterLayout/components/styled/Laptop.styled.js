@@ -16,13 +16,12 @@ export const StyledLaptopContainer = styled.div`
   left: 50%;
   top: 50%;
   aspect-ratio: 1.45;
-  /* transition: all 2s ease 0.7s; */
   will-change: transform;
 
   @media (min-width: 1201px) {
     animation: ${({ zoom }) =>
       zoom === "out"
-        ? "laptopZoomOut50 3s ease 0.7s forwards"
+        ? "laptopZoomOut50 2s ease 0.7s forwards"
         : zoom === "in"
         ? "laptopZoomIn 1s ease forwards"
         : "none"};
@@ -92,7 +91,7 @@ export const StyledLaptopScreen = styled.div`
   will-change: transform;
   animation: ${({ zoom }) =>
     zoom === "out"
-      ? "laptopScreenZoomOut 3s ease 0.7s forwards"
+      ? "laptopScreenZoomOut 2s ease 0.7s forwards"
       : zoom === "in"
       ? "laptopScreenZoomIn 1s ease forwards"
       : "none"};

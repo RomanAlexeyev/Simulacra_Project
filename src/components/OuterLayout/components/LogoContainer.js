@@ -1,6 +1,6 @@
 import { useWindowDimensions } from "../../../custom_hooks";
 
-import { StyledLogo } from "./styled/Logo.styled";
+import { StyledLogoContainer, StyledLogo} from "./styled/LogoContainer.styled";
 
 function LogoContainer({
   zoom,
@@ -14,11 +14,7 @@ function LogoContainer({
     const logos = [];
     for (let i = 0; i < 3; i++) {
       logos.push(
-        <StyledLogo
-          id={`${`logo_container_${i + 1}`}`}
-          key={i}
-          zoom={zoom}
-        >
+        <StyledLogo id={`${`logo_${i + 1}`}`} key={i} zoom={zoom}>
           <p>simulacra</p>
         </StyledLogo>
       );
@@ -32,13 +28,9 @@ function LogoContainer({
   };
 
   return (
-    <>
+    <StyledLogoContainer>
       {renderColoredLogos()}
-      <StyledLogo
-        id="logo_stroke"
-        zoom={zoom}
-        logoIsActive={logoIsActive}
-      >
+      <StyledLogo id="logo_stroke" zoom={zoom} logoIsActive={logoIsActive}>
         <p>simulacra</p>
         <svg
           className="simulacra_logo_stroke"
@@ -47,7 +39,7 @@ function LogoContainer({
           onMouseEnter={() => mouseEnterHandler(true)}
           onMouseLeave={() => mouseEnterHandler(false)}
         >
-          {(width > 576 && width < 1200) ? (
+          {width > 576 && width < 1200 ? (
             <text x="0.5%" y="77%" fill="transparent" textAnchor="start">
               simulacra
             </text>
@@ -66,7 +58,7 @@ function LogoContainer({
           )}
         </svg>
       </StyledLogo>
-    </>
+    </StyledLogoContainer>
   );
 }
 

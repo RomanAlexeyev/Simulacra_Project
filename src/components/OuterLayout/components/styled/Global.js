@@ -18,16 +18,6 @@ img {
     display: block;
 }
 
-.cursor-container {
-    position: absolute;
-    z-index: 1;
-    width: 100vw;
-    height: 100vh;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-}
-
 
 @keyframes laptopZoomOut50 {
     to {
@@ -59,31 +49,6 @@ img {
 }
 
 @keyframes laptopZoomIn {
-    /* from {
-        width: 50%;
-        min-width: 0;
-        min-height: 0;
-        transform: translate(0, -75%);
-        opacity: 1;
-    }
-    10% {
-        opacity: 0;
-
-    }
-    20% {
-        width: 176%;
-        min-width: 176%;
-        min-height: 249%;
-        transform: translate(-50%, -50%);
-        opacity: 0;
-    }
-    to {
-        width: 176%;
-        min-width: 176%;
-        min-height: 249%;
-        transform: translate(-50%, -50%);
-        opacity: 1;
-    } */
     from {
         width: 50%;
         min-width: 0;
@@ -150,7 +115,7 @@ img {
         font-size: 1vw;
     }
     to {
-        font-size: 7vh;
+        font-size: 6.5vh;
     }
 }
 
@@ -353,12 +318,6 @@ img {
     }
 }
 
-@keyframes slideUpBottom {
-    to {
-        bottom: 0;
-    }
-}
-
 @keyframes slideFadeIn {
     to {
         opacity: 1;
@@ -413,23 +372,7 @@ img {
     }
 }
 
-@keyframes popUp {
-    from {
-        transform: translate(-50%, -50%) scale(0);
-    }
-    80% {
-        transform: translate(-50%, -50%) scale(1.2);
-    }
-    90% {
-        transform: translate(-50%, -50%) scale(0.9);
-    }
-    95% {
-        transform: translate(-50%, -50%) scale(1.1);
-    }
-    to {
-        transform: translate(-50%, -50%) scale(1);
-    }
-}
+
 
 @keyframes leaving {
     to {
@@ -438,16 +381,7 @@ img {
     }
 }
 
-@keyframes fadeInSlideUp {
-    from {
-        opacity: 0;
-        transform: translateY(30%);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+
 
 @keyframes fadeSlideUpAndDissapear {
     from {
@@ -467,45 +401,6 @@ img {
         transform: translateY(30%);
     }
 }
-
-@keyframes higlighted {
-    from {
-        color: white;
-    }
-    50% {
-        color: #DB04D0;
-    }
-    to {
-        color: white;
-    }
-}
-
-@keyframes growUp {
-    to {
-        transform: scaleY(1);
-    }
-}
-
-@keyframes growDown {
-    to {
-        transform: scaleY(0);
-    }
-}
-
-@keyframes slideUpAndDown {
-    from {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5%);
-    }
-    to {
-        transform: translateY(0);
-    }
-}
-
-
-
 `;
 
 export default GlobalStyles;
