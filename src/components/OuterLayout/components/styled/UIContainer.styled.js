@@ -5,4 +5,8 @@ export const StyledUIContainer = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
+
+  @media (max-aspect-ratio: 7/5) {
+    flex-direction: column;
+  }
 `;

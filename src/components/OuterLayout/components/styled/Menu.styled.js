@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const StyledMenuContainer = styled.div`
-flex: 1;
+  flex: 1;
   font-family: "Mexon";
   white-space: nowrap;
   user-select: none;
-  text-align: right;
+  text-align: center;
   position: relative;
   margin-right: 10%;
   z-index: 4;
@@ -14,24 +14,26 @@ flex: 1;
   text-shadow: ${({ theme }) => theme.colors.menuTextColor};
   transition: all 2s ease 0.7s;
 
-  /* @media (max-width: 1200px) {
-    text-align: center;
-    top: 65%;
-    left: 50%;
+  @media (max-aspect-ratio: 7/5) {
+    margin-right: 0;
+    margin-bottom: 10%;
   }
 
-  @media (max-width: 576px) {
-    font-size: 8vw;
-    top: 75%;
-  } */
+  @media (max-aspect-ratio: 4/5) {
+    margin-bottom: 0;
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const StyledMenuItem = styled.div`
   font-size: 6.5vh;
   margin-top: 7.5vh;
   position: relative;
-  overflow: visible;
   float: right;
+  overflow: visible;
   transition: opacity 0.5s ease-out;
   opacity: ${({ visible }) => (visible ? 1 : 0)};
   animation: ${({ zoom }) =>
@@ -41,9 +43,14 @@ export const StyledMenuItem = styled.div`
       ? "menuItemZoomIn 1s ease forwards"
       : "none"};
 
-  /* @media (max-width: 1200px) {
-    margin-top: 4vh;
-  } */
+  @media (max-aspect-ratio: 7/5) {
+    float: none;
+  }
+
+  @media (max-aspect-ratio: 4/5) {
+    font-size: 7vw;
+    margin-top: 3.5vh;
+  }
 
   &.backlight p {
     opacity: 0;
@@ -61,40 +68,26 @@ export const StyledMenuItem = styled.div`
     z-index: 1;
     transition: all 1s ease;
 
-    /* @media (max-width: 1200px) {
-      width: 150%;
-    } */
-
     &#menu_author_backlight {
       width: 120%;
-      left: 65%;
-
-      /* @media (max-width: 1200px) {
-        width: 100%;
-        left: 50%;
-      } */
     }
   }
 
   &#menu_about {
     animation: ${({ zoom }) =>
-    zoom === "out"
-      ? "menuItemZoomOut 2s ease 0.7s forwards"
-      : zoom === "in"
-      ? "menuItemZoomInAbout 1s ease forwards"
-      : "none"};
+      zoom === "out"
+        ? "menuItemZoomOut 2s ease 0.7s forwards"
+        : zoom === "in"
+        ? "menuItemZoomInAbout 1s ease forwards"
+        : "none"};
     font-size: 9vh;
     margin-top: 0;
     margin-bottom: 12vh;
 
-    /* @media (max-width: 1200px) {
-      margin-bottom: 9vh;
-    }
-
-    @media (max-width: 576px) {
+    @media (max-aspect-ratio: 4/5) {
       font-size: 10vw;
       margin-bottom: 7vh;
-    } */
+    }
   }
 `;
 

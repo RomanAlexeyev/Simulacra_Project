@@ -2,7 +2,7 @@ import styled from "styled-components";
 import maskImage from "../../article/images/hero_image_mask.png";
 
 export const StyledArticleProgressBar = styled.div`
-  width: ${({ prog }) => `${prog*15 + 10}%`};
+  width: ${({ prog }) => `${prog * 15 + 10}%`};
   transition: width 0.5s ease-out;
   height: 2px;
   position: absolute;
@@ -31,8 +31,12 @@ export const StyledArticleContainer = styled.div`
   border-radius: 10px 10px 0 0;
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 4px 50px rgba(0, 0, 0, 0.8);
-
   animation: slideUp 2s ease-out 0.3s forwards;
+
+  @media (max-width: 576px) {
+    height: 95vh;
+    width: 90vw;
+  }
 
   .article_header {
     width: 100%;
@@ -79,6 +83,10 @@ export const StyledArticleContainer = styled.div`
       font-size: 6vw;
       line-height: 0.9em;
       letter-spacing: -0.08em;
+
+      @media (max-width: 576px) {
+        font-size: 12vw;
+      }
     }
 
     h3 {
@@ -121,8 +129,22 @@ export const StyledSection = styled.section`
   grid-gap: 7%;
   margin-bottom: 10%;
 
+  &#hero {
+    @media (max-width: 576px) {
+      margin-bottom: 25%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
+
   &#stages {
     grid-template-rows: repeat(2, 1fr);
+    @media (max-width: 576px) {
+      margin-bottom: 50%;
+    }
   }
 
   &.short_bottom {
@@ -144,24 +166,39 @@ export const StyledSection = styled.section`
     text-align: right;
 
     h1 {
-      margin: 10%;
+      margin: 20% 10% 0 10%;
+
+      @media (max-width: 576px) {
+        margin: 5% 10% 0 10%;
+      }
+    }
+  }
+
+  .wiki_article {
+    margin: 5% 10%;
+    padding: 5% 10%;
+    font-size: 18px;
+    border: 1px dashed;
+    border-color: ${({ theme }) => theme.colors.textAndEls};
+    border-radius: 10px;
+    position: relative;
+    text-align: right;
+
+    @media (max-width: 576px) {
+      font-size: 15px;
+      top: 35%;
+      padding: 2% 5%;
     }
 
-    .wiki_article {
-      margin: 20% 10% 0 10%;
-      padding: 5% 10%;
-      font-size: 18px;
-      border: 1px dashed;
-      border-color: ${({ theme }) => theme.colors.textAndEls};
-      border-radius: 10px;
-      position: relative;
+    #wiki-logo {
+      height: 40%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      left: -2%;
+      top: 30%;
 
-      #wiki-logo {
-        height: 40%;
-        position: absolute;
-        transform: translate(-50%, -50%);
-        left: -2%;
-        top: 30%;
+      @media (max-width: 576px) {
+        height: 35%;
       }
     }
   }
@@ -174,16 +211,29 @@ export const StyledSection = styled.section`
       left: -20%;
       width: 130%;
       aspect-ratio: 4/4.6;
+
+      @media (max-width: 576px) {
+        width: 90%;
+        left: 0;
+        top: -80%;
+      }
     }
 
     #lightspot {
       position: absolute;
       max-width: 150%;
-      max-height: 150%;
+      aspect-ratio: 1/1;
+      /* max-height: 150%; */
       transform: translate(-50%, 0);
       left: 30%;
       top: 0;
       mix-blend-mode: screen;
+
+      @media (max-width: 576px) {
+        left: 40%;
+        top: -90%;
+        width: 120%;
+      }
     }
 
     #animation-container {
@@ -196,6 +246,12 @@ export const StyledSection = styled.section`
       mask-size: cover;
       opacity: 0;
       animation: fadeIn 1s linear 2s forwards;
+
+      @media (max-width: 576px) {
+        width: 90%;
+        left: 0;
+        top: -80%;
+      }
 
       #circle-text {
         width: auto;
@@ -258,10 +314,17 @@ export const StyledSection = styled.section`
 
     &.baudrillard {
       justify-content: flex-start;
+      @media (max-width: 576px) {
+        margin-left: 5%;
+        margin-top: 20%;
+      }
     }
 
     &.simulacra_stages {
       grid-column: span 2;
+      @media (max-width: 576px) {
+        margin-top: 20%;
+      }
 
       .image_container_stages {
         width: 500px;
@@ -305,6 +368,12 @@ export const StyledSection = styled.section`
       margin: 5% 0;
       position: relative;
 
+      @media (max-width: 576px) {
+        h1 {
+          font-size: 18vw;
+        }
+      }
+
       #question_mark {
         position: absolute;
         left: 70%;
@@ -315,6 +384,10 @@ export const StyledSection = styled.section`
         opacity: 0;
         transition: all 1s ease-in-out;
 
+        @media (max-width: 576px) {
+          font-size: 72vw;
+        }
+
         &.is_visible {
           transform: rotate(0deg);
           opacity: 1;
@@ -324,6 +397,9 @@ export const StyledSection = styled.section`
 
     &.wiki {
       flex-direction: column;
+      @media (max-width: 576px) {
+        order: 2;
+      }
     }
     .image_container {
       position: relative;
@@ -345,6 +421,11 @@ export const StyledSection = styled.section`
         height: 150%;
         left: 50%;
         top: 60%;
+
+        @media (max-width: 576px) {
+          height: 100%;
+          top: 30%;
+        }
       }
 
       #escaping_criticism {
@@ -353,8 +434,12 @@ export const StyledSection = styled.section`
       }
 
       #baudrillard {
-        max-height: 100%;
-        width: auto;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
       }
 
       #face_human {
@@ -412,10 +497,17 @@ export const StyledSection = styled.section`
           transform: translateX(0);
         }
       }
+
+      @media (max-width: 576px) {
+        order: 1;
+      }
     }
 
     &.simulacra_stages {
       margin-top: 10%;
+      @media (max-width: 576px) {
+        margin-top: -80%;
+      }
     }
 
     .movies_names_container {
@@ -481,6 +573,10 @@ export const StyledSection = styled.section`
     }
 
     .movies_list {
+      @media (max-width: 576px) {
+        margin-left: 5%;
+      }
+
       li {
         transform: translateX(30%);
         opacity: 0;
@@ -622,8 +718,16 @@ export const StyledSection = styled.section`
     white-space: nowrap;
     transition: transform 1s ease-out;
 
+    @media (max-width: 576px) {
+      margin-top: -20%;
+      margin-bottom: 30%;
+    }
+
     h1 {
       font-size: 5vw;
+      @media (max-width: 576px) {
+        font-size: 10vw;
+      }
     }
   }
 
@@ -632,6 +736,10 @@ export const StyledSection = styled.section`
     width: 3300px;
     height: 150px;
     position: relative;
+
+    @media (max-width: 576px) {
+      height: 100px;
+      }
 
     #movies_slider {
       height: 100%;

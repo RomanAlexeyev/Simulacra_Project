@@ -10,7 +10,6 @@ import lightSpot from "./images/lightspot.png";
 import wikiLogo from "./images/wikipedia_logo.png";
 
 function SectionHero() {
-
   const renderScrollIcon = () => {
     const elements = [];
     elements.push(
@@ -61,15 +60,6 @@ function SectionHero() {
           <br />
           crum?
         </h1>
-        <div className="wiki_article">
-          <p>
-            A <b>simulacrum</b> (plural: <b>simulacra</b> or <b>simulacrums</b>,
-            from Latin <i>simulacrum</i>, which means{" "}
-            <i>"likeness, semblance"</i>) is a representation or imitation of a
-            person or thing.
-          </p>
-          <img src={wikiLogo} id="wiki-logo" alt="Wikipedia logo" />
-        </div>
       </div>
       <div className="hero_image">
         <img
@@ -88,6 +78,14 @@ function SectionHero() {
           />
         </div>
         {renderScrollIcon()}
+      </div>
+      <div className="wiki_article">
+        <p>
+          A <b>simulacrum</b> (plural: <b>simulacra</b> or <b>simulacrums</b>,
+          from Latin <i>simulacrum</i>, which means <i>"likeness, semblance"</i>
+          ) is a representation or imitation of a person or thing.
+        </p>
+        <img src={wikiLogo} id="wiki-logo" alt="Wikipedia logo" />
       </div>
     </StyledSection>
   );

@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 
 const getWindowDimensions = () => {
   const { innerWidth: width, innerHeight: height } = window;
+  let aspectRatio = width/height;
   return {
     width,
-    height
+    height,
+    aspectRatio
   };
 };
 

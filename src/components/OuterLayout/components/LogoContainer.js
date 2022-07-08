@@ -8,7 +8,7 @@ function LogoContainer({
   setLogoIsActive,
   mouseEnterListening,
 }) {
-  const { width } = useWindowDimensions();
+  const { aspectRatio } = useWindowDimensions();
 
   const renderColoredLogos = () => {
     const logos = [];
@@ -39,7 +39,7 @@ function LogoContainer({
           onMouseEnter={() => mouseEnterHandler(true)}
           onMouseLeave={() => mouseEnterHandler(false)}
         >
-          {width > 576 && width < 1200 ? (
+          {aspectRatio > 0.6 && aspectRatio < 1.4 ? (
             <text x="0.5%" y="77%" fill="transparent" textAnchor="start">
               simulacra
             </text>

@@ -10,6 +10,10 @@ export const StyledCursorContainer = styled.div`
   top: 50%;
   left: 50%;
   z-index: 1;
+
+  @media (max-aspect-ratio: 7/5) {
+    flex-direction: column;
+  }
 `;
 
 export const StyledCustomCursor = styled.div`

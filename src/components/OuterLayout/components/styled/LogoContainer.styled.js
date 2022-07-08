@@ -2,12 +2,17 @@ import styled from "styled-components";
 
 export const StyledLogoContainer = styled.div`
   flex: 1;
+  width: 100%;
   position: relative;
   margin-left: 10%;
   font-family: "Mexon";
   user-select: none;
   font-size: 16vh;
   word-break: break-all;
+
+  @media (max-aspect-ratio: 7/5) {
+    margin: 0;
+  }
 
   p {
     background-image: radial-gradient(
@@ -39,23 +44,22 @@ export const StyledLogo = styled.div`
       ? "logoZoomIn 1s ease forwards"
       : "none"};
 
-  /* @media (max-width: 1200px) {
+  @media (max-aspect-ratio: 7/5) {
     font-size: 10vw;
     word-break: keep-all;
     width: 9em;
     text-align: center;
-    top: 25%;
+    transform: translate(-50%, -50%);
     left: 50%;
   }
 
-  @media (max-width: 576px) {
+  @media (max-aspect-ratio: 4/5) {
     font-size: 20vw;
     word-break: break-all;
     text-align: left;
     width: 3.2em;
-    top: 30%;
-    left: 50%;
-  } */
+    margin-top: 10%;
+  }
 
   &.backlight p {
     opacity: 0;
@@ -91,9 +95,13 @@ export const StyledLogo = styled.div`
   &#logo_stroke {
     transform: ${({ zoom }) =>
       zoom === "out" ? "translate(-10%, -50%)" : "translate(0, -50%)"};
-
     transition: transform 1s ease;
     transition-delay: ${({ zoom }) => (zoom === "out" ? " 1.7s" : "0")};
+
+    @media (max-aspect-ratio: 7/5) {
+      transform: ${({ zoom }) =>
+      zoom === "out" ? "translate(-60%, -50%)" : "translate(-50%, -50%)"};
+    }
 
     p {
       -webkit-text-stroke: ${({ theme }) => theme.colors.textStroke};

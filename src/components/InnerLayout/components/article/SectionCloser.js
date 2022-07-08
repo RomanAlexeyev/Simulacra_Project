@@ -18,7 +18,7 @@ function SectionCloser() {
   const isVisible = useIntersectionObserver({
     root: null,
     rootMargin: '-40%',
-    threshold: 1
+    threshold: 0.5
   }, targetRef);
 
   useEffect(() => {

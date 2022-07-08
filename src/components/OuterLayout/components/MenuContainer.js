@@ -26,7 +26,7 @@ function MenuContainer({
   stopUiListening,
 }) {
 
-  const { width } = useWindowDimensions();
+  const { aspectRatio } = useWindowDimensions();
   const dispatch = useDispatch();
   const updateMenu = (id) => dispatch(setMenuItem(id));
   const updateTheme = (theme) => dispatch(setTheme(theme));
@@ -73,9 +73,9 @@ function MenuContainer({
             >
               <text
                 id={menuStrokeId}
-                x={`${width > 1200 ? 100 : 50}%`}
+                x={`${aspectRatio > 1.4 ? 100 : 50}%`}
                 y="78%"
-                textAnchor={width > 1200 ? "end" : "middle"}
+                textAnchor={aspectRatio > 1.4 ? "end" : "middle"}
                 fill="transparent"
 
                 onMouseEnter={() => menuItemEnterHandler(menuItemId)}

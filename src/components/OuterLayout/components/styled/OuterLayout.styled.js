@@ -30,8 +30,6 @@ export const StyledAuthorContainer = styled.div`
     transform: translate(-50%, -50%);
     left: 45%;
     top: 50%;
-    /* top: ${({ menuItem }) =>
-      menuItem === "menu_author" ? "50%" : "70%"}; */
     opacity: ${({ menuItem }) => (menuItem === "menu_author" ? 1 : 0)};
     transition: opacity 2s ease-in-out 2s;
   }
