@@ -45,6 +45,10 @@ export const StyledThemeChangerContainer = styled.div`
       @media (max-width: 576px) {
         font-size: 35vw;
       }
+
+      @media (max-width: 992px) {
+        font-size: 25vw;
+      }
     }
     &#word_2 {
       font-size: 12vw;
@@ -53,6 +57,10 @@ export const StyledThemeChangerContainer = styled.div`
       letter-spacing: -1rem;
       @media (max-width: 576px) {
         font-size: 30vw;
+      }
+
+      @media (max-width: 992px) {
+        font-size: 22vw;
       }
     }
     &#word_3 {
@@ -63,6 +71,10 @@ export const StyledThemeChangerContainer = styled.div`
       @media (max-width: 576px) {
         font-size: 15vw;
       }
+
+      @media (max-width: 992px) {
+        font-size: 10vw;
+      }
     }
     &#word_4 {
       font-size: 2vw;
@@ -71,6 +83,9 @@ export const StyledThemeChangerContainer = styled.div`
       letter-spacing: -0.2rem;
       @media (max-width: 576px) {
         font-size: 5vw;
+      }
+      @media (max-width: 992px) {
+        font-size: 4vw;
       }
     }
     &#word_5 {
@@ -81,6 +96,9 @@ export const StyledThemeChangerContainer = styled.div`
       @media (max-width: 576px) {
         font-size: 12vw;
       }
+      @media (max-width: 992px) {
+        font-size: 10vw;
+      }
     }
     &#word_6 {
       font-size: 4vw;
@@ -88,6 +106,9 @@ export const StyledThemeChangerContainer = styled.div`
       top: 25%;
       @media (max-width: 576px) {
         font-size: 10vw;
+      }
+      @media (max-width: 992px) {
+        font-size: 8vw;
       }
     }
     &#word_7 {
@@ -97,6 +118,9 @@ export const StyledThemeChangerContainer = styled.div`
       @media (max-width: 576px) {
         font-size: 30vw;
       }
+      @media (max-width: 992px) {
+        font-size: 20vw;
+      }
     }
     &#word_8 {
       font-size: 5vw;
@@ -104,6 +128,9 @@ export const StyledThemeChangerContainer = styled.div`
       top: 85%;
       @media (max-width: 576px) {
         font-size: 15vw;
+      }
+      @media (max-width: 992px) {
+        font-size: 12vw;
       }
     }
   }

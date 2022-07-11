@@ -39,7 +39,7 @@ function LogoContainer({
           onMouseEnter={() => mouseEnterHandler(true)}
           onMouseLeave={() => mouseEnterHandler(false)}
         >
-          {aspectRatio > 0.6 && aspectRatio < 1.4 ? (
+          {aspectRatio > 0.8 && aspectRatio < 1.4 ? (
             <text x="0.5%" y="77%" fill="transparent" textAnchor="start">
               simulacra
             </text>

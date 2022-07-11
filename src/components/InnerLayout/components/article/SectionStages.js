@@ -16,6 +16,7 @@ function SectionStages() {
   const setSection = (index) => dispatch(updateSection(index));
 
   const targetRef = useRef(null);
+  const imagesRef = useRef(null);
   const isVisible = useIntersectionObserver(
     {
       root: null,
@@ -24,8 +25,16 @@ function SectionStages() {
     },
     targetRef
   );
+  const imagesVisible = useIntersectionObserver(
+    {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0,
+    },
+    imagesRef
+  );
 
-  const parallaxIndex = useParallax(isVisible);
+  const parallaxIndex = useParallax(imagesVisible);
 
   useEffect(() => {
     if (isVisible) {
@@ -83,14 +92,14 @@ function SectionStages() {
           </div>
         </div>
       </div>
-      <div className="image simulacra_stages">
+      <div className="image simulacra_stages" ref={imagesRef}>
         <div className="image_container_stages">
           <img
             className="simulacra_stage_image"
             src={pikaPhoto}
             id="pika_photo"
             alt="Alpine pika"
-            style={{ transform: `translate(-50%, ${-100 + (parallaxIndex*25)}%)` }}
+            style={{ transform: `translate(-50%, -50%)` }}
           />
           <img
             className="simulacra_stage_image"

@@ -38,6 +38,18 @@ export const StyledArticleContainer = styled.div`
     width: 90vw;
   }
 
+  @media (max-width: 1400px) {
+    width: 70vw;
+  }
+
+  @media (max-width: 1200px) {
+    width: 80vw;
+  }
+
+  @media (max-width: 992px) {
+    width: 90vw;
+  }
+
   .article_header {
     width: 100%;
     min-height: 100px;
@@ -78,11 +90,23 @@ export const StyledArticleContainer = styled.div`
       rgba(0, 0, 0, 0) 100%
     );
 
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+
     h1 {
       font-family: "HelveticaBold";
       font-size: 6vw;
       line-height: 0.9em;
       letter-spacing: -0.08em;
+
+      @media (max-width: 1200px) {
+        font-size: 8vw;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 9vw;
+      }
 
       @media (max-width: 576px) {
         font-size: 12vw;
@@ -94,6 +118,10 @@ export const StyledArticleContainer = styled.div`
       font-size: 35px;
       line-height: 0.9em;
       letter-spacing: -0.05em;
+
+      @media (max-width: 768px) {
+        font-size: 30px;
+      }
     }
 
     h5 {
@@ -129,19 +157,23 @@ export const StyledSection = styled.section`
   grid-gap: 7%;
   margin-bottom: 10%;
 
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
+
   &#hero {
     @media (max-width: 576px) {
       margin-bottom: 25%;
     }
   }
 
-  @media (max-width: 576px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 1fr);
-  }
-
   &#stages {
     grid-template-rows: repeat(2, 1fr);
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+    }
     @media (max-width: 576px) {
       margin-bottom: 50%;
     }
@@ -184,10 +216,18 @@ export const StyledSection = styled.section`
     position: relative;
     text-align: right;
 
-    @media (max-width: 576px) {
+    @media (max-width: 1200px) {
       font-size: 15px;
-      top: 35%;
+    }
+
+    @media (max-width: 768px) {
+      grid-column: span 2;
       padding: 2% 5%;
+    }
+
+    @media (max-width: 576px) {
+      top: 35%;
+      grid-column: span 1;
     }
 
     #wiki-logo {
@@ -197,7 +237,7 @@ export const StyledSection = styled.section`
       left: -2%;
       top: 30%;
 
-      @media (max-width: 576px) {
+      @media (max-width: 1200px) {
         height: 35%;
       }
     }
@@ -223,7 +263,6 @@ export const StyledSection = styled.section`
       position: absolute;
       max-width: 150%;
       aspect-ratio: 1/1;
-      /* max-height: 150%; */
       transform: translate(-50%, 0);
       left: 30%;
       top: 0;
@@ -268,6 +307,11 @@ export const StyledSection = styled.section`
       transform: translateY(30%);
       filter: ${({ theme }) => theme.brightnessModes.iconBrightness};
       animation: fadeSlideUpAndDissapear 3.5s ease 3s;
+
+      @media (max-width: 576px) {
+        left: 50%;
+        top: 150%;
+      }
 
       #scroll_icon {
         display: flex;
@@ -322,8 +366,8 @@ export const StyledSection = styled.section`
 
     &.simulacra_stages {
       grid-column: span 2;
-      @media (max-width: 576px) {
-        margin-top: 20%;
+      @media (max-width: 768px) {
+        margin-top: 40%;
       }
 
       .image_container_stages {
@@ -340,16 +384,25 @@ export const StyledSection = styled.section`
             width: 50%;
             top: -40%;
             left: 40%;
+            @media (max-width: 768px) {
+              left: 50%;
+            }
           }
           &#pika_drawing {
             width: 25%;
             top: -20%;
             left: 25%;
+            @media (max-width: 768px) {
+              left: 35%;
+            }
           }
           &#pikachu {
             width: 60%;
             top: -15%;
             left: 45%;
+            @media (max-width: 768px) {
+              left: 55%;
+            }
           }
           &#pokemon_go {
             width: 50%;
@@ -359,6 +412,9 @@ export const StyledSection = styled.section`
           &#lightspot {
             top: -10%;
             left: 40%;
+            @media (max-width: 768px) {
+              left: 50%;
+            }
           }
         }
       }
@@ -384,6 +440,10 @@ export const StyledSection = styled.section`
         opacity: 0;
         transition: all 1s ease-in-out;
 
+        @media (max-width: 1200px) {
+          font-size: 32vw;
+        }
+
         @media (max-width: 576px) {
           font-size: 72vw;
         }
@@ -407,6 +467,10 @@ export const StyledSection = styled.section`
 
       &.wiki {
         height: 200px;
+
+        @media (max-width: 768px) {
+          height: 150px;
+        }
       }
 
       &.baudrillard {
@@ -422,8 +486,11 @@ export const StyledSection = styled.section`
         left: 50%;
         top: 60%;
 
+        @media (max-width: 1200px) {
+          height: 120%;
+        }
         @media (max-width: 576px) {
-          height: 100%;
+          height: 200%;
           top: 30%;
         }
       }
@@ -497,16 +564,15 @@ export const StyledSection = styled.section`
           transform: translateX(0);
         }
       }
-
-      @media (max-width: 576px) {
-        order: 1;
-      }
     }
 
     &.simulacra_stages {
       margin-top: 10%;
+      @media (max-width: 768px) {
+        margin-top: 20%;
+      }
       @media (max-width: 576px) {
-        margin-top: -80%;
+        margin-top: 30%;
       }
     }
 
@@ -617,6 +683,14 @@ export const StyledSection = styled.section`
       position: relative;
       transition: all 0.7s ease-in-out;
 
+      @media (max-width: 768px) {
+        margin-left: 360px;
+      }
+
+      @media (max-width: 576px) {
+        margin-left: 250px;
+      }
+
       &.is_visible {
         h5,
         h3 {
@@ -650,6 +724,12 @@ export const StyledSection = styled.section`
         opacity: 0;
         transform: translateX(-20%);
         transition: all 1s ease-in-out;
+
+        @media (max-width: 768px) {
+          font-size: 300px;
+          left: -155px;
+          top: 155px;
+        }
       }
     }
 
@@ -725,6 +805,9 @@ export const StyledSection = styled.section`
 
     h1 {
       font-size: 5vw;
+      @media (max-width: 768px) {
+        font-size: 8vw;
+      }
       @media (max-width: 576px) {
         font-size: 10vw;
       }
@@ -737,9 +820,12 @@ export const StyledSection = styled.section`
     height: 150px;
     position: relative;
 
+    @media (max-width: 768px) {
+      height: 130px;
+    }
     @media (max-width: 576px) {
       height: 100px;
-      }
+    }
 
     #movies_slider {
       height: 100%;
@@ -761,9 +847,5 @@ export const StyledSection = styled.section`
       mix-blend-mode: screen;
       opacity: 0.6;
     }
-  }
-
-  .slider {
-    width: 100%;
   }
 `;
