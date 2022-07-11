@@ -1,3 +1,6 @@
+import { useDispatch } from "react-redux";
+import { setMenuItem, setZoom } from "../../../store/menuSlice";
+
 import { StyledAuthorContainer } from "./styled/OuterLayout.styled";
 
 import mainPhoto from "../../../assets/graphic_elements/roman_photo.png";
@@ -7,7 +10,16 @@ import telegramSkypeIcon from "../../../assets/graphic_elements/contact_icons/te
 import gmailIcon from "../../../assets/graphic_elements/contact_icons/gmail_icon.svg";
 import githubIcon from "../../../assets/graphic_elements/contact_icons/github_icon.svg";
 
-function AuthorContainer({zoom, menuItem}) {
+function AuthorContainer({ zoom, menuItem }) {
+  const dispatch = useDispatch();
+  const updateZoom = (zoom) => dispatch(setZoom(zoom));
+  const updateMenu = (item) => dispatch(setMenuItem(item));
+
+  const leaveAuthor = () => {
+    updateMenu(null);
+    updateZoom('in');
+  }
+  
   return (
     <StyledAuthorContainer menuItem={menuItem} zoom={zoom}>
       <div className="colored_bg">
@@ -36,6 +48,11 @@ function AuthorContainer({zoom, menuItem}) {
             <img src={githubIcon} className="contact_icon" alt="" />
             romanalexeyev
           </div>
+        </div>
+      </div>
+      <div className="return_button_container">
+        <div className="return_button" onClick={leaveAuthor}>
+          return
         </div>
       </div>
     </StyledAuthorContainer>

@@ -5,11 +5,12 @@ import ThemeChangerContainer from "./components/article/ThemeChangerContainer";
 import SourceContainer from "./components/SourceContainer";
 
 function InnerLayout() {
-    const menuItem = useSelector((state) => state.menu.menuItem);
+  const menuItem = useSelector((state) => state.menu.menuItem);
+  const themeChanging = useSelector((state) => state.colorTheme.isChanging);
   return (
     <>
       {menuItem === "menu_about" && <ArticleContainer />}
-      {(menuItem === "menu_about" || menuItem === "betweenThemes") && (
+      {(themeChanging || menuItem === "betweenThemes") && (
         <ThemeChangerContainer />
       )}
       {menuItem === "menu_source" && <SourceContainer />}

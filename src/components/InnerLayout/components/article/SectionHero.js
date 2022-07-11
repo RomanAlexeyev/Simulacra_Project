@@ -9,7 +9,7 @@ import lightSpot from "./images/lightspot.png";
 
 import wikiLogo from "./images/wikipedia_logo.png";
 
-function SectionHero() {
+function SectionHero({isTouchDevice}) {
   const renderScrollIcon = () => {
     const elements = [];
     elements.push(
@@ -77,7 +77,7 @@ function SectionHero() {
             alt=""
           />
         </div>
-        {renderScrollIcon()}
+        {!isTouchDevice && renderScrollIcon()}
       </div>
       <div className="wiki_article">
         <p>

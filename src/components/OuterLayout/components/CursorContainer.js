@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import throttle from "../../../helpers/throttle";
 import { useWindowDimensions } from "../../../custom_hooks";
 
@@ -53,6 +54,7 @@ function CursorContainer({
   logoIsActive,
   currentStroke,
 }) {
+  const isTouchDevice = useSelector((state) => state.scroll.isTouchDevice);
   const [mouseCoords, setMouseCoords] = useState({ x: "50%", y: "50%" });
   const { width } = useWindowDimensions();
 
@@ -69,6 +71,9 @@ function CursorContainer({
     if (mouseMoveListening) {
       document.addEventListener("mousemove", mouseMoveHadler);
     } else {
+      if (isTouchDevice) {
+        setMouseCoords({ x: "50%", y: "50%" });
+      }
       document.removeEventListener("mousemove", mouseMoveHadler);
     }
     return () => document.removeEventListener("mousemove", mouseMoveHadler);

@@ -5,6 +5,7 @@ const scrollSlice = createSlice({
   initialState: {
     counterY: 0,
     counterX: 0,
+    scrollTop: 0,
     sectionProgress: 0,
     counterDirection: "vertical",
     isTouchDevice: false,
@@ -24,12 +25,16 @@ const scrollSlice = createSlice({
         }
       }
     },
+    updateScroll(state, action) {
+      state.scrollTop = action.payload;
+    },
     changeCounter(state, action) {
       state.counterDirection = action.payload;
     },
     resetCounter(state) {
       state.counterY = 0;
       state.counterX = 0;
+      state.scrollTop = 0;
       state.counterDirection = "vertical";
       state.sectionProgress = 0;
     },
@@ -42,7 +47,7 @@ const scrollSlice = createSlice({
   },
 });
 
-export const { updateCounter, changeCounter, resetCounter, setTouchDevice, updateSection } =
+export const { updateCounter, updateScroll, changeCounter, resetCounter, setTouchDevice, updateSection } =
   scrollSlice.actions;
 
 export default scrollSlice.reducer;

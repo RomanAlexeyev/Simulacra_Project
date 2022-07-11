@@ -44,16 +44,50 @@ img {
         min-width: 0;
         min-height: 0;
         left: 0;
-        transform: translate(0, -75%);
+        transform: translate(0, -125%);
     }
 }
 
-@keyframes laptopZoomIn {
+@keyframes laptopZoomIn50 {
     from {
         width: 50%;
         min-width: 0;
         min-height: 0;
         transform: translate(0, -75%);
+        opacity: 1;
+    }
+    50% {
+        opacity: 0 
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes laptopZoomIn75 {
+    from {
+        width: 75%;
+        min-width: 0;
+        min-height: 0;
+        left: 25%;
+        transform: translate(0, -75%);
+        opacity: 1;
+    }
+    50% {
+        opacity: 0 
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes laptopZoomIn100 {
+    from {
+        width: 100%;
+        min-width: 0;
+        min-height: 0;
+        left: 0;
+        transform: translate(0, -125%);
         opacity: 1;
     }
     50% {
@@ -103,6 +137,24 @@ img {
     }
 }
 
+@keyframes logoZoomIn7_5 {
+    from {
+        font-size: 2vw;
+    }
+    to {
+        font-size: 10vw;
+    }
+}
+
+@keyframes logoZoomIn4_5 {
+    from {
+        font-size: 2vw;
+    }
+    to {
+        font-size: 20vw;
+    }
+}
+
 
 @keyframes menuItemZoomOut {
     to {
@@ -119,12 +171,30 @@ img {
     }
 }
 
+@keyframes menuItemZoomIn4_5 {
+    from {
+        font-size: 1vw;
+    }
+    to {
+        font-size: 7vw;
+    }
+}
+
 @keyframes menuItemZoomInAbout {
     from {
         font-size: 1vw;
     }
     to {
         font-size: 9vh;
+    }
+}
+
+@keyframes menuItemZoomInAbout4_5 {
+    from {
+        font-size: 1vw;
+    }
+    to {
+        font-size: 10vw;
     }
 }
 

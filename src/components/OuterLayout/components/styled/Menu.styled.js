@@ -16,7 +16,7 @@ export const StyledMenuContainer = styled.div`
 
   @media (max-aspect-ratio: 7/5) {
     margin-right: 0;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
   }
 
   @media (max-aspect-ratio: 4/5) {
@@ -30,7 +30,7 @@ export const StyledMenuContainer = styled.div`
 
 export const StyledMenuItem = styled.div`
   font-size: 6.5vh;
-  margin-top: 7.5vh;
+  margin-top: 10%;
   position: relative;
   float: right;
   overflow: visible;
@@ -49,7 +49,13 @@ export const StyledMenuItem = styled.div`
 
   @media (max-aspect-ratio: 4/5) {
     font-size: 7vw;
-    margin-top: 3.5vh;
+    margin-top: 7%;
+    animation: ${({ zoom }) =>
+    zoom === "out"
+      ? "menuItemZoomOut 2s ease 0.7s forwards"
+      : zoom === "in"
+      ? "menuItemZoomIn4_5 1s ease forwards"
+      : "none"};
   }
 
   &.backlight p {
@@ -82,11 +88,17 @@ export const StyledMenuItem = styled.div`
         : "none"};
     font-size: 9vh;
     margin-top: 0;
-    margin-bottom: 12vh;
+    margin-bottom: 18%;
 
     @media (max-aspect-ratio: 4/5) {
       font-size: 10vw;
-      margin-bottom: 7vh;
+      margin-bottom: 10%;
+      animation: ${({ zoom }) =>
+        zoom === "out"
+          ? "menuItemZoomOut 2s ease 0.7s forwards"
+          : zoom === "in"
+          ? "menuItemZoomInAbout4_5 1s ease forwards"
+          : "none"};
     }
   }
 `;

@@ -12,6 +12,7 @@ export const StyledLogoContainer = styled.div`
 
   @media (max-aspect-ratio: 7/5) {
     margin: 0;
+    margin-top: 5%;
   }
 
   p {
@@ -51,6 +52,12 @@ export const StyledLogo = styled.div`
     text-align: center;
     transform: translate(-50%, -50%);
     left: 50%;
+    animation: ${({ zoom }) =>
+      zoom === "out"
+        ? "logoZoomOut 2s ease 0.7s forwards"
+        : zoom === "in"
+        ? "logoZoomIn7_5 1s ease forwards"
+        : "none"};
   }
 
   @media (max-aspect-ratio: 4/5) {
@@ -59,6 +66,12 @@ export const StyledLogo = styled.div`
     text-align: left;
     width: 3.2em;
     margin-top: 10%;
+    animation: ${({ zoom }) =>
+      zoom === "out"
+        ? "logoZoomOut 2s ease 0.7s forwards"
+        : zoom === "in"
+        ? "logoZoomIn4_5 1s ease forwards"
+        : "none"};
   }
 
   &.backlight p {
@@ -100,7 +113,7 @@ export const StyledLogo = styled.div`
 
     @media (max-aspect-ratio: 7/5) {
       transform: ${({ zoom }) =>
-      zoom === "out" ? "translate(-60%, -50%)" : "translate(-50%, -50%)"};
+        zoom === "out" ? "translate(-55%, -50%)" : "translate(-50%, -50%)"};
     }
 
     p {

@@ -25,12 +25,12 @@ export const StyledArticleContainer = styled.div`
   width: 60vw;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  /* overflow: hidden; */
   cursor: none;
   background: ${({ theme }) => theme.colors.articleBackground};
   border-radius: 10px 10px 0 0;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 50px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 50px rgba(0, 0, 0, 0.2);
   animation: slideUp 2s ease-out 0.3s forwards;
 
   @media (max-width: 576px) {
@@ -76,7 +76,8 @@ export const StyledArticleContainer = styled.div`
   }
 
   .article_body {
-    overflow: ${({ isTouchDevice }) => (isTouchDevice ? "scroll" : "hidden")};
+    overflow-y: ${({ isTouchDevice }) => (isTouchDevice ? "auto" : "hidden")};
+    overflow-x: hidden;
     width: 100%;
     height: 100%;
     padding: 0 7%;
@@ -569,10 +570,10 @@ export const StyledSection = styled.section`
     &.simulacra_stages {
       margin-top: 10%;
       @media (max-width: 768px) {
-        margin-top: 20%;
+        margin-top: 30%;
       }
       @media (max-width: 576px) {
-        margin-top: 30%;
+        margin-top: 40%;
       }
     }
 
@@ -684,11 +685,13 @@ export const StyledSection = styled.section`
       transition: all 0.7s ease-in-out;
 
       @media (max-width: 768px) {
-        margin-left: 360px;
+        margin-left: 150px;
+        float: left;
       }
 
       @media (max-width: 576px) {
-        margin-left: 250px;
+        margin: 0 auto;
+        float: right;
       }
 
       &.is_visible {
@@ -728,7 +731,7 @@ export const StyledSection = styled.section`
         @media (max-width: 768px) {
           font-size: 300px;
           left: -155px;
-          top: 155px;
+          top: 100px;
         }
       }
     }
@@ -789,6 +792,76 @@ export const StyledSection = styled.section`
       letter-spacing: -0.09rem;
       left: 50%;
       top: 50%;
+    }
+
+    .opposite_words_container {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 50%;
+
+      .opposite_word {
+        font-family: "HelveticaBold";
+        white-space: nowrap;
+        position: absolute;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        transition: all 0.5s ease;
+
+        &#word_1 {
+          font-size: 15vw;
+          left: 55%;
+          top: 65%;
+          letter-spacing: -1rem;
+          @media (max-width: 576px) {
+            font-size: 35vw;
+          }
+
+          @media (max-width: 992px) {
+            font-size: 25vw;
+          }
+        }
+        &#word_2 {
+          font-size: 12vw;
+          left: 30%;
+          top: 35%;
+          letter-spacing: -1rem;
+          @media (max-width: 576px) {
+            font-size: 30vw;
+          }
+
+          @media (max-width: 992px) {
+            font-size: 22vw;
+          }
+        }
+        &#word_3 {
+          font-size: 6vw;
+          left: 35%;
+          top: 80%;
+          letter-spacing: -0.5rem;
+          @media (max-width: 576px) {
+            font-size: 15vw;
+          }
+
+          @media (max-width: 992px) {
+            font-size: 10vw;
+          }
+        }
+        &#word_4 {
+          font-size: 2vw;
+          left: 60%;
+          top: 35%;
+          letter-spacing: -0.2rem;
+          @media (max-width: 576px) {
+            font-size: 5vw;
+          }
+          @media (max-width: 992px) {
+            font-size: 4vw;
+          }
+        }
+      }
     }
   }
 

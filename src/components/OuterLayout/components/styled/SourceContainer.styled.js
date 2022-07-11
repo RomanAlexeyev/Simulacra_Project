@@ -21,12 +21,29 @@ export const StyledSourceContainer = styled.div`
       ? "slideFadeOut 0.7s ease forwards"
       : "slideFadeIn 1s ease-in-out 0.7s forwards"};
 
-    will-change: transform;
+  @media (max-width: 1200px) {
+    width: 70%;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+    padding: 90px;
+  }
+
+  @media (max-width: 576px) {
+    padding: 90px 50px;
+  }
+
+  will-change: transform;
 
   .source_body {
     margin: 5% 0 10% 0;
     font-size: 15px;
     line-height: 1.4em;
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
 
     .libraries {
       margin-top: 5%;
@@ -50,21 +67,38 @@ export const StyledSourceContainer = styled.div`
       font-size: 15px;
       border: 1px solid;
       border-radius: 28px;
-      padding: 10px 20px;
+      height: 52px;
+      line-height: 52px;
+      padding: 0 20px;
       border-color: ${({ theme }) => theme.colors.textAndEls};
       text-decoration: none;
       color: ${({ theme }) => theme.colors.textAndEls};
       background: ${({ theme }) => theme.colors.masterBackground};
       transition: all 0.2s ease;
 
+      @media (max-width: 768px) {
+        font-size: 12px;
+        height: 40px;
+        line-height: 40px;
+      }
+
       .icon {
         position: relative;
         left: -7px;
         width: 30px;
         height: 30px;
+        transform: translate(-50%, -50%);
+        left: 2%;
+        top: 50%;
         margin-right: 7px;
         filter: ${({ theme }) => theme.brightnessModes.iconBrightness};
         transition: filter 0.2s ease;
+
+        @media (max-width: 768px) {
+          width: 25px;
+          height: 25px;
+          left: 1%;
+        }
       }
 
       &:hover {
@@ -89,6 +123,12 @@ export const StyledCloseButton = styled.div`
   top: 0;
   margin: 50px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    margin: 25px;
+    height: 20px;
+    width: 20px;
+  }
 
   &::before,
   &::after {

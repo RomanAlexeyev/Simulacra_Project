@@ -20,10 +20,7 @@ export const StyledThemeChangerContainer = styled.div`
     background: ${({ currentTheme }) =>
       currentTheme === "dark" ? "white" : "black"};
     opacity: 0;
-
-    &.changing {
-      animation: fadeIn 1s ease-in-out forwards 1s;
-    }
+    animation: fadeIn 1s ease-in-out forwards 1s;
   }
 
   .opposite_word {
@@ -32,10 +29,7 @@ export const StyledThemeChangerContainer = styled.div`
     opacity: 0;
     transform: translate(-50%, -50%);
     transition: all 0.5s ease;
-
-    &.changing {
-      animation: maskScreen 2s ease-in-out forwards;
-    }
+    animation: maskScreen 2s ease-in-out forwards;
 
     &#word_1 {
       font-size: 15vw;
