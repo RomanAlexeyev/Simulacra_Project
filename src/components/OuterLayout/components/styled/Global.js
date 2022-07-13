@@ -378,30 +378,6 @@ img {
     }
 }
 
-@keyframes logoStrokeEnter {
-    from {
-        stroke-dasharray: 0 50%;
-        stroke-dashoffset: 5%;
-    }
-
-    to {
-        stroke-dasharray: 50% 0;
-        stroke-dashoffset: -5%;
-    }
-}
-
-@keyframes logoStrokeLeave {
-    from {
-        stroke-dasharray: 50% 0;
-        stroke-dashoffset: -5%;
-    }
-
-    to {
-        stroke-dasharray: 0 50%;
-        stroke-dashoffset: 5%;
-    }
-}
-
 @keyframes slideUp {
     to {
         transform: translate(-50%, 0);

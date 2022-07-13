@@ -1,15 +1,15 @@
-import { React, useState, useEffect } from "react";
+import { React, useEffect } from "react";
 
 import {
   StyledMasterContainer,
   StyledVignette,
+  StyledGridContainer
 } from "./styled/MasterContainer.styled";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setTouchDevice } from "../../../store/scrollSlice";
 
 import CursorContainer from "./CursorContainer";
-import GridContainer from "./GridContainer";
 import UIContainer from "./UIContainer";
 import ShardsContainer from "./ShardsContainer";
 
@@ -18,34 +18,6 @@ function MasterContainer({ zoom }) {
   const changeDevice = (bool) => dispatch(setTouchDevice(bool));
 
   const menuItem = useSelector((state) => state.menu.menuItem);
-
-  const [logoIsActive, setLogoIsActive] = useState(null);
-  const [currentStroke, setCurrentStroke] = useState(null);
-  const [lastStroke, setLastStroke] = useState(null);
-  const [uiClickListening, setUiClickListening] = useState(true);
-  const [mouseEnterListening, setMouseEnterListening] = useState(true);
-  const [mouseMoveListening, setMouseMoveListening] = useState(true);
-
-  const resetStates = () => {
-    setCurrentStroke(null);
-    setLastStroke(null);
-    setUiClickListening(true);
-    setMouseEnterListening(true);
-    setMouseMoveListening(true);
-  };
-
-  const stopUiListening = () => {
-    setUiClickListening(false);
-    setMouseEnterListening(false);
-    setMouseMoveListening(false);
-  };
-
-  useEffect(() => {
-    setLogoIsActive(menuItem && menuItem !== "betweenThemes");
-    if (!menuItem) {
-      resetStates();
-    }
-  }, [menuItem]);
 
   useEffect(() => {
     const touchListener = () => {
@@ -62,30 +34,12 @@ function MasterContainer({ zoom }) {
   return (
     <>
       <StyledMasterContainer>
-        <CursorContainer
-          mouseMoveListening={mouseMoveListening}
-          zoom={zoom}
-          logoIsActive={logoIsActive}
-          currentStroke={currentStroke}
-        />
-        <GridContainer zoom={zoom} />
+        <CursorContainer zoom={zoom} />
+        <StyledGridContainer />
         <StyledVignette />
-        <UIContainer
-          zoom={zoom}
-          logoIsActive={logoIsActive}
-          setLogoIsActive={setLogoIsActive}
-          mouseEnterListening={mouseEnterListening}
-          currentStroke={currentStroke}
-          setCurrentStroke={setCurrentStroke}
-          lastStroke={lastStroke}
-          setLastStroke={setLastStroke}
-          uiClickListening={uiClickListening}
-          stopUiListening={stopUiListening}
-        />
+        <UIContainer zoom={zoom} />
       </StyledMasterContainer>
-      <ShardsContainer
-        away={menuItem && menuItem !== "menu_author"}
-      />
+      <ShardsContainer away={menuItem && menuItem !== "menu_author"} />
     </>
   );
 }

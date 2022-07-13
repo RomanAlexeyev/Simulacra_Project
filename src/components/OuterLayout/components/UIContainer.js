@@ -7,13 +7,6 @@ function UIContainer({
   zoom,
   logoIsActive,
   setLogoIsActive,
-  mouseEnterListening,
-  currentStroke,
-  setCurrentStroke,
-  lastStroke,
-  setLastStroke,
-  uiClickListening,
-  stopUiListening,
 }) {
   const renderSideWritings = () => {
     return (
@@ -31,17 +24,9 @@ function UIContainer({
         zoom={zoom}
         logoIsActive={logoIsActive}
         setLogoIsActive={setLogoIsActive}
-        mouseEnterListening={mouseEnterListening}
       />
       <MenuContainer
         zoom={zoom}
-        currentStroke={currentStroke}
-        setCurrentStroke={setCurrentStroke}
-        lastStroke={lastStroke}
-        setLastStroke={setLastStroke}
-        uiClickListening={uiClickListening}
-        mouseEnterListening={mouseEnterListening}
-        stopUiListening={stopUiListening}
       />
     </StyledUIContainer>
   );

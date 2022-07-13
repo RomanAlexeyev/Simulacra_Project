@@ -44,8 +44,8 @@ export const StyledCustomCursor = styled.div`
     transition: all 0.35s ease-out;
   }
   &#custom_cursor_main {
-    transform: ${({ mouseMoveListening }) =>
-      `translate(-50%, -50%) scale(${mouseMoveListening ? 1 : 20})`};
+    transform: ${({ UIlistening }) =>
+      `translate(-50%, -50%) scale(${UIlistening ? 1 : 20})`};
     transition: all 0.3s ease-out;
     img {
       animation: rotation 15s linear infinite;

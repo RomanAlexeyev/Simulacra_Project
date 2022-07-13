@@ -114,13 +114,9 @@ export const StyledMenuItemStroke = styled.svg`
 
   text {
     stroke-width: 2;
-    stroke-dasharray: 0 50%;
-    animation: ${({ isActive, isLeft }) =>
-      isActive
-        ? "logoStrokeEnter 1.2s forwards"
-        : isLeft
-        ? "logoStrokeLeave 1.2s forwards"
-        : "none"};
+    stroke-dasharray: ${({isActive}) => isActive ? "50% 0" : "0 50%"};
+    stroke-dashoffset: ${({isActive}) => isActive ? "-5%" : "5%"};
+    transition: stroke-dasharray 1.2s ease, stroke-dashoffset 1.2s ease;
 
     &#menu_about_stroke {
       stroke: #b90bee;

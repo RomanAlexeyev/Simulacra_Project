@@ -1,14 +1,17 @@
+import { useDispatch, useSelector } from "react-redux";
 import { useWindowDimensions } from "../../../custom_hooks";
 
-import { StyledLogoContainer, StyledLogo} from "./styled/LogoContainer.styled";
+import { setLogoIsActive } from "../../../store/menuSlice";
 
-function LogoContainer({
-  zoom,
-  logoIsActive,
-  setLogoIsActive,
-  mouseEnterListening,
-}) {
+import { StyledLogoContainer, StyledLogo } from "./styled/LogoContainer.styled";
+
+function LogoContainer({ zoom }) {
+  const dispatch = useDispatch();
   const { aspectRatio } = useWindowDimensions();
+
+  const setLogo = (bool) => dispatch(setLogoIsActive(bool));
+  const logoIsActive = useSelector((state) => state.menu.logoIsActive);
+  const UIlistening = useSelector((state) => state.menu.UIlistening);
 
   const renderColoredLogos = () => {
     const logos = [];
@@ -23,14 +26,14 @@ function LogoContainer({
   };
 
   const mouseEnterHandler = (active) => {
-    if (!mouseEnterListening) return;
-    setLogoIsActive(active);
+    if (!UIlistening) return;
+    setLogo(active);
   };
 
   return (
     <StyledLogoContainer>
       {renderColoredLogos()}
-      <StyledLogo id="logo_stroke" zoom={zoom} logoIsActive={logoIsActive}>
+      <StyledLogo id="logo_stroke" zoom={zoom} isActive={logoIsActive}>
         <p>simulacra</p>
         <svg
           className="simulacra_logo_stroke"

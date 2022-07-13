@@ -79,9 +79,9 @@ export const StyledLogo = styled.div`
 
   #logo_backlight {
     position: absolute;
-    transform: ${({ logoIsActive }) =>
-      `translate(-50%, -50%) scale(${logoIsActive ? 1.3 : 0})`};
-    opacity: ${({ logoIsActive }) => (logoIsActive ? 1 : 0)};
+    transform: ${({ isActive }) =>
+      `translate(-50%, -50%) scale(${isActive ? 1.3 : 0})`};
+    opacity: ${({ isActive }) => (isActive ? 1 : 0)};
     left: 40%;
     top: 50%;
     width: 150%;
@@ -132,15 +132,11 @@ export const StyledLogo = styled.div`
       text {
         stroke: ${({ theme }) => theme.colors.logoStrokeColored};
         stroke-width: 2;
-        stroke-dasharray: 0 50%;
+        stroke-dasharray: ${({ isActive }) => (isActive ? "50% 0" : "0 50%")};
+        stroke-dashoffset: ${({ isActive }) => (isActive ? "-5%" : "5%")};
+        transition: stroke-dasharray 1.2s ease, stroke-dashoffset 1.2s ease;
         filter: ${({ theme }) => theme.shadows.logoShadow};
         pointer-events: none;
-        animation: ${({ logoIsActive }) =>
-          logoIsActive === true
-            ? "logoStrokeEnter 1.2s forwards"
-            : logoIsActive === false
-            ? "logoStrokeLeave 1.2s forwards"
-            : "none"};
       }
     }
   }

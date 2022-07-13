@@ -1,6 +1,11 @@
-import { useWindowDimensions } from "../../../custom_hooks";
 import { useDispatch, useSelector } from "react-redux";
-import { setMenuItem } from "../../../store/menuSlice";
+import { useWindowDimensions } from "../../../custom_hooks";
+
+import {
+  setUIlistening,
+  setMenuItem,
+  setActiveMenuItem,
+} from "../../../store/menuSlice";
 import { setTheme } from "../../../store/themeSlice";
 
 import {
@@ -15,27 +20,22 @@ const titles = {
   source: "source code",
 };
 
-function MenuContainer({
-  zoom,
-  currentStroke,
-  setCurrentStroke,
-  lastStroke,
-  setLastStroke,
-  uiClickListening,
-  mouseEnterListening,
-  stopUiListening,
-}) {
+function MenuContainer({ zoom }) {
 
   const { aspectRatio } = useWindowDimensions();
   const dispatch = useDispatch();
+  const stopUIlistening = () => dispatch(setUIlistening(false));
   const updateMenu = (id) => dispatch(setMenuItem(id));
+  const updateActiveItem = (id) => dispatch(setActiveMenuItem(id));
   const updateTheme = (theme) => dispatch(setTheme(theme));
 
-  const menuItem = useSelector(state => state.menu.menuItem);
+  const UIlistening = useSelector((state) => state.menu.UIlistening);
+  const menuItem = useSelector((state) => state.menu.menuItem);
+  const menuItemActive = useSelector((state) => state.menu.menuItemActive);
 
   const menuItemClickHandler = (id) => {
-    if (!uiClickListening) return;
-    stopUiListening();
+    if (!UIlistening) return;
+    stopUIlistening();
     updateMenu(id);
     if (id === "menu_author") {
       updateTheme("dark");
@@ -43,14 +43,8 @@ function MenuContainer({
   };
 
   const menuItemEnterHandler = (id) => {
-    if (!mouseEnterListening) return;
-    setCurrentStroke(id);
-  };
-
-  const menuItemLeaveHandler = (id) => {
-    if (!mouseEnterListening) return;
-    setCurrentStroke(null);
-    setLastStroke(id);
+    if (!UIlistening) return;
+    updateActiveItem(id);
   };
 
   return (
@@ -67,19 +61,15 @@ function MenuContainer({
           >
             <p>{titles[title]}</p>
 
-            <StyledMenuItemStroke
-              isActive={menuItemId === currentStroke}
-              isLeft={menuItemId === lastStroke}
-            >
+            <StyledMenuItemStroke isActive={menuItemId === menuItemActive}>
               <text
                 id={menuStrokeId}
                 x={`${aspectRatio > 1.4 ? 100 : 50}%`}
                 y="78%"
                 textAnchor={aspectRatio > 1.4 ? "end" : "middle"}
                 fill="transparent"
-
                 onMouseEnter={() => menuItemEnterHandler(menuItemId)}
-                onMouseLeave={() => menuItemLeaveHandler(menuItemId)}
+                onMouseLeave={() => menuItemEnterHandler(null)}
                 onClick={() => menuItemClickHandler(menuItemId)}
               >
                 {titles[title]}

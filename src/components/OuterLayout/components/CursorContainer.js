@@ -48,13 +48,12 @@ const backlights = {
 
 const trailPaths = [trailOne, trailTwo, trailThree, trailFour, trailFive];
 
-function CursorContainer({
-  mouseMoveListening,
-  zoom,
-  logoIsActive,
-  currentStroke,
-}) {
+function CursorContainer({ zoom }) {
   const isTouchDevice = useSelector((state) => state.scroll.isTouchDevice);
+  const UIlistening = useSelector((state) => state.menu.UIlistening);
+  const menuItemActive = useSelector((state) => state.menu.menuItemActive);
+  const logoIsActive = useSelector((state) => state.menu.logoIsActive);
+
   const [mouseCoords, setMouseCoords] = useState({ x: "50%", y: "50%" });
   const { width } = useWindowDimensions();
 
@@ -68,7 +67,7 @@ function CursorContainer({
 
     const mouseMoveHadler = throttle(mouseMoveCb, 50, true);
 
-    if (mouseMoveListening) {
+    if (UIlistening) {
       document.addEventListener("mousemove", mouseMoveHadler);
     } else {
       if (isTouchDevice) {
@@ -77,16 +76,12 @@ function CursorContainer({
       document.removeEventListener("mousemove", mouseMoveHadler);
     }
     return () => document.removeEventListener("mousemove", mouseMoveHadler);
-  }, [mouseMoveListening]);
+  }, [UIlistening]);
 
   return (
     <StyledCursorContainer>
       <StyledLogoContainer>
-        <StyledLogo
-          logoIsActive={logoIsActive}
-          zoom={zoom}
-          className="backlight"
-        >
+        <StyledLogo isActive={logoIsActive} zoom={zoom} className="backlight">
           <p>simulacra</p>
           <img
             src={
@@ -105,7 +100,7 @@ function CursorContainer({
           return (
             <StyledMenuItem
               id={item}
-              isActive={currentStroke === item}
+              isActive={menuItemActive === item}
               key={idx}
               visible={true}
               className="backlight"
@@ -142,7 +137,7 @@ function CursorContainer({
       })}
       <StyledCustomCursor
         id="custom_cursor_main"
-        mouseMoveListening={mouseMoveListening}
+        UIlistening={UIlistening}
         style={{
           left: mouseCoords.x,
           top: mouseCoords.y,
