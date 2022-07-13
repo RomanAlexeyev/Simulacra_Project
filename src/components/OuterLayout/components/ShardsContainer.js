@@ -28,9 +28,9 @@ const imgStyle = {
   height: "100%",
 };
 
-function ShardsContainer({ away, awayAndBack }) {
+function ShardsContainer({ away }) {
   return (
-    <StyledShardsContainer away={away} awayAndBack={awayAndBack}>
+    <StyledShardsContainer away={away}>
       {shards.map((item, idx) => {
         return (
           <StyledShard key={idx} id={`${`shard_${idx + 1}`}`}>

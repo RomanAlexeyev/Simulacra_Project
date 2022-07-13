@@ -110,14 +110,16 @@ function CursorContainer({
               visible={true}
               className="backlight"
             >
-              <p>{backlights[item].title}</p>
-              <img
-                src={backlights[item].imgSrc}
-                className="menu_item_backlight"
-                id={backlights[item].imgId}
-                draggable={false}
-                alt=""
-              />
+              <p>
+                {backlights[item].title}
+                <img
+                  src={backlights[item].imgSrc}
+                  className="menu_item_backlight"
+                  id={backlights[item].imgId}
+                  draggable={false}
+                  alt=""
+                />
+              </p>
             </StyledMenuItem>
           );
         })}

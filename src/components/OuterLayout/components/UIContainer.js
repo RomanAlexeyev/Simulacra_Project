@@ -15,8 +15,18 @@ function UIContainer({
   uiClickListening,
   stopUiListening,
 }) {
+  const renderSideWritings = () => {
+    return (
+      <>
+        <div className="side_writing left">simulacra</div>
+        <div className="side_writing right">simulacra</div>
+      </>
+    );
+  };
+
   return (
-    <StyledUIContainer>
+    <StyledUIContainer zoom={zoom}>
+      {renderSideWritings()}
       <LogoContainer
         zoom={zoom}
         logoIsActive={logoIsActive}

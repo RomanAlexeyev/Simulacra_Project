@@ -85,7 +85,6 @@ function MasterContainer({ zoom }) {
       </StyledMasterContainer>
       <ShardsContainer
         away={menuItem && menuItem !== "menu_author"}
-        // awayAndBack={menuItem && menuItem === "menu_author"}
       />
     </>
   );

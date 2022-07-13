@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const StyledMenuContainer = styled.div`
   flex: 1;
-  font-family: "Mexon";
   white-space: nowrap;
   user-select: none;
-  text-align: center;
   position: relative;
   margin-right: 10%;
+  display: flex;
+  flex-direction: column;
   z-index: 4;
   color: transparent;
   -webkit-text-stroke: ${({ theme }) => theme.colors.textStroke};
@@ -22,8 +22,6 @@ export const StyledMenuContainer = styled.div`
   @media (max-aspect-ratio: 4/5) {
     margin-bottom: 0;
     margin-top: 10%;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
   }
 `;
@@ -32,7 +30,8 @@ export const StyledMenuItem = styled.div`
   font-size: 6.5vh;
   margin-top: 10%;
   position: relative;
-  float: right;
+  display: flex;
+  justify-content: flex-end;
   overflow: visible;
   transition: opacity 0.5s ease-out;
   opacity: ${({ visible }) => (visible ? 1 : 0)};
@@ -44,22 +43,24 @@ export const StyledMenuItem = styled.div`
       : "none"};
 
   @media (max-aspect-ratio: 7/5) {
-    float: none;
+    justify-content: center;
   }
 
   @media (max-aspect-ratio: 4/5) {
     font-size: 7vw;
     margin-top: 7%;
     animation: ${({ zoom }) =>
-    zoom === "out"
-      ? "menuItemZoomOut 2s ease 0.7s forwards"
-      : zoom === "in"
-      ? "menuItemZoomIn4_5 1s ease forwards"
-      : "none"};
+      zoom === "out"
+        ? "menuItemZoomOut 2s ease 0.7s forwards"
+        : zoom === "in"
+        ? "menuItemZoomIn4_5 1s ease forwards"
+        : "none"};
   }
 
   &.backlight p {
-    opacity: 0;
+    -webkit-text-stroke: 0px;
+    text-shadow: none;
+    position: relative;
   }
 
   .menu_item_backlight {
@@ -69,8 +70,8 @@ export const StyledMenuItem = styled.div`
     opacity: ${({ isActive }) => (isActive ? 1 : 0)};
     left: 50%;
     top: 50%;
-    width: 200%;
-    height: 200%;
+    width: 250%;
+    height: 250%;
     z-index: 1;
     transition: all 1s ease;
 

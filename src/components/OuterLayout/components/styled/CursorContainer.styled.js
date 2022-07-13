@@ -9,6 +9,7 @@ export const StyledCursorContainer = styled.div`
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
+  font-family: "Mexon";
   z-index: 1;
 
   @media (max-aspect-ratio: 7/5) {

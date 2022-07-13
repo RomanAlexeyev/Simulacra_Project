@@ -4,10 +4,11 @@ export const StyledOuterLayout = styled.div`
   height: 100vh;
   width: 100%;
   cursor: ${({ zoom }) => (zoom === "out" ? "auto" : "none")};
-
   position: fixed;
   top: 0;
   left: 0;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
 `;
 
 export const StyledAuthorContainer = styled.div`

@@ -5,7 +5,6 @@ export const StyledLogoContainer = styled.div`
   width: 100%;
   position: relative;
   margin-left: 10%;
-  font-family: "Mexon";
   user-select: none;
   font-size: 16vh;
   word-break: break-all;

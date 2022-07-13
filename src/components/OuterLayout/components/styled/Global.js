@@ -18,6 +18,40 @@ img {
     display: block;
 }
 
+.preloader {
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    color: white;
+    position: relative;
+    cursor: none;
+    transition: opacity 2s ease 1s;
+
+    .progress_bar {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        height: 3px;
+        width: 270px;
+        background-color: #110E12;
+
+        .progress_bar_colored {
+            position: absolute;
+            height: 100%;
+            width: 0%;
+            background-image: linear-gradient(90deg, rgb(99, 0, 156) 0%, rgb(166, 1, 130) 50%,rgb(227, 13, 120) 100%);
+            animation: grow 3s ease-in-out forwards;
+        }
+    }
+}
+
+@keyframes grow {
+    to {
+        width: 100%;
+    }
+}
+
 
 @keyframes laptopZoomOut50 {
     to {
@@ -195,20 +229,6 @@ img {
     }
     to {
         font-size: 10vw;
-    }
-}
-
-@keyframes shardsContainerAwayAndBack {
-    0% {
-        transform: translate(-50%, -50%) scale(1);
-    }
-
-    40% {
-        transform: translate(-50%, -50%) scale(2);
-    }
-
-    100% {
-        transform: translate(-50%, -50%) scale(1);
     }
 }
 

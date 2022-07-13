@@ -1,10 +1,17 @@
+import { Suspense, lazy } from "react";
+
 import GlobalStyles from "./components/OuterLayout/components/styled/Global";
 import "./fonts.css";
 import { ThemeProvider } from "styled-components";
 import { useTheme } from "./custom_hooks";
 
-import OuterLayout from "./components/OuterLayout";
-import InnerLayout from "./components/InnerLayout";
+import Preloader from "./Preloader";
+
+const Main = lazy(() => {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(import("./Main")), 3000);
+  });
+});
 
 function App() {
   const theme = useTheme();
@@ -12,8 +19,9 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <OuterLayout />
-        <InnerLayout />
+        <Suspense fallback={<Preloader />}>
+          <Main />
+        </Suspense>
       </ThemeProvider>
     </>
   );
