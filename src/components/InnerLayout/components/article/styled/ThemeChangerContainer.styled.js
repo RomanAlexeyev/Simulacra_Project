@@ -11,7 +11,7 @@ export const StyledThemeChangerContainer = styled.div`
   cursor: none;
 
   &.leaving {
-    animation: fadeOut 3.5s ease-in-out forwards;
+    animation: fadeOut 3.5s ease forwards;
   }
 
   .theme_mask {

@@ -28,7 +28,7 @@ function ThemeChangerContainer() {
       newCounter();
       setIsChanging(false);
       updateMenu(null);
-    }, 3000);
+    }, 3600);
   };
 
   const changeTheme = () => {
