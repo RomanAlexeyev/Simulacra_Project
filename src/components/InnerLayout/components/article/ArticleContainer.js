@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import throttle from "../../../../helpers/throttle";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -9,9 +9,11 @@ import ProgressBar from "./ProgressBar";
 
 import Content from "./Content";
 
-function ArticleContainer() {
-
+function ArticleContainer({ show }) {
   const isTouchDevice = useSelector((state) => state.scroll.isTouchDevice);
+  const counterDirection = useSelector(
+    (state) => state.scroll.counterDirection
+  );
 
   const dispatch = useDispatch();
   const changeCounter = (index) => dispatch(updateCounter(index));
@@ -26,24 +28,29 @@ function ArticleContainer() {
 
   useEffect(() => {
 
+    if (!show) return;
+
     const mouseWheelCb = (e) => {
       e.preventDefault();
       const pos = Math.sign(e.deltaY);
       changeCounter(pos);
     };
 
-    const wheelListener = throttle(mouseWheelCb, 800);
-    
-    if (!isTouchDevice) {
-      window.addEventListener("wheel", wheelListener, { passive: false });
+    let wheelDelay = counterDirection === "vertical" ? 800 : 200;
+    const wheelListener = throttle(mouseWheelCb, wheelDelay);
+
+    window.addEventListener("wheel", wheelListener, { passive: false });
+
+    if (isTouchDevice) {
+      window.removeEventListener("wheel", wheelListener);
     }
     return () => {
       window.removeEventListener("wheel", wheelListener);
     };
-  }, []);
+  }, [counterDirection, show]);
 
   return (
-    <StyledArticleContainer isTouchDevice={isTouchDevice}>
+    <StyledArticleContainer isTouchDevice={isTouchDevice} show={show}>
       <div className="article_header">
         <div className="title">
           simulacra
@@ -51,7 +58,10 @@ function ArticleContainer() {
         </div>
       </div>
       <div className="article_body" onScroll={scrollListener}>
-        <Content isTouchDevice={isTouchDevice} />
+        <Content
+          isTouchDevice={isTouchDevice}
+          show={show}
+        />
       </div>
     </StyledArticleContainer>
   );

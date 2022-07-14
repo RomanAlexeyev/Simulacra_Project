@@ -3,11 +3,7 @@ import MenuContainer from "./MenuContainer";
 
 import { StyledUIContainer } from "./styled/UIContainer.styled";
 
-function UIContainer({
-  zoom,
-  logoIsActive,
-  setLogoIsActive,
-}) {
+function UIContainer({ zoom }) {
   const renderSideWritings = () => {
     return (
       <>
@@ -20,14 +16,8 @@ function UIContainer({
   return (
     <StyledUIContainer zoom={zoom}>
       {renderSideWritings()}
-      <LogoContainer
-        zoom={zoom}
-        logoIsActive={logoIsActive}
-        setLogoIsActive={setLogoIsActive}
-      />
-      <MenuContainer
-        zoom={zoom}
-      />
+      <LogoContainer zoom={zoom} />
+      <MenuContainer zoom={zoom} />
     </StyledUIContainer>
   );
 }

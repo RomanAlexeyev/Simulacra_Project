@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { setMenuItem, setZoom } from "../../../store/menuSlice";
 
 import { StyledAuthorContainer } from "./styled/OuterLayout.styled";
@@ -10,10 +10,12 @@ import telegramSkypeIcon from "../../../assets/graphic_elements/contact_icons/te
 import gmailIcon from "../../../assets/graphic_elements/contact_icons/gmail_icon.svg";
 import githubIcon from "../../../assets/graphic_elements/contact_icons/github_icon.svg";
 
-function AuthorContainer({ zoom, menuItem }) {
+function AuthorContainer({ zoom }) {
   const dispatch = useDispatch();
   const updateZoom = (zoom) => dispatch(setZoom(zoom));
   const updateMenu = (item) => dispatch(setMenuItem(item));
+
+  const menuItem = useSelector((state) => state.menu.menuItem);
 
   const leaveAuthor = () => {
     updateMenu(null);

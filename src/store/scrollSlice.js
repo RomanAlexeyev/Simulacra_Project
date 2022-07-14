@@ -20,7 +20,7 @@ const scrollSlice = createSlice({
           state.counterDirection = "vertical";
           state.counterY += action.payload;
         } else {
-          if (state.counterX > 4) return;
+          if (state.counterX === 7) return;
           state.counterX += action.payload;
         }
       }

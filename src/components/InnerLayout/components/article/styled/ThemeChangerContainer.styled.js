@@ -11,7 +11,7 @@ export const StyledThemeChangerContainer = styled.div`
   cursor: none;
 
   &.leaving {
-    animation: fadeOut 3.5s ease forwards;
+    animation: fadeOut 2s ease 1s forwards;
   }
 
   .theme_mask {
@@ -20,7 +20,8 @@ export const StyledThemeChangerContainer = styled.div`
     background: ${({ currentTheme }) =>
       currentTheme === "dark" ? "white" : "black"};
     opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards 1s;
+    animation: ${({ maskIsOn }) =>
+      maskIsOn  ? "fadeIn 2.5s forwards;" : "none"};
   }
 
   .opposite_word {
@@ -29,7 +30,9 @@ export const StyledThemeChangerContainer = styled.div`
     opacity: 0;
     transform: translate(-50%, -50%);
     transition: all 0.5s ease;
-    animation: maskScreen 2s ease-in-out forwards;
+    animation: ${({ maskIsOn }) =>
+      maskIsOn  ? "maskScreen 2.5s forwards;" : "none"};
+    /* animation: maskScreen 2s ease forwards; */
 
     &#word_1 {
       font-size: 15vw;
@@ -45,9 +48,9 @@ export const StyledThemeChangerContainer = styled.div`
       }
     }
     &#word_2 {
-      font-size: 12vw;
-      left: 30%;
-      top: 35%;
+      font-size: 18vw;
+      left: 45%;
+      top: 40%;
       letter-spacing: -1rem;
       @media (max-width: 576px) {
         font-size: 30vw;
@@ -117,9 +120,10 @@ export const StyledThemeChangerContainer = styled.div`
       }
     }
     &#word_8 {
-      font-size: 5vw;
-      left: 30%;
+      font-size: 15vw;
+      left: 20%;
       top: 85%;
+      letter-spacing: -0.8rem;
       @media (max-width: 576px) {
         font-size: 15vw;
       }

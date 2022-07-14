@@ -6,14 +6,13 @@ import SourceContainer from "./components/SourceContainer";
 
 function InnerLayout() {
   const menuItem = useSelector((state) => state.menu.menuItem);
-  const themeChanging = useSelector((state) => state.colorTheme.isChanging);
+  const direction = useSelector((state) => state.scroll.counterDirection);
+
   return (
     <>
-      {menuItem === "menu_about" && <ArticleContainer />}
-      {(themeChanging || menuItem === "betweenThemes") && (
-        <ThemeChangerContainer />
-      )}
-      {menuItem === "menu_source" && <SourceContainer />}
+      <ArticleContainer show={menuItem === "menu_about"}/>
+      <ThemeChangerContainer show={direction === "horizontal"}/>
+      <SourceContainer show={menuItem === "menu_source"}/>
     </>
   );
 }

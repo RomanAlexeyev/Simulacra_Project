@@ -6,13 +6,12 @@ import AuthorContainer from "./components/AuthorContainer";
 
 function OuterLayout() {
 
-  const menuItem = useSelector((state) => state.menu.menuItem);
   const zoom = useSelector((state) => state.menu.zoom);
 
   return (
     <StyledOuterLayout zoom={zoom}>
       <LaptopContainer zoom={zoom} />
-      <AuthorContainer zoom={zoom} menuItem={menuItem} />
+      <AuthorContainer zoom={zoom} />
     </StyledOuterLayout>
   );
 }

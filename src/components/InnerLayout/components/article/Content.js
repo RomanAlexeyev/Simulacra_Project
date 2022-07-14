@@ -12,13 +12,12 @@ import SectionMovies from "./SectionMovies";
 import SectionStages from "./SectionStages";
 import SectionCloser from "./SectionCloser";
 
-function Content({isTouchDevice}) {
-
-  const prog = useSelector(state => state.scroll.counterY);
+function Content({ isTouchDevice, show }) {
+  const prog = useSelector((state) => state.scroll.counterY);
 
   return (
     <StyledContent prog={prog}>
-      <SectionHero isTouchDevice={isTouchDevice}/>
+      <SectionHero isTouchDevice={isTouchDevice} show={show}/>
       <SectionWiki />
       <SectionBaudrillard />
       <SectionTextSlider />

@@ -23,6 +23,10 @@ export default function useParallax (isVisible) {
           }
         }
       }
+      if (prog === 0) {
+        setInitPos(null);
+        setParallaxIndex(0);
+      }
     }, [isVisible, prog]);
 
     return parallaxIndex;

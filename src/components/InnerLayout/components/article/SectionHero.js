@@ -9,7 +9,7 @@ import lightSpot from "./images/lightspot.png";
 
 import wikiLogo from "./images/wikipedia_logo.png";
 
-function SectionHero({isTouchDevice}) {
+function SectionHero({ isTouchDevice, show }) {
   const renderScrollIcon = () => {
     const elements = [];
     elements.push(
@@ -69,15 +69,17 @@ function SectionHero({isTouchDevice}) {
           alt="Apollo statue"
         />
         <img src={lightSpot} id="lightspot" draggable={false} alt="" />
-        <div id="animation-container">
-          <img
-            src={circleTextWhite}
-            id="circle-text"
-            draggable={false}
-            alt=""
-          />
-        </div>
-        {!isTouchDevice && renderScrollIcon()}
+        {show && (
+          <div id="animation-container">
+            <img
+              src={circleTextWhite}
+              id="circle-text"
+              draggable={false}
+              alt=""
+            />
+          </div>
+        )}
+        {(!isTouchDevice && show) && renderScrollIcon()}
       </div>
       <div className="wiki_article">
         <p>

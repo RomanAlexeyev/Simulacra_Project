@@ -18,15 +18,17 @@ export const StyledLogoContainer = styled.div`
     background-image: radial-gradient(
       at top left,
       rgba(187, 9, 176, 1) 0%,
-      rgba(99, 3, 156, 1) 14%,
+      rgba(99, 3, 156, 1) 24%,
       rgba(110, 27, 188, 1) 34%,
       rgb(207, 31, 163) 66%,
-      rgb(129, 30, 175) 100%
+      rgb(129, 30, 175) 80%
     );
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: logoColorAnimation 5s infinite ease-in-out;
+    animation: logoColorAnimation 8s infinite ease-in-out;
   }
 `;
 

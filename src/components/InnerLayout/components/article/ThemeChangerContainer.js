@@ -6,98 +6,94 @@ import { resetCounter } from "../../../../store/scrollSlice";
 
 import { StyledThemeChangerContainer } from "./styled/ThemeChangerContainer.styled";
 
-function ThemeChangerContainer() {
+function ThemeChangerContainer({ show }) {
   const dispatch = useDispatch();
   const newCounter = () => dispatch(resetCounter());
   const updateMenu = (item) => dispatch(setMenuItem(item));
   const updateTheme = (theme) => dispatch(setTheme(theme));
-  const setIsChanging = (bool) => dispatch(setThemeIsChanging(bool));
 
+  const prog = useSelector((state) => state.scroll.counterX);
+  const isTouchDevice = useSelector((state) => state.scroll.isTouchDevice);
   const colorTheme = useSelector((state) => state.colorTheme.theme);
   const [currentTheme, setCurrentTheme] = useState(false);
+  const [maskIsOn, setMaskIsOn] = useState(false);
   const [leaving, setLeaving] = useState(false);
 
   useEffect(() => {
-    setCurrentTheme(colorTheme);
-  }, []);
+    if (show) {
+      setCurrentTheme(colorTheme);
+      if (isTouchDevice) {
+        setMaskIsOn(true);
+      }
+    } else {
+      setMaskIsOn(false);
+      setLeaving(false);
+    }
+  }, [show]);
 
-  const launchNewTheme = (theme) => {
-    updateTheme(theme);
-    setLeaving(true);
-    setTimeout(() => {
-      newCounter();
-      setIsChanging(false);
-      updateMenu(null);
-    }, 3600);
-  };
+  useEffect(() => {
+    if (prog >= 2) {
+      setMaskIsOn(true);
+    }
+  }, [prog]);
 
-  const changeTheme = () => {
-    updateMenu("betweenThemes");
+  const changeTheme = (e) => {
+    if (e.target.id !== "mask") return;
+    updateMenu(null);
     let targetTheme = "light";
     if (colorTheme !== "dark") {
       targetTheme = "dark";
     }
-    launchNewTheme(targetTheme);
+    updateTheme(targetTheme);
+    setLeaving(true);
   };
-  
+
+  const unmount = (e) => {
+    if (e.target.id !== "container") return;
+    newCounter();
+  };
+
+  const oppositeWordTransformStyle = () => {
+    return {
+      transform: `translate(-50%, -50%) scale(${0.3 * prog})`,
+      opacity: `${prog / 7}`,
+    };
+  };
+
+  const renderOppositeWords = () => {
+    const words = [];
+    for (let i = 0; i < 8; i++) {
+      let id = `word_${i + 1}`;
+      words.push(
+        <div
+          className="opposite_word"
+          id={id}
+          key={id}
+          style={oppositeWordTransformStyle()}
+        >
+          the opposite
+        </div>
+      );
+    }
+    return words;
+  };
+
+  if (!show) return null;
 
   return (
     <StyledThemeChangerContainer
       className={`${leaving ? "leaving" : ""}`}
       currentTheme={currentTheme}
+      maskIsOn={maskIsOn}
+      id="container"
+      onAnimationEnd={(e) => unmount(e)}
     >
       <div
         className="theme_mask"
-        onAnimationEnd={changeTheme}
+        id="mask"
+        onAnimationEnd={(e) => changeTheme(e)}
       ></div>
-      <div
-        className="opposite_word"
-        id="word_1"
-      >
-        the opposite
-      </div>
-      <div
-        className="opposite_word"
-        id="word_2"
-      >
-        the opposite
-      </div>
-      <div
-        className="opposite_word"
-        id="word_3"
-      >
-        the opposite
-      </div>
-      <div
-        className="opposite_word"
-        id="word_4"
-      >
-        the opposite
-      </div>
-      <div
-        className="opposite_word"
-        id="word_5"
-      >
-        the opposite
-      </div>
-      <div
-        className="opposite_word"
-        id="word_6"
-      >
-        the opposite
-      </div>
-      <div
-        className="opposite_word"
-        id="word_7"
-      >
-        the opposite
-      </div>
-      <div
-        className="opposite_word"
-        id="word_8"
-      >
-        the opposite
-      </div>
+      {renderOppositeWords()}
     </StyledThemeChangerContainer>
   );
 }

@@ -9,7 +9,7 @@ import {
 
 import githubIcon from "../../../assets/graphic_elements/contact_icons/github_icon.svg";
 
-function SourceContainer() {
+function SourceContainer({ show }) {
   const dispatch = useDispatch();
   const updateMenu = (item) => dispatch(setMenuItem(item));
 
@@ -21,10 +21,13 @@ function SourceContainer() {
 
   const unmount = () => {
     if (leaving) {
+      setLeaving(false);
       updateMenu(null);
     }
   };
-  
+
+  if (!show) return null;
+
   return (
     <StyledSourceContainer leaving={leaving} onAnimationEnd={unmount}>
       <StyledCloseButton onClick={leaveSource} />

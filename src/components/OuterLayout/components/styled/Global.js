@@ -346,42 +346,12 @@ img {
 }
 
 @keyframes logoColorAnimation {
-    from {
-        background-position: top left;
-        background-size: 200% 100%;
-        filter: hue-rotate(-20deg);
-    }
-
-    24.9% {
-        background-position: top right;
-    }
-
-    25% {
-        background-size: 100% 100%;
-        filter: hue-rotate(0);
-    }
-
     50% {
-        background-position: bottom right;
-        filter: hue-rotate(10deg);
-    }
-
-    75% {
-        background-position: bottom left;
-        filter: hue-rotate(0);
-    }
-
+        background-size: 400% 400%;
+      }
     to {
-        background-position: top left;
-        background-size: 200% 100%;
-        filter: hue-rotate(-20deg);
-    }
-}
-
-@keyframes slideUp {
-    to {
-        transform: translate(-50%, 0);
-    }
+        background-size: 100% 100%;
+      }
 }
 
 @keyframes slideFadeIn {
@@ -433,7 +403,7 @@ img {
 
 @keyframes maskScreen {
     to {
-        transform: translate(-50%, -50%) scale(5);
+        transform: translate(-50%, -50%) scale(4);
         opacity: 1;
     }
 }

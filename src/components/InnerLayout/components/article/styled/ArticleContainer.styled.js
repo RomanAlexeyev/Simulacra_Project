@@ -18,20 +18,19 @@ export const StyledArticleProgressBar = styled.div`
 export const StyledArticleContainer = styled.div`
   position: absolute;
   z-index: 5;
-  transform: translate(-50%, 100%);
+  transform: ${({show}) => `translate(-50%, ${show ? 0 : 100}%)`};
+  transition: ${({show}) => `transform ${show ? "2s 0.7s" : "0s 0s"}`};
   bottom: 0;
   left: 50%;
   height: 90vh;
   width: 60vw;
   display: flex;
   flex-direction: column;
-  /* overflow: hidden; */
   cursor: none;
   background: ${({ theme }) => theme.colors.articleBackground};
   border-radius: 10px 10px 0 0;
-  border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 4px 50px rgba(0, 0, 0, 0.2);
-  animation: slideUp 2s ease-out 0.3s forwards;
+  will-change: transform;
 
   @media (max-width: 576px) {
     height: 95vh;
@@ -147,8 +146,7 @@ export const StyledContent = styled.div`
   margin-top: 5%;
   width: 100%;
   transform: ${({ prog }) => "translateY(-" + prog * 200 + "px)"};
-  transition: transform 1s ease-in-out;
-  will-change: transform;
+  transition: transform 0.9s ease-in-out;
 `;
 
 export const StyledSection = styled.section`
@@ -169,14 +167,15 @@ export const StyledSection = styled.section`
     }
   }
 
+  &#closer {
+    margin-bottom: 40vh;
+  }
+
   &#stages {
     grid-template-rows: repeat(2, 1fr);
     @media (max-width: 768px) {
       display: flex;
       flex-direction: column;
-    }
-    @media (max-width: 576px) {
-      margin-bottom: 50%;
     }
   }
 
@@ -285,7 +284,7 @@ export const StyledSection = styled.section`
       mask-image: url(${maskImage});
       mask-size: cover;
       opacity: 0;
-      animation: fadeIn 1s linear 2s forwards;
+      animation: fadeIn 1s linear 3.5s forwards;
 
       @media (max-width: 576px) {
         width: 90%;
@@ -415,6 +414,7 @@ export const StyledSection = styled.section`
             left: 40%;
             @media (max-width: 768px) {
               left: 50%;
+              max-width: 150%;
             }
           }
         }

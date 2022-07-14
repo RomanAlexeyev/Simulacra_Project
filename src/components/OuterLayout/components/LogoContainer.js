@@ -17,7 +17,7 @@ function LogoContainer({ zoom }) {
     const logos = [];
     for (let i = 0; i < 3; i++) {
       logos.push(
-        <StyledLogo id={`${`logo_${i + 1}`}`} key={i} zoom={zoom}>
+        <StyledLogo id={`logo_${i + 1}`} key={i} zoom={zoom}>
           <p>simulacra</p>
         </StyledLogo>
       );
