@@ -12,16 +12,13 @@ export const StyledOuterLayout = styled.div`
 `;
 
 export const StyledAuthorContainer = styled.div`
-  visibility: ${({ menuItem }) =>
-    menuItem === "menu_author" ? "visible" : "hidden"};
-  opacity: ${({ zoom }) => (zoom === "in" ? 0 : 1)};
-  transition: opacity 1s ease;
+  animation: fadeIn 2s ease 2s forwards;
+  opacity: 0;
 
   .colored_bg {
     height: 100%;
     width: 50%;
     position: absolute;
-    opacity: ${({ menuItem }) => (menuItem === "menu_author" ? 1 : 0)};
     transition: opacity 2s ease 2s;
   }
 
@@ -32,8 +29,6 @@ export const StyledAuthorContainer = styled.div`
     transform: translate(-50%, -50%);
     left: 45%;
     top: 50%;
-    opacity: ${({ menuItem }) => (menuItem === "menu_author" ? 1 : 0)};
-    transition: opacity 2s ease-in-out 2s;
 
     @media (max-width: 1200px) {
       left: 25%;
@@ -74,10 +69,9 @@ export const StyledAuthorContainer = styled.div`
     h1 {
       font-family: "HelveticaMedium";
       font-size: 3.5rem;
-      transform: ${({ menuItem }) =>
-        `translateY(${menuItem === "menu_author" ? "0" : "-50%"})`};
-      opacity: ${({ menuItem }) => (menuItem === "menu_author" ? 1 : 0)};
-      transition: all 2s ease-in-out 2s;
+      transform: translate(-10%, 0);
+      opacity: 0;
+      animation: authorSlideFadeIn 2s forwards 2s;
       letter-spacing: -0.15rem;
 
       @media (max-width: 1200px) {
@@ -93,10 +87,9 @@ export const StyledAuthorContainer = styled.div`
       margin-top: 2%;
       font-size: 1.7rem;
       line-height: 2.7rem;
-      transform: ${({ menuItem }) =>
-        `translateY(${menuItem === "menu_author" ? "0" : "-50%"})`};
-      opacity: ${({ menuItem }) => (menuItem === "menu_author" ? 1 : 0)};
-      transition: all 2s ease-in-out 2s;
+      transform: translate(-10%, 0);
+      opacity: 0;
+      animation: authorSlideFadeIn 2s forwards 2s;
       letter-spacing: 0.1rem;
 
       @media (max-width: 1200px) {
@@ -129,10 +122,9 @@ export const StyledAuthorContainer = styled.div`
         display: flex;
         align-items: center;
         margin: 5% 0;
-        transform: ${({ menuItem }) =>
-          `translateX(${menuItem === "menu_author" ? "0" : "-10%"})`};
-        opacity: ${({ menuItem }) => (menuItem === "menu_author" ? 1 : 0)};
-        transition: all 2s ease-in-out 2s;
+        transform: translate(0%, -100%);
+        opacity: 0;
+        animation: authorSlideFadeIn 2s forwards 2s;
 
         .contact_icon {
           margin-right: 1.5rem;
@@ -187,11 +179,10 @@ export const StyledAuthorContainer = styled.div`
       border: 1px solid rgb(166, 1, 130);
       padding: 10px 20px;
       cursor: pointer;
-      transform: ${({ menuItem }) =>
-        `translate(-50%, ${menuItem === "menu_author" ? "-50%" : "0%"})`};
-      opacity: ${({ menuItem }) => (menuItem === "menu_author" ? 1 : 0)};
-      transition: transform 2s ease-in-out 2s, opacity 2s ease-in-out 2s,
-        filter 0.3s ease;
+      transform: translate(-50%, -100%);
+      opacity: 0;
+      animation: slideFadeIn 2s forwards 2s;
+      transition: filter 0.3s ease;
 
       @media (max-aspect-ratio: 1/1) {
         top: 40%;

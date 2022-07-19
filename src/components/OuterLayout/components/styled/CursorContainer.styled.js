@@ -30,23 +30,29 @@ export const StyledCustomCursor = styled.div`
 
   &#custom_cursor_trail_1 {
     transition: all 0.7s ease-out;
+    -moz-transition: all 0.7s ease-out;
   }
   &#custom_cursor_trail_2 {
     transition: all 0.6s ease-out;
+    -moz-transition: all 0.6s ease-out;
   }
   &#custom_cursor_trail_3 {
     transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
   }
   &#custom_cursor_trail_4 {
     transition: all 0.42s ease-out;
+    -moz-transition: all 0.42s ease-out;
   }
   &#custom_cursor_trail_5 {
     transition: all 0.35s ease-out;
+    -moz-transition: all 0.35s ease-out;
   }
   &#custom_cursor_main {
     transform: ${({ UIlistening }) =>
       `translate(-50%, -50%) scale(${UIlistening ? 1 : 20})`};
     transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
     img {
       animation: rotation 15s linear infinite;
     }

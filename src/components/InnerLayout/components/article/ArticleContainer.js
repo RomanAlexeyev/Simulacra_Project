@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import throttle from "../../../../helpers/throttle";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -10,7 +10,10 @@ import ProgressBar from "./ProgressBar";
 import Content from "./Content";
 
 function ArticleContainer({ show }) {
+
+  const articleBody = useRef(null);
   const isTouchDevice = useSelector((state) => state.scroll.isTouchDevice);
+  const scrollTop = useSelector((state) => state.scroll.scrollTop);
   const counterDirection = useSelector(
     (state) => state.scroll.counterDirection
   );
@@ -49,6 +52,12 @@ function ArticleContainer({ show }) {
     };
   }, [counterDirection, show]);
 
+  useEffect(() => {
+    if (isTouchDevice && scrollTop === 0) {
+      articleBody.current.scrollTop = 0;
+    }
+  }, [isTouchDevice, scrollTop])
+
   return (
     <StyledArticleContainer isTouchDevice={isTouchDevice} show={show}>
       <div className="article_header">
@@ -57,7 +66,7 @@ function ArticleContainer({ show }) {
           <ProgressBar />
         </div>
       </div>
-      <div className="article_body" onScroll={scrollListener}>
+      <div className="article_body" onScroll={scrollListener} ref={articleBody}>
         <Content
           isTouchDevice={isTouchDevice}
           show={show}

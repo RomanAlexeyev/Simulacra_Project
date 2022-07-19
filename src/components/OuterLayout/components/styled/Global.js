@@ -361,6 +361,13 @@ img {
     }
 }
 
+@keyframes authorSlideFadeIn {
+    to {
+        opacity: 1;
+        transform: translate(0%, 0%);
+    }
+}
+
 @keyframes slideFadeOut {
     from {
         opacity: 1;

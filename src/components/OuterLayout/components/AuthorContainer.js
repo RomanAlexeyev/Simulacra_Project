@@ -21,9 +21,11 @@ function AuthorContainer({ zoom }) {
     updateMenu(null);
     updateZoom('in');
   }
+
+  if (menuItem !== "menu_author") return null;
   
   return (
-    <StyledAuthorContainer menuItem={menuItem} zoom={zoom}>
+    <StyledAuthorContainer zoom={zoom}>
       <div className="colored_bg">
         <img src={coloredBG} style={{ width: "100%", height: "100%" }} alt="" />
       </div>

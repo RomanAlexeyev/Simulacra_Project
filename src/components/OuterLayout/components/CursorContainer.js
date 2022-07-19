@@ -55,7 +55,7 @@ function CursorContainer({ zoom }) {
   const logoIsActive = useSelector((state) => state.menu.logoIsActive);
 
   const [mouseCoords, setMouseCoords] = useState({ x: "50%", y: "50%" });
-  const { width } = useWindowDimensions();
+  const { aspectRatio } = useWindowDimensions();
 
   useEffect(() => {
     const mouseMoveCb = (e) => {
@@ -70,9 +70,6 @@ function CursorContainer({ zoom }) {
     if (UIlistening) {
       document.addEventListener("mousemove", mouseMoveHadler);
     } else {
-      if (isTouchDevice) {
-        setMouseCoords({ x: "50%", y: "50%" });
-      }
       document.removeEventListener("mousemove", mouseMoveHadler);
     }
     return () => document.removeEventListener("mousemove", mouseMoveHadler);
@@ -85,7 +82,7 @@ function CursorContainer({ zoom }) {
           <p>simulacra</p>
           <img
             src={
-              width > 576 && width < 1200 ? menuAboutBacklight : logoBacklight
+              aspectRatio > 0.8 && aspectRatio < 1.4 ? menuAboutBacklight : logoBacklight
             }
             style={imgStyle}
             id="logo_backlight"
@@ -119,33 +116,41 @@ function CursorContainer({ zoom }) {
           );
         })}
       </StyledMenuContainer>
-      {trailPaths.map((item, idx) => {
-        return (
-          <StyledCustomCursor
-            key={idx}
-            className="trail"
-            id={`${`custom_cursor_trail_${idx + 1}`}`}
-            style={{
-              left: mouseCoords.x,
-              top: mouseCoords.y,
-            }}
-            visible={mouseCoords.x !== "50%"}
-          >
-            <img src={item} style={imgStyle} draggable={false} alt="" />
-          </StyledCustomCursor>
-        );
-      })}
-      <StyledCustomCursor
-        id="custom_cursor_main"
-        UIlistening={UIlistening}
-        style={{
-          left: mouseCoords.x,
-          top: mouseCoords.y,
-        }}
-        visible={mouseCoords.x !== "50%"}
-      >
-        <img src={customCursorMain} style={imgStyle} draggable={false} alt="" />
-      </StyledCustomCursor>
+      {!isTouchDevice &&
+        trailPaths.map((item, idx) => {
+          return (
+            <StyledCustomCursor
+              key={idx}
+              className="trail"
+              id={`${`custom_cursor_trail_${idx + 1}`}`}
+              style={{
+                left: mouseCoords.x,
+                top: mouseCoords.y,
+              }}
+              visible={mouseCoords.x !== "50%"}
+            >
+              <img src={item} style={imgStyle} draggable={false} alt="" />
+            </StyledCustomCursor>
+          );
+        })}
+      {!isTouchDevice && (
+        <StyledCustomCursor
+          id="custom_cursor_main"
+          UIlistening={UIlistening}
+          style={{
+            left: mouseCoords.x,
+            top: mouseCoords.y,
+          }}
+          visible={mouseCoords.x !== "50%"}
+        >
+          <img
+            src={customCursorMain}
+            style={imgStyle}
+            draggable={false}
+            alt=""
+          />
+        </StyledCustomCursor>
+      )}
     </StyledCursorContainer>
   );
 }

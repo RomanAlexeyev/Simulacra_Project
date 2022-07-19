@@ -18,7 +18,7 @@ export const StyledArticleProgressBar = styled.div`
 export const StyledArticleContainer = styled.div`
   position: absolute;
   z-index: 5;
-  transform: ${({show}) => `translate(-50%, ${show ? 0 : 100}%)`};
+  transform: ${({show}) => `translate(-50%, ${show ? 0 : 120}%)`};
   transition: ${({show}) => `transform ${show ? "2s 0.7s" : "0s 0s"}`};
   bottom: 0;
   left: 50%;
